@@ -8,9 +8,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by shyshkin_vlad on 10.04.16.
- */
+
 @Controller
 public class HappyCakeController {
     /**

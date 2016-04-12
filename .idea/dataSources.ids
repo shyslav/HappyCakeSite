@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - happycake@127.0.0.1" uuid="c9a4f7e8-4b92-43e7-a6c4-8ab617fac31d">
+    <database-info product="MySQL" version="5.0.45-community-nt" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="happycake"/>
+    <table name="cafecoordinate" schema="" catalog="happycake" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="adress" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="mobilePhone" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="category" schema="" catalog="happycake" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="description" sqlType="VARCHAR" precision="300" scale="0" nullable="true" jdbcType="12"/>
+      <column name="image" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="false" jdbcType="-4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="dish" schema="" catalog="happycake" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="categoryID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="description" sqlType="VARCHAR" precision="300" scale="0" nullable="true" jdbcType="12"/>
+      <column name="amount" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="image" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="false" jdbcType="-4"/>
+      <column name="readyORnot" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="dish_ibfk_1" columns="categoryID" ref-table="category" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="employees" schema="" catalog="happycake" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="positionsID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cafeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="lastname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="adress" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="birthdayDay" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" def="Jyc="/>
+      <column name="elogin" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="epassword" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="employees_ibfk_1" columns="positionsID" ref-table="positions" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="employees_ibfk_2" columns="cafeID" ref-table="cafecoordinate" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="hotprice" schema="" catalog="happycake" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="dishId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="percent" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="description" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="dateStart" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" def="Jyc="/>
+      <column name="dateEnd" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="hotPrice_ibfk_1" columns="dishId" ref-table="dish" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="news" schema="" catalog="happycake" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="authorID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="nText" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="nDate" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" def="Jyc="/>
+      <column name="tegs" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="views" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="imageLink" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="news_ibfk_1" columns="authorID" ref-table="employees" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="orders" schema="" catalog="happycake" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="employeeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dishCheck" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="fullPrice" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="odate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="Jyc="/>
+      <column name="compliteORnot" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="orders_ibfk_1" columns="employeeID" ref-table="employees" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="positions" schema="" catalog="happycake" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="salary" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="reservation" schema="" catalog="happycake" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="cafeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="clientName" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="clientPhone" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="rDate" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" def="Jyc="/>
+      <column name="rTime" sqlType="TIME" precision="8" scale="0" nullable="false" jdbcType="92" def="Jyc="/>
+      <column name="confirmORnot" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="amountPeople" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="reservation_ibfk_1" columns="cafeID" ref-table="cafecoordinate" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="webmenu" schema="" catalog="happycake" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="link" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="menusort" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="link" unique="true" columns="link"/>
+      <index name="menusort" unique="true" columns="menusort"/>
+    </table>
+  </data-source>
+</component>

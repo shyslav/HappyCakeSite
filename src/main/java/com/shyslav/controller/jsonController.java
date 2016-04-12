@@ -1,5 +1,7 @@
 package com.shyslav.controller;
 
+import com.sukhaniuk.models.webMenu;
+import com.sukhaniuk.select.selectCommand;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,4 +30,12 @@ public class jsonController {
         dish.add("Чиабатта");
         return dish;
     }
+    @RequestMapping(value = "/webmenu.json")
+    public @ResponseBody ArrayList<webMenu> webMenu(){
+        selectCommand selectCommand = new selectCommand();
+        ArrayList<webMenu> menu = selectCommand.selectWebMenu();
+        System.out.println(menu.size());
+        return menu;
+    }
+
 }
