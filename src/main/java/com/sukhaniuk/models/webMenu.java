@@ -1,19 +1,19 @@
 package com.sukhaniuk.models;
 
 /**
- * Created by Marina on 12.04.2016.
+ * Created by shyshkin_vlad on 22.04.16.
  */
 public class webMenu {
     private int id;
     private String name;
     private String link;
-    private int menusort;
+    private int menuSort;
 
-    public webMenu(int id,String name, String link,int menusort) {
+    public webMenu(int id, String name, String link, int menuSort) {
         this.id = id;
-        this.menusort = menusort;
-        this.link = link;
         this.name = name;
+        this.link = link;
+        this.menuSort = menuSort;
     }
 
     public int getId() {
@@ -40,11 +40,11 @@ public class webMenu {
         this.link = link;
     }
 
-    public int getMenusort() {
-        return menusort;
+    public int getMenuSort() {
+        return menuSort;
     }
 
-    public void setMenusort(int menusort) {
-        this.menusort = menusort;
+    public void setMenuSort(int menuSort) {
+        this.menuSort = menuSort;
     }
 }

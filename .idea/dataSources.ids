@@ -1,110 +1,394 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="MySQL - happycake@127.0.0.1" uuid="c9a4f7e8-4b92-43e7-a6c4-8ab617fac31d">
-    <database-info product="MySQL" version="5.0.45-community-nt" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+    <database-info product="MySQL" version="5.7.12" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
-    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
-    <schema name="" catalog="happycake"/>
-    <table name="cafecoordinate" schema="" catalog="happycake" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="adress" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="mobilePhone" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-    </table>
-    <table name="category" schema="" catalog="happycake" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="description" sqlType="VARCHAR" precision="300" scale="0" nullable="true" jdbcType="12"/>
-      <column name="image" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="false" jdbcType="-4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-    </table>
-    <table name="dish" schema="" catalog="happycake" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="categoryID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="description" sqlType="VARCHAR" precision="300" scale="0" nullable="true" jdbcType="12"/>
-      <column name="amount" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
-      <column name="image" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="false" jdbcType="-4"/>
-      <column name="readyORnot" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="dish_ibfk_1" columns="categoryID" ref-table="category" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-    </table>
-    <table name="employees" schema="" catalog="happycake" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="positionsID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="cafeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="lastname" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="adress" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="birthdayDay" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" def="Jyc="/>
-      <column name="elogin" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="epassword" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="employees_ibfk_1" columns="positionsID" ref-table="positions" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="employees_ibfk_2" columns="cafeID" ref-table="cafecoordinate" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-    </table>
-    <table name="hotprice" schema="" catalog="happycake" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="dishId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="percent" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="description" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="dateStart" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" def="Jyc="/>
-      <column name="dateEnd" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" def="Jyc="/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="hotPrice_ibfk_1" columns="dishId" ref-table="dish" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-    </table>
-    <table name="news" schema="" catalog="happycake" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="authorID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="nText" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
-      <column name="nDate" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" def="Jyc="/>
-      <column name="tegs" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="views" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="imageLink" sqlType="VARCHAR" precision="250" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="news_ibfk_1" columns="authorID" ref-table="employees" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-    </table>
-    <table name="orders" schema="" catalog="happycake" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="employeeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="dishCheck" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="fullPrice" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
-      <column name="odate" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="Jyc="/>
-      <column name="compliteORnot" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="orders_ibfk_1" columns="employeeID" ref-table="employees" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-    </table>
-    <table name="positions" schema="" catalog="happycake" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="salary" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <index name="name" unique="true" columns="name"/>
-    </table>
-    <table name="reservation" schema="" catalog="happycake" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="cafeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="clientName" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="clientPhone" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="rDate" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" def="Jyc="/>
-      <column name="rTime" sqlType="TIME" precision="8" scale="0" nullable="false" jdbcType="92" def="Jyc="/>
-      <column name="confirmORnot" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
-      <column name="amountPeople" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="reservation_ibfk_1" columns="cafeID" ref-table="cafecoordinate" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-    </table>
-    <table name="webmenu" schema="" catalog="happycake" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="link" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="menusort" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <index name="link" unique="true" columns="link"/>
-      <index name="menusort" unique="true" columns="menusort"/>
-    </table>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="happycake"/>
+      <table id="2" parent="1" name="cafeCoordinate"/>
+      <table id="3" parent="1" name="category"/>
+      <table id="4" parent="1" name="dish"/>
+      <table id="5" parent="1" name="employees"/>
+      <table id="6" parent="1" name="hotPrice"/>
+      <table id="7" parent="1" name="news"/>
+      <table id="8" parent="1" name="orders"/>
+      <table id="9" parent="1" name="positions"/>
+      <table id="10" parent="1" name="reservation"/>
+      <table id="11" parent="1" name="webmenu"/>
+      <column id="12" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="13" parent="2" name="adress">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="14" parent="2" name="mobilePhone">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <key id="15" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="16" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="17" parent="3" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="18" parent="3" name="description">
+        <data-type>varchar(300)</data-type>
+      </column>
+      <column id="19" parent="3" name="image">
+        <mandatory>1</mandatory>
+        <data-type>longblob</data-type>
+      </column>
+      <key id="20" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="21" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="22" parent="4" name="categoryID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="23" parent="4" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="24" parent="4" name="description">
+        <data-type>varchar(300)</data-type>
+      </column>
+      <column id="25" parent="4" name="amount">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="26" parent="4" name="price">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="27" parent="4" name="image">
+        <mandatory>1</mandatory>
+        <data-type>longblob</data-type>
+      </column>
+      <column id="28" parent="4" name="readyORnot">
+        <mandatory>1</mandatory>
+        <data-type>char(1)</data-type>
+      </column>
+      <index id="29" parent="4" name="categoryID">
+        <columns>categoryID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="30" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="31" parent="4" name="dish_ibfk_1">
+        <columns>categoryID</columns>
+        <ref-key>~.category.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="32" parent="5" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="33" parent="5" name="positionsID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="34" parent="5" name="cafeID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="35" parent="5" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="36" parent="5" name="lastname">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="37" parent="5" name="adress">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="38" parent="5" name="birthdayDay">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="39" parent="5" name="elogin">
+        <mandatory>1</mandatory>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="40" parent="5" name="epassword">
+        <mandatory>1</mandatory>
+        <data-type>varchar(500)</data-type>
+      </column>
+      <index id="41" parent="5" name="cafeID">
+        <columns>cafeID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="42" parent="5" name="positionsID">
+        <columns>positionsID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="43" parent="5" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="44" parent="5" name="employees_ibfk_1">
+        <columns>positionsID</columns>
+        <ref-key>~.positions.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="45" parent="5" name="employees_ibfk_2">
+        <columns>cafeID</columns>
+        <ref-key>~.cafeCoordinate.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="46" parent="6" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="47" parent="6" name="dishId">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="48" parent="6" name="percent">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="49" parent="6" name="description">
+        <mandatory>1</mandatory>
+        <data-type>varchar(300)</data-type>
+      </column>
+      <column id="50" parent="6" name="dateStart">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="51" parent="6" name="dateEnd">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <index id="52" parent="6" name="dishId">
+        <columns>dishId</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="53" parent="6" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="54" parent="6" name="hotPrice_ibfk_1">
+        <columns>dishId</columns>
+        <ref-key>~.dish.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="55" parent="7" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="56" parent="7" name="authorID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="57" parent="7" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="58" parent="7" name="nText">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="59" parent="7" name="nDate">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="60" parent="7" name="tegs">
+        <mandatory>1</mandatory>
+        <data-type>varchar(250)</data-type>
+      </column>
+      <column id="61" parent="7" name="views">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="62" parent="7" name="imageLink">
+        <mandatory>1</mandatory>
+        <data-type>varchar(250)</data-type>
+      </column>
+      <index id="63" parent="7" name="authorID">
+        <columns>authorID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="64" parent="7" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="65" parent="7" name="news_ibfk_1">
+        <columns>authorID</columns>
+        <ref-key>~.employees.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="66" parent="8" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="67" parent="8" name="employeeID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="68" parent="8" name="dishCheck">
+        <mandatory>1</mandatory>
+        <data-type>varchar(500)</data-type>
+      </column>
+      <column id="69" parent="8" name="fullPrice">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="70" parent="8" name="odate">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="71" parent="8" name="compliteORnot">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <index id="72" parent="8" name="employeeID">
+        <columns>employeeID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="73" parent="8" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="74" parent="8" name="orders_ibfk_1">
+        <columns>employeeID</columns>
+        <ref-key>~.employees.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="75" parent="9" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="76" parent="9" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="77" parent="9" name="salary">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <index id="78" parent="9" name="name">
+        <columns>name</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="79" parent="9" name="name">
+        <columns>name</columns>
+        <underlying-index>name</underlying-index>
+      </key>
+      <key id="80" parent="9" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="81" parent="10" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="82" parent="10" name="cafeID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="83" parent="10" name="clientName">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="84" parent="10" name="clientPhone">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="85" parent="10" name="rDate">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="86" parent="10" name="rTime">
+        <mandatory>1</mandatory>
+        <data-type>time</data-type>
+      </column>
+      <column id="87" parent="10" name="confirmORnot">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="88" parent="10" name="amountPeople">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="89" parent="10" name="cafeID">
+        <columns>cafeID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="90" parent="10" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="91" parent="10" name="reservation_ibfk_1">
+        <columns>cafeID</columns>
+        <ref-key>~.cafeCoordinate.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="92" parent="11" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="93" parent="11" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="94" parent="11" name="link">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="95" parent="11" name="menusort">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="96" parent="11" name="link">
+        <columns>link</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <index id="97" parent="11" name="menusort">
+        <columns>menusort</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="98" parent="11" name="link">
+        <columns>link</columns>
+        <underlying-index>link</underlying-index>
+      </key>
+      <key id="99" parent="11" name="menusort">
+        <columns>menusort</columns>
+        <underlying-index>menusort</underlying-index>
+      </key>
+      <key id="100" parent="11" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
   </data-source>
 </component>

@@ -25,7 +25,7 @@ public class database {
         }
         String url = "jdbc:mysql://127.0.0.1:3306/happycake?useUnicode=true&characterEncoding=utf-8";
         String username = "root";
-        String password = "password";
+        String password = "vladi4ek1996";
         return DriverManager.getConnection(url, username, password);
     }
 }
