@@ -13,14 +13,14 @@ public class dish {
     private String image;
     private boolean readyORnot;
 
-    public dish(String image, int id, int categoryId, String name, String description, int amount, double price, boolean readyORnot) {
-        this.image = image;
+    public dish(int id, int categoryId, String name, String description, int amount, double price, String image, boolean readyORnot) {
         this.id = id;
         this.categoryId = categoryId;
         this.name = name;
         this.description = description;
         this.amount = amount;
         this.price = price;
+        this.image = image;
         this.readyORnot = readyORnot;
     }
 

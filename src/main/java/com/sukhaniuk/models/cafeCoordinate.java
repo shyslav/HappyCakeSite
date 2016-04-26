@@ -5,12 +5,12 @@ package com.sukhaniuk.models;
  */
 public class cafeCoordinate {
     private int id;
-    private String adress;
+    private String address;
     private String mobilePhone;
 
-    public cafeCoordinate(int id, String adress, String mobilePhone) {
+    public cafeCoordinate(int id, String address, String mobilePhone) {
         this.id = id;
-        this.adress = adress;
+        this.address = address;
         this.mobilePhone = mobilePhone;
     }
 
@@ -22,12 +22,12 @@ public class cafeCoordinate {
         this.id = id;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getMobilePhone() {
