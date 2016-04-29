@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.sql.Statement;
 
 public class selectCommand {
-    private DatabaseConnection db = new DatabaseConnection();
+    private static DatabaseConnection db = new DatabaseConnection();
 
-    public ArrayList<webMenu> selectWebMenu() throws SQLException
+    public static ArrayList<webMenu> selectWebMenu() throws SQLException
     {
         ArrayList <webMenu> result = new ArrayList();
         String query = "select * from webmenu order by menusort";
@@ -41,7 +41,7 @@ public class selectCommand {
         }
         return result;
     }
-    public ArrayList<cafeCoordinate> selectCafeCoordinate() throws SQLException
+    public static ArrayList<cafeCoordinate> selectCafeCoordinate() throws SQLException
     {
         ArrayList <cafeCoordinate> result = new ArrayList();
         String query = "select * from cafecoordinate";
@@ -70,7 +70,7 @@ public class selectCommand {
         return result;
     }
 
-    public ArrayList<category> selectCategory() throws SQLException
+    public static ArrayList<category> selectCategory() throws SQLException
     {
         ArrayList <category> result = new ArrayList();
         String query = "select * from category";
@@ -100,7 +100,7 @@ public class selectCommand {
         return result;
     }
 
-    public ArrayList<dish> selectdish() throws SQLException
+    public static ArrayList<dish> selectdish() throws SQLException
     {
         ArrayList <dish> result = new ArrayList();
         String query = "select * from dish";
