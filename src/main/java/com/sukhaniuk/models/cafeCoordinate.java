@@ -7,11 +7,13 @@ public class cafeCoordinate {
     private int id;
     private String address;
     private String mobilePhone;
+    private String cafeemail;
 
-    public cafeCoordinate(int id, String address, String mobilePhone) {
+    public cafeCoordinate(int id, String address, String mobilePhone, String cafeemail) {
         this.id = id;
         this.address = address;
         this.mobilePhone = mobilePhone;
+        this.cafeemail = cafeemail;
     }
 
     public int getId() {
@@ -36,5 +38,13 @@ public class cafeCoordinate {
 
     public void setMobilePhone(String mobilePhone) {
         this.mobilePhone = mobilePhone;
+    }
+
+    public String getCafeemail() {
+        return cafeemail;
+    }
+
+    public void setCafeemail(String cafeemail) {
+        this.cafeemail = cafeemail;
     }
 }

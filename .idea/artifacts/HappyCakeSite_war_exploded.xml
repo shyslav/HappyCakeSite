@@ -7,6 +7,9 @@
           <element id="module-output" name="HappyCakeSite" />
         </element>
         <element id="directory" name="lib">
+          <element id="archive" name="HappyCakeSite-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="HappyCakeSite" />
+          </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.1.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.1.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.1.4.RELEASE" />

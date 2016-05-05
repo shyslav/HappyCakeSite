@@ -57,7 +57,7 @@ p {
 }
 
 input, textarea {
-    border-radius: 0 !important;
+    border-radius: 4px !important;
     outline: none !important;
     -webkit-appearance: none;
 

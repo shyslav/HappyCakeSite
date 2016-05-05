@@ -70,7 +70,7 @@ public class jsonController {
     public @ResponseBody ArrayList<dish> dish() {
         ArrayList<dish> dish = null;
         try {
-            dish = selectCommand.selectdish();
+            dish = selectCommand.selectdish(1);
         } catch (SQLException e) {
             e.printStackTrace();
         }

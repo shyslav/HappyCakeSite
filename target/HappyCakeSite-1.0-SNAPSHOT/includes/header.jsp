@@ -16,21 +16,25 @@
     <meta charset="utf-8">
     <meta name = "format-detection" content = "telephone=no" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="icon" href="images/favicon.ico">
-    <link rel="shortcut icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="css/stuck.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/touchTouch.css">
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-migrate-1.1.1.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/superfish.js"></script>
-    <script src="js/jquery.equalheights.js"></script>
-    <script src="js/jquery.mobilemenu.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/tmStickUp.js"></script>
-    <script src="js/jquery.ui.totop.js"></script>
-    <script src="js/touchTouch.jquery.js"></script>
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="/css/stuck.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/touchTouch.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="/css/myForm.css">
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery-migrate-1.1.1.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/superfish.js"></script>
+    <script src="/js/jquery.equalheights.js"></script>
+    <script src="/js/jquery.mobilemenu.js"></script>
+    <script src="/js/jquery.easing.1.3.js"></script>
+    <script src="/js/tmStickUp.js"></script>
+    <script src="/js/jquery.ui.totop.js"></script>
+    <script src="/js/touchTouch.jquery.js"></script>
+    <script src="/js/TMForm.js"></script>
+    <script src="/js/modal.js"></script>
 
     <script>
         $(document).ready(function(){
@@ -47,8 +51,8 @@
             <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
         </a>
     </div>
-    <script src="js/html5shiv.js"></script>
-    <link rel="stylesheet" media="screen" href="css/ie.css">
+    <script src="/js/html5shiv.js"></script>
+    <link rel="stylesheet" media="screen" href="/css/ie.css">
 
 
     <![endif]-->
@@ -68,7 +72,7 @@
                 <div class="grid_12">
                     <h1>
                         <a href="index.html">
-                            <img src="images/logo.png" alt="Logo alt">
+                            <img src="/images/logo.png" alt="Logo alt">
                         </a>
                     </h1>
                     <div class="navigation">
@@ -91,3 +95,9 @@
         </div>
     </section>
 </header>
+<c:if test="${not empty headModal}">
+<%--<script>--%>
+    <%--alert("<c:out value="${alert}"/>");--%>
+<%--</script>--%>
+    <jsp:include page="/modal.jsp" flush="true"/>
+</c:if>

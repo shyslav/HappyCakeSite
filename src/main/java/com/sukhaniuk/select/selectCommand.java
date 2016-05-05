@@ -12,6 +12,11 @@ import java.sql.Statement;
 public class selectCommand {
     private static DatabaseConnection db = new DatabaseConnection();
 
+    /**
+     * Получить меню сайта
+     * @return
+     * @throws SQLException
+     */
     public static ArrayList<webMenu> selectWebMenu() throws SQLException
     {
         ArrayList <webMenu> result = new ArrayList();
@@ -41,6 +46,12 @@ public class selectCommand {
         }
         return result;
     }
+
+    /**
+     * Получить координаты кафе
+     * @return
+     * @throws SQLException
+     */
     public static ArrayList<cafeCoordinate> selectCafeCoordinate() throws SQLException
     {
         ArrayList <cafeCoordinate> result = new ArrayList();
@@ -54,7 +65,8 @@ public class selectCommand {
                 result.add(new cafeCoordinate(
                         db.rs.getInt("id"),
                         db.rs.getString("adress"),
-                        db.rs.getString("mobilePhone")));
+                        db.rs.getString("mobilePhone"),
+                        db.rs.getString("cafeemail")));
             }
         }
         catch(Exception ex)
@@ -70,6 +82,11 @@ public class selectCommand {
         return result;
     }
 
+    /**
+     * Получить категории кафе
+     * @return
+     * @throws SQLException
+     */
     public static ArrayList<category> selectCategory() throws SQLException
     {
         ArrayList <category> result = new ArrayList();
@@ -100,10 +117,16 @@ public class selectCommand {
         return result;
     }
 
-    public static ArrayList<dish> selectdish() throws SQLException
+    /**
+     * Получить блюда в категории
+     * @param category
+     * @return
+     * @throws SQLException
+     */
+    public static ArrayList<dish> selectdish(int category) throws SQLException
     {
         ArrayList <dish> result = new ArrayList();
-        String query = "select * from dish";
+        String query = "select * from dish where categoryID = " + category;
         db.getConnection();
         try
         {
@@ -118,7 +141,96 @@ public class selectCommand {
                         db.rs.getInt("amount"),
                         db.rs.getDouble("price"),
                         db.rs.getString("image"),
-                        db.rs.getBoolean("readyORnot")));
+                        db.rs.getString("readyORnot").trim()));
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        finally
+        {
+            db.closeConnection();
+            db.rs.close();
+            db.st.close();
+        }
+        return result;
+    }
+
+    /**
+     * Получить Все новости (-1) Получить лучшие 3 новости (-2) Получить носоть по ид (0...id)
+     * @param select
+     * @return
+     * @throws SQLException
+     */
+    public static ArrayList<news> selectNews(int select) throws SQLException
+    {
+        ArrayList <news> result = new ArrayList();
+        String query = null;
+        db.getConnection();
+        switch (select) {
+            case -1:
+                query="select * from news";
+                break;
+            case -2:
+                query="select * from news ORDER BY views desc LIMIT 3";
+                break;
+            default:
+                query="select * from news where id =" + select;
+        }
+        try
+        {
+            db.rs = db.st.executeQuery(query);
+            while(db.rs.next())
+            {
+                result.add(new news(
+                        db.rs.getInt("id"),
+                        db.rs.getInt("authorID"),
+                        db.rs.getString("name"),
+                        db.rs.getString("nText"),
+                        db.rs.getDate("nDate"),
+                        db.rs.getString("tegs"),
+                        db.rs.getInt("views"),
+                        db.rs.getString("imageLink")));
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        finally
+        {
+            db.closeConnection();
+            db.rs.close();
+            db.st.close();
+        }
+        return result;
+    }
+
+    /**
+     * Получить новость по тегу
+     * @param tegs
+     * @return
+     * @throws SQLException
+     */
+    public static ArrayList<news> selectNewsWithTeg(String tegs) throws SQLException
+    {
+        ArrayList <news> result = new ArrayList();
+        String query = "select * from news where tegs like '%"+tegs+"%'";
+        db.getConnection();
+        try
+        {
+            db.rs = db.st.executeQuery(query);
+            while(db.rs.next())
+            {
+                result.add(new news(db.rs.getInt("id"),
+                        db.rs.getInt("authorID"),
+                        db.rs.getString("name"),
+                        db.rs.getString("nText"),
+                        db.rs.getDate("nDate"),
+                        db.rs.getString("tegs"),
+                        db.rs.getInt("views"),
+                        db.rs.getString("imageLink")));
             }
         }
         catch(Exception ex)

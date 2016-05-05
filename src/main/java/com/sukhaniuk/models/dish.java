@@ -11,9 +11,9 @@ public class dish {
     private int amount;
     private double price;
     private String image;
-    private boolean readyORnot;
+    private String readyORnot;
 
-    public dish(int id, int categoryId, String name, String description, int amount, double price, String image, boolean readyORnot) {
+    public dish(int id, int categoryId, String name, String description, int amount, double price, String image, String readyORnot) {
         this.id = id;
         this.categoryId = categoryId;
         this.name = name;
@@ -80,11 +80,11 @@ public class dish {
         this.image = image;
     }
 
-    public boolean isReadyORnot() {
+    public String getReadyORnot() {
         return readyORnot;
     }
 
-    public void setReadyORnot(boolean readyORnot) {
+    public void setReadyORnot(String readyORnot) {
         this.readyORnot = readyORnot;
     }
 }

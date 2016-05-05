@@ -27,19 +27,34 @@ import java.util.ArrayList;
 public class HomeController {
     @RequestMapping(value="index")
     public String home(ModelMap map) throws IOException, JSONException {
-        map.addAttribute("webTitle","Index Page");
+        map.addAttribute("webTitle","Главная");
+        map.addAttribute("webMenu",headerLoader());
+        return "index.jsp";
+    }
+    @RequestMapping(value="contacts")
+    public String contacts(ModelMap map) throws IOException, JSONException {
+        map.addAttribute("webTitle","Контакты");
+        map.addAttribute("webMenu",headerLoader());
+        try {
+            map.addAttribute("contacts",selectCommand.selectCafeCoordinate());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "contacts.jsp";
+    }
+    @RequestMapping(value="lalal")
+    public String lalal(ModelMap map) throws IOException, JSONException {
+        map.addAttribute("webTitle","lol");
+        return "index.jsp";
+    }
+    public static ArrayList<webMenu> headerLoader()
+    {
         ArrayList<webMenu> menu = null;
         try {
             menu = selectCommand.selectWebMenu();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        map.addAttribute("webMenu",menu);
-        return "index.jsp";
-    }
-    @RequestMapping(value="lalal")
-    public String lalal(ModelMap map) throws IOException, JSONException {
-        map.addAttribute("webTitle","lol");
-        return "index.jsp";
+        return menu;
     }
 }
