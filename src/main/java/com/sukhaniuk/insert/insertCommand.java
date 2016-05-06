@@ -12,9 +12,7 @@ public class insertCommand {
     public static String insert(String tablename, String [] values, String [] rows)
     {
         db.getConnection();
-        String command = "insert into "+tablename+"("+String.join(",",rows)+") values ( ' "+String.join("','",values)+" ' )";
-        System.out.println(command);
-
+        String command = "insert into "+tablename+"("+String.join(",",rows)+") values ('"+String.join("','",values)+"')";
         try {
             db.st.execute(command);
         } catch (SQLException ex) {

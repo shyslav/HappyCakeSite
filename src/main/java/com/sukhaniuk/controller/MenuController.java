@@ -52,6 +52,10 @@ public class MenuController {
         return "/dish.jsp";
     }
 
+    /**
+     *
+     * @return Лист всех категорий
+     */
     public static ArrayList<category> category()
     {
         ArrayList<category> categories = null;

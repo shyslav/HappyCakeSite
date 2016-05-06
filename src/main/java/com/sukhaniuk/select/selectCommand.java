@@ -245,4 +245,42 @@ public class selectCommand {
         }
         return result;
     }
+    //responses
+
+    /**
+     * Получить отзывы
+     * @return
+     * @throws SQLException
+     */
+    public static ArrayList<reports> selectReports() throws SQLException
+    {
+        ArrayList <reports> result = new ArrayList();
+        String query = "select * from reports where vision = '+'";
+        db.getConnection();
+        try
+        {
+            db.rs = db.st.executeQuery(query);
+            while(db.rs.next())
+            {
+                result.add(new reports(db.rs.getInt("id"),
+                        db.rs.getString("author"),
+                        db.rs.getString("rText"),
+                        db.rs.getDate("rDate"),
+                        db.rs.getString("mail"),
+                        db.rs.getString("phone"),
+                        db.rs.getString("vision")));
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        finally
+        {
+            db.closeConnection();
+            db.rs.close();
+            db.st.close();
+        }
+        return result;
+    }
 }

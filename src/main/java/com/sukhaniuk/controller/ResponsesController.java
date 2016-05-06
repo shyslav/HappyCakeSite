@@ -3,6 +3,7 @@ package com.sukhaniuk.controller;
 import com.shyslav.controller.HomeController;
 import com.shyslav.validation.SimpleValidation;
 import com.sukhaniuk.insert.insertCommand;
+import com.sukhaniuk.select.selectCommand;
 import com.sukhaniuk.updateCommand.updateCommands;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ import java.util.Date;
 @Controller
 public class ResponsesController extends SimpleValidation{
     @RequestMapping(value = "/contacts/send")
-    public String likeNews(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr)
+    public String addResponses(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr)
     {
         try {
             request.setCharacterEncoding("UTF-8");
@@ -50,10 +52,10 @@ public class ResponsesController extends SimpleValidation{
             tmp = (int)tmp +1;
         }
         ArrayList<String> errors = new ArrayList<>();
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
-        String message = request.getParameter("message");
+        String name = request.getParameter("name").trim();
+        String email = request.getParameter("email").trim();
+        String phone = request.getParameter("phone").trim();
+        String message = request.getParameter("message").trim();
         errors.add(super.messageValidation(message));
         errors.add(super.nameValidation(name));
         errors.add(super.emailValidation(email));
@@ -68,20 +70,35 @@ public class ResponsesController extends SimpleValidation{
         }
         if(errors.size()==0)
         {
+            ses.setAttribute("amountsSends",null);
             //redirAtr.addFlashAttribute("alert","Сообщение успешно отправлено");
-            redirAtr.addFlashAttribute("textModal","Спасибо за ваш отзыв, все ваши отзывы очень важны");
+            redirAtr.addFlashAttribute("textModal","Спасибо за ваш отзыв, все ваши отзывы очень важны. Он будет отображен после проверки администрацией.");
             redirAtr.addFlashAttribute("headModal","Сообщение успешно отправлено");
+            //задать формат даты
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date date = new Date();
-            insertCommand.insert("reports",new String [] {name,message,dateFormat.format(date)},new String [] {"author","rText","rDate"});
-            return "redirect:/index.htm";
+            //выполнить вставку в таблицу
+            insertCommand.insert("reports",new String [] {name,message,dateFormat.format(date),email,phone,"-"},new String [] {"author","rText","rDate","mail","phone","vision"});
+            return "redirect:/responses.htm";
         }
         else
         {
             //redirAtr.addFlashAttribute("alert","Сообщение имеет следующие ошибки: \\n"+String.join("\\n",errors)+"\\n Внимание: У вас осталось " + (5 - (int)tmp) +" попыток");
             redirAtr.addFlashAttribute("headModal","Осторожно!");
             redirAtr.addFlashAttribute("textModal","Сообщение имеет следующие ошибки: <br>"+String.join("<br>",errors)+"<br>Внимание: У вас осталось " + (5 - (int)tmp) +" попыток");
-            return "redirect:/contacts.htm";
+            return "redirect:/responses.htm";
         }
+    }
+    @RequestMapping(value = "/responses")
+    public String responses(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr)
+    {
+        map.addAttribute("webTitle","Отзывы");
+        map.addAttribute("webMenu", HomeController.headerLoader());
+        try {
+            map.addAttribute("responses", selectCommand.selectReports());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "responses.jsp";
     }
 }

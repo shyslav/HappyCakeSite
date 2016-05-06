@@ -36,3 +36,15 @@
 .myForm input[type=submit]:hover {
     background-color: #45a049;
 }
+.text-center {
+    padding-top:10px;
+    text-align: center;
+}
+.text-right {
+    padding-top:10px;
+    text-align: right;
+}
+.text-left {
+    padding-top:10px;
+    text-align: left;
+}
