@@ -169,13 +169,16 @@ public class selectCommand {
         String query = null;
         db.getConnection();
         switch (select) {
-            case -1:
+            case -1:                        //Все новости
                 query="select * from news";
                 break;
-            case -2:
+            case -2:                        //Популярные новости
                 query="select * from news ORDER BY views desc LIMIT 3";
                 break;
-            default:
+            case -3:                        //Новости по тегам
+                query="select * from news group by tegs";
+                break;
+            default:                       //новости по ид
                 query="select * from news where id =" + select;
         }
         try

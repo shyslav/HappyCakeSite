@@ -24,7 +24,7 @@ public class NewsController {
         map.addAttribute("webTitle","Новости");
         map.addAttribute("webMenu", HomeController.headerLoader());
         try {
-            map.addAttribute("newsAll", selectCommand.selectNews(-1)); // select all news для вывода всех тегов
+            map.addAttribute("newsAll", selectCommand.selectNews(-3)); // select all news для вывода всех тегов
             map.addAttribute("news", selectCommand.selectNews(-1));  //select all news
             map.addAttribute("popularNews",selectCommand.selectNews(-2)); //select popular News
         } catch (SQLException e) {
@@ -39,7 +39,7 @@ public class NewsController {
         map.addAttribute("webMenu", HomeController.headerLoader());
         try {
             map.addAttribute("news",selectCommand.selectNewsWithTeg(teg));  //select teg news
-            map.addAttribute("newsAll", selectCommand.selectNews(-1)); // select all news для вывода всех тегов
+            map.addAttribute("newsAll", selectCommand.selectNews(-3)); // select all news для вывода всех тегов
             map.addAttribute("popularNews",selectCommand.selectNews(-2)); //select popular News
         } catch (SQLException e) {
             System.out.println(e);
@@ -55,7 +55,7 @@ public class NewsController {
         try {
             map.addAttribute("news",selectCommand.selectNews(id));  //select news from id
             map.addAttribute("popularNews",selectCommand.selectNews(-2)); //select popular News
-            map.addAttribute("newsAll", selectCommand.selectNews(-1)); // select all news для вывода всех тегов
+            map.addAttribute("newsAll", selectCommand.selectNews(-3)); // select all news для вывода всех тегов
         } catch (SQLException e) {
             System.out.println(e);
         }

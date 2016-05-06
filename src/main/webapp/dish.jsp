@@ -17,8 +17,8 @@ Content
                                 <div class="text1"><a href="#">${items.name}</a></div>
                                     ${items.description}
                                 <br>
-                                    Вес: <span class="color1 fw">${items.amount} грам </span> <br>
-                                    Цена: <span class="color1 fw"> ${items.price} гривны</span> <br>
+                                    Вес: <span class="color1 fw">${items.amount} грамм </span> <br>
+                                    Цена: <span class="color1 fw"> ${items.price} ₴</span> <br>
                                     <c:if test="${items.readyORnot eq '+'}">
                                         <hr>
                                         Блюдо выдается не сразу, скорость выполнения зависит от загруженности кафе.

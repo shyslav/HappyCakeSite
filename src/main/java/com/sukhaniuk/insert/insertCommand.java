@@ -13,6 +13,7 @@ public class insertCommand {
     {
         db.getConnection();
         String command = "insert into "+tablename+"("+String.join(",",rows)+") values ('"+String.join("','",values)+"')";
+        System.out.println(command);
         try {
             db.st.execute(command);
         } catch (SQLException ex) {

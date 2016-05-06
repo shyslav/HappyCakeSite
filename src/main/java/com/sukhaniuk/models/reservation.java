@@ -13,10 +13,11 @@ public class reservation {
     private String clientPhone;
     private Date rDate;
     private Time rTime;
-    private boolean confirmORnot;
+    private String confirmORnot;
     private int amountPeople;
+    private String description;
 
-    public reservation(int id, int cafeId, String clientName, String clientPhone, Date rDate, Time rTime, boolean confirmORnot, int amountPeople) {
+    public reservation(int id, int cafeId, String clientName, String clientPhone, Date rDate, Time rTime, String confirmORnot, int amountPeople, String description) {
         this.id = id;
         this.cafeId = cafeId;
         this.clientName = clientName;
@@ -25,6 +26,15 @@ public class reservation {
         this.rTime = rTime;
         this.confirmORnot = confirmORnot;
         this.amountPeople = amountPeople;
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getId() {
@@ -75,11 +85,11 @@ public class reservation {
         this.rTime = rTime;
     }
 
-    public boolean isConfirmORnot() {
+    public String isConfirmORnot() {
         return confirmORnot;
     }
 
-    public void setConfirmORnot(boolean confirmORnot) {
+    public void setConfirmORnot(String confirmORnot) {
         this.confirmORnot = confirmORnot;
     }
 
