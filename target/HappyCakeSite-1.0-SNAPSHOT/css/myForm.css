@@ -62,4 +62,10 @@
 .text-left {
     padding-top:10px;
     text-align: left;
+
+
+}
+.hover-image img:hover{
+    width: 365px;
+    height: 109px;
 }

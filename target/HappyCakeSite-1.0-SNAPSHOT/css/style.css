@@ -286,9 +286,9 @@ a:hover {
 
 header {
     display: block;
-    position: inherit;
+    position: relative;
     z-index: 800;
-    padding-top: 280px;
+    padding-top: 140px;
     background-color: rgba(79, 147, 228, 0.16);
     background: url(/images/main/header2.jpg);
 }

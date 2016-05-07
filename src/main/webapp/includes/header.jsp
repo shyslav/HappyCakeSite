@@ -51,9 +51,9 @@
             <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
         </a>
     </div>
-    <script src="/js/html5shiv.js"></script>
-    <link rel="stylesheet" media="screen" href="/css/ie.css">
-
+    <script src="/js/hlink rel="stylesheet" media="screen" href="/css/ie.css">
+    tml5shiv.js"></script>
+    <
 
     <![endif]-->
 </head>
@@ -64,15 +64,15 @@
 
 =================================-->
 <header>
-    <div class = "center" style="text-align: center;">
+    <div class = "hover-image" style="text-align: center;">
         <img src="images/main/logo_cup5.png" alt="">
     </div>
     <!--==============================
                 Stuck menu
     =================================-->
-    <section id="stuck_container"  style="text-align: left;">
+    <section id="stuck_container" >
 
-        <div class="container">
+        <div class="container" >
 
             <div class="row">
                 <div class="grid_12 " >
@@ -81,9 +81,10 @@
                             <%--<img src="/images/main/logo_cup4.png" alt="Logo alt">--%>
                         <%--</a>--%>
                     <%--</h1>--%>
-                    <div class="navigation">
+                    <div class="navigation" class = "text-center" >
+                        <div class style="text-align: left;">
                         <nav>
-                            <ul class="sf-menu">
+                            <ul class="sf-menu" style="text-align: left;">
                                 <c:forEach var="item" items="${webMenu}">
                                     <li><a href="${item.link}">${item.name}</a></li>
                                 </c:forEach>
@@ -94,6 +95,7 @@
                                 <%--<li><a href="index-4.html">contacts</a></li>--%>
                             </ul>
                         </nav>
+                            <div>
                         <div class="clear"></div>
                     </div>
                 </div>

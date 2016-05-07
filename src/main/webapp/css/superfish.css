@@ -2,8 +2,9 @@
 .navigation  {
 	z-index: 999;
 	position: relative;
-	float: right;
+	text-align: center;
 	padding-top: 44px;
+    padding-left: 170px;
 	
 }
 
@@ -15,6 +16,8 @@
 	z-index: 990;
 	text-align: left;
 	position: relative;
+	width: 100%;
+
 }
 
 nav {
@@ -24,9 +27,11 @@ nav {
 }
 
 .sf-menu ul {
-	position:absolute;
+	position:relative;
 	top:-999px; 
 	display:none;
+	text-align: left;
+	width: 100%;
 }
 
 .sf-menu>li>ul>li {
@@ -50,16 +55,18 @@ nav {
 }
 
 .sf-menu>li>a{
-	position: inherit;
+	position: relative;
 	font-size: large;
 	color: #FBEADF;
 	font-weight: 900;
 	display: block;
-	text-align: left;
+	text-align: center;
 }
 
 .sf-menu>li.sfHover>a, .sf-menu>li.current>a, .sf-menu>li>a:hover {
-	color: #DE7308;
+	color: #fd8f68;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.69);
+    font-size: 19px;
 }
  
 .sf-menu>li>ul>li>a.sf-with-ul:after {
