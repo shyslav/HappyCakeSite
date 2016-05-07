@@ -50,15 +50,16 @@ nav {
 }
 
 .sf-menu>li>a{
-	position: relative;
-	color: #727171; 
-	font-weight: bold;
+	position: inherit;
+	font-size: large;
+	color: #FBEADF;
+	font-weight: 900;
 	display: block;
-	text-align: center;
+	text-align: left;
 }
 
 .sf-menu>li.sfHover>a, .sf-menu>li.current>a, .sf-menu>li>a:hover {
-	color: #aaccaa;
+	color: #DE7308;
 }
  
 .sf-menu>li>ul>li>a.sf-with-ul:after {

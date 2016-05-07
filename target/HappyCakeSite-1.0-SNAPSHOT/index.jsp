@@ -4,12 +4,13 @@
           Content
 ======================-->
 <section class="content"><div class="ic">More Website Templates @ TemplateMonster.com - July 30, 2014!</div>
+
     <div class="container">
         <div class="row">
             <div class="grid_4">
                 <div class="banner">
                     <div class="gall_block">
-                        <img src="images/page1_img1.jpg" alt="">
+                        <img src="images/main/pin/cof.jpg" alt="">
                         <div class="bann_capt ">
                             <div class="maxheight">
                                 <img src="images/icon1.png" alt="">
@@ -30,14 +31,14 @@
                                 <a href="#">more</a>
                             </div>
                         </div>
-                        <img src="images/page1_img2.jpg" alt="">
+                        <img src="images/main/pin/buter.jpg" alt="">
                     </div>
                 </div>
             </div>
             <div class="grid_4">
                 <div class="banner ">
                     <div class="gall_block">
-                        <img src="images/page1_img3.jpg" alt="">
+                        <img src="images/main/pin/bright.jpg" alt="">
                         <div class="bann_capt  bn__2">
                             <div class="maxheight">
                                 <img src="images/icon3.png" alt="">
