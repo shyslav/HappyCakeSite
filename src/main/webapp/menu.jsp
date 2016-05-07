@@ -12,7 +12,7 @@ Content
                 <div class="grid_4">
                     <div class="gall_block">
                         <div class="maxheight">
-                            <a href="${items.image}" class="gall_item"><img src="${items.image}" alt=""></a>\
+                            <a href="${items.image}" class="gall_item"><img src="${items.image}" alt=""></a>
                             <div class="gall_bot">
                                 <div class="text1"><a href="#">${items.name}</a></div>
                                     ${items.description}
