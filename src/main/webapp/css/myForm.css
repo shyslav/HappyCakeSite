@@ -41,7 +41,7 @@
 }
 .myForm input[type=submit] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #FF9572;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -49,7 +49,7 @@
     cursor: pointer;
 }
 .myForm input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #FF9572;
 }
 .text-center {
     padding-top:10px;

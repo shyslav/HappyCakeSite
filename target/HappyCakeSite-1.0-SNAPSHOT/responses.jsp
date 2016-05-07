@@ -8,27 +8,35 @@ Content
     <div class="container">
         <div class="row">
             <%--Новости все--%>
-                <c:forEach var="items" items="${responses}">
+            <br>
+            <c:forEach var="items" items="${responses}">
+
                 <div class="grid_6">
-                    <div class="blog">
-                        <div class="blog_title">
-                            <time datetime="${items.rDate}">
-                                <span class="fa fa-calendar"></span>
-                                    ${items.rDate}
-                            </time>
-                           | <a href="#">${items.author} </a>
+                    <div class="box" style="padding-left: 10px;">
+                        <div class="blog">
+                            <div class="blog_title">
+                                <time datetime="${items.rDate}">
+                                    <span class="fa fa-calendar"></span>
+                                        ${items.rDate}
+                                </time>
+                                | <a href="#">${items.author} </a>
+                            </div>
+                            <p>${items.rText} </p>
                         </div>
-                        <p>${items.rText} </p>
+
                     </div>
+                    <br>
                 </div>
-                </c:forEach>
-            </div>
-        <hr>
-        <div class="grid_12">
-            <p class="text-center"><span class="color1 fw">Всем спасибо за ваши отзывы. Нас очень греют Ваши радушные слова, и от них мы работаем еще лучше.</span></p>
+
+            </c:forEach>
         </div>
         <hr>
-     </div>
+        <div class="grid_12">
+            <p class="text-center"><span class="color1 fw">Всем спасибо за ваши отзывы. Нас очень греют Ваши радушные слова, и от них мы работаем еще лучше.</span>
+            </p>
+        </div>
+        <hr>
+    </div>
 </section>
 
 <div class="form_block">

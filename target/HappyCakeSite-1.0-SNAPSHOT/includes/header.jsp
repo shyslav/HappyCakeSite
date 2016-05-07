@@ -65,7 +65,7 @@
 =================================-->
 <header>
     <div class = "hover-image" style="text-align: center;">
-        <img src="images/main/logo_cup5.png" alt="">
+        <img src="/images/main/logo_cup5.png" alt="">
     </div>
     <!--==============================
                 Stuck menu

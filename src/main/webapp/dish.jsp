@@ -6,6 +6,12 @@ Content
 ======================-->
 <section class="content gallery pad1">
     <div class="container">
+
+        <a class="bq_title"  style="font-size: x-large; padding-left: 30px;" >
+            Блюда за категорией:
+            <br><br>
+        </a>
+
         <div class="row">
             <%int i = 0;%>
             <c:forEach var="items" items="${dish}">
