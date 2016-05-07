@@ -61,20 +61,26 @@
 <body class="page1" id="top">
 <!--==============================
               header
+
 =================================-->
 <header>
+    <div class = "center" style="text-align: center;">
+        <img src="images/main/logo_cup5.png" alt="">
+    </div>
     <!--==============================
                 Stuck menu
     =================================-->
-    <section id="stuck_container">
+    <section id="stuck_container"  style="text-align: left;">
+
         <div class="container">
+
             <div class="row">
-                <div class="grid_12">
-                    <h1>
-                        <a href="index.html">
-                            <img src="/images/logo.png" alt="Logo alt">
-                        </a>
-                    </h1>
+                <div class="grid_12 " >
+                    <%--<h1>--%>
+                        <%--<a href="index.html">--%>
+                            <%--<img src="/images/main/logo_cup4.png" alt="Logo alt">--%>
+                        <%--</a>--%>
+                    <%--</h1>--%>
                     <div class="navigation">
                         <nav>
                             <ul class="sf-menu">

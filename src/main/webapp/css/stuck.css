@@ -5,7 +5,11 @@
 		-o-transition: all 0.4s ease;
 		transition: all 0.4s ease;
 		z-index: 999;
-		background-color: #f1f0f1;
+	    padding-top: 10px;
+	   padding-bottom: 10px;
+		background-color: rgba(85, 140, 128, 0.42);
+		/*background-image: url(/images/main/pin/bright.jpg);*/
+
 }
 
 .isStuck {
