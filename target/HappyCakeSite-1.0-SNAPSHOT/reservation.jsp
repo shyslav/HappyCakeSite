@@ -82,10 +82,21 @@ Content
                                                                                                 src="${items.image}"
                                                                                                 alt=""></a>
                                                 Вес: <span class="color1 fw">${items.amount} грамм </span> <br>
-                                                Цена: <span class="color1 fw"> ${items.price} ₴</span>
-                                                <input type="hidden" value="${items.price}" name = "price">
-                                                <input type="hidden" value="${items.name}" name = "dishName">
-                                                <input type="number" name="amount" placeholder="Количество" max="10" required>
+
+                                                <c:choose>
+                                                    <c:when test="${not empty items.sell }">
+                                                        Цена: <span class="color1 fw"><s>${items.price}₴</s></span>
+                                                        <span class="color1 fw"> ${items.price-items.price*items.sell/100} ₴</span>
+                                                        <input type="hidden" value="${items.price-items.price*items.sell/100}" name = "price">
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        Цена: <span class="color1 fw"> ${items.price} ₴</span>
+                                                        <input type="hidden" value="${items.price}" name="price">
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                <input type="hidden" value="${items.name}" name="dishName">
+                                                <input type="number" name="amount" placeholder="Количество" max="10"
+                                                       required>
                                                 <input type="submit" value="Добавить в корзину">
                                             </div>
                                         </div>
@@ -112,13 +123,13 @@ Content
                                     <tbody>
                                     <c:set var="total" value="${0}"/>
                                     <c:forEach var="items" items="${sessionScope.preOrderList}">
-                                    <tr>
-                                        <td>${items.dishName} | </td>
-                                        <td>${items.amount} | </td>
-                                        <td>${items.price} грн | </td>
-                                        <c:set var="total" value="${total + items.price}" />
-                                        <td><a href="/reservation/delete/${items.dishID}.htm">X</a></td>
-                                    </tr>
+                                        <tr>
+                                            <td>${items.dishName} |</td>
+                                            <td>${items.amount} |</td>
+                                            <td>${items.price} грн |</td>
+                                            <c:set var="total" value="${total + items.price}"/>
+                                            <td><a href="/reservation/delete/${items.dishID}.htm">X</a></td>
+                                        </tr>
                                     </c:forEach>
                                     </tbody>
                                 </table>
@@ -150,7 +161,7 @@ Content
                                         Предзаказ должен быть более чем 150 грн
                                     </li>
                                     <li>
-                                        Если ответ не поступил в течении 2 часов, наберите нас по телефону указанному в
+                                        Если ответ не поступил в течении 2 часов, наберите нас по телефону, указанному в
                                         разделе "Контакты"
                                     </li>
                                 </ul>

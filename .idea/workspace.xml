@@ -64,25 +64,25 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sukhaniuk/select/selectCommand.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-4.275862">
-              <caret line="154" column="212" selection-start-line="154" selection-start-column="212" selection-end-line="154" selection-end-column="212" />
+              <caret line="154" column="184" selection-start-line="154" selection-start-column="184" selection-end-line="154" selection-end-column="184" />
               <folding>
-                <marker date="1462622892795" expanded="true" signature="642:681" placeholder="select * fro... webmenu" />
-                <marker date="1462622892795" expanded="true" signature="1401:1432" placeholder="select max(i... reservation" />
-                <marker date="1462622892795" expanded="true" signature="2111:2139" placeholder="select * fro... cafecoordinate" />
-                <marker date="1462622892795" expanded="true" signature="3051:3073" placeholder="select * fro... category" />
-                <marker date="1462622892795" expanded="true" signature="4093:4280" placeholder="select * fro... dish" />
-                <marker date="1462622892795" expanded="true" signature="4184:4260" placeholder="select perce... hotprice" />
-                <marker date="1462622892795" expanded="true" signature="4352:4539" placeholder="select id as... dish" />
-                <marker date="1462622892795" expanded="true" signature="4352:4560" placeholder="select * fro... dish" />
-                <marker date="1462622892795" expanded="true" signature="4443:4519" placeholder="select perce... hotprice" />
-                <marker date="1462622892795" expanded="true" signature="5961:5979" placeholder="select * fro... news" />
-                <marker date="1462622892795" expanded="true" signature="6093:6139" placeholder="select * fro... news" />
-                <marker date="1462622892795" expanded="true" signature="6251:6283" placeholder="select * fro... news" />
-                <marker date="1462622892795" expanded="true" signature="6391:6420" placeholder="select * fro... news" />
-                <marker date="1462622892795" expanded="true" signature="7525:7561" placeholder="select * fro... news" />
-                <marker date="1462622892795" expanded="true" signature="7525:7572" placeholder="select * fro... news" />
-                <marker date="1462622892795" expanded="true" signature="8640:8648" placeholder="select * fro... news" />
-                <marker date="1462622892795" expanded="true" signature="8640:8680" placeholder="select * fro... reports" />
+                <marker date="1462623857671" expanded="true" signature="642:681" placeholder="select * fro... webmenu" />
+                <marker date="1462623857671" expanded="true" signature="1401:1432" placeholder="select max(i... reservation" />
+                <marker date="1462623857671" expanded="true" signature="2111:2139" placeholder="select * fro... cafecoordinate" />
+                <marker date="1462623857671" expanded="true" signature="3051:3073" placeholder="select * fro... category" />
+                <marker date="1462623857671" expanded="true" signature="4093:4281" placeholder="select * fro... dish" />
+                <marker date="1462623857671" expanded="true" signature="4184:4261" placeholder="select perce... hotprice" />
+                <marker date="1462623857671" expanded="true" signature="4353:4541" placeholder="select id as... dish" />
+                <marker date="1462623857671" expanded="true" signature="4353:4562" placeholder="select * fro... dish" />
+                <marker date="1462623857671" expanded="true" signature="4444:4521" placeholder="select perce... hotprice" />
+                <marker date="1462623857671" expanded="true" signature="5971:5989" placeholder="select * fro... news" />
+                <marker date="1462623857671" expanded="true" signature="6103:6149" placeholder="select * fro... news" />
+                <marker date="1462623857671" expanded="true" signature="6261:6293" placeholder="select * fro... news" />
+                <marker date="1462623857671" expanded="true" signature="6401:6430" placeholder="select * fro... news" />
+                <marker date="1462623857671" expanded="true" signature="7535:7571" placeholder="select * fro... news" />
+                <marker date="1462623857671" expanded="true" signature="7535:7582" placeholder="select * fro... news" />
+                <marker date="1462623857671" expanded="true" signature="8650:8658" placeholder="select * fro... news" />
+                <marker date="1462623857671" expanded="true" signature="8650:8690" placeholder="select * fro... reports" />
               </folding>
             </state>
           </provider>
@@ -91,8 +91,18 @@
       <file leaf-file-name="reservation.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/reservation.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4293948">
-              <caret line="84" column="54" selection-start-line="84" selection-start-column="54" selection-end-line="84" selection-end-column="102" />
+            <state vertical-scroll-proportion="0.3073286">
+              <caret line="163" column="107" selection-start-line="163" selection-start-column="107" selection-end-line="163" selection-end-column="107" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dish.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/dish.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.461538">
+              <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -219,13 +229,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sukhaniuk/controller/NewsController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/redirect.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/dish.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/sukhaniuk/models/preOrder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sukhaniuk/models/reservationData.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/reservation.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/sukhaniuk/controller/ReservationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sukhaniuk/models/dish.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sukhaniuk/select/selectCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/dish.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/reservation.jsp" />
       </list>
     </option>
   </component>
@@ -1299,7 +1309,7 @@
       <workItem from="1461859620668" duration="2096000" />
       <workItem from="1461866583588" duration="4222000" />
       <workItem from="1462363234296" duration="53753000" />
-      <workItem from="1462551437975" duration="24675000" />
+      <workItem from="1462551437975" duration="27324000" />
     </task>
     <servers />
   </component>
@@ -1312,11 +1322,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119097000" />
+    <option name="totallyTimeSpent" value="121746000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1327,7 +1337,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30494505" sideWeight="0.75642675" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30494505" sideWeight="0.75642675" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1338,7 +1348,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.215" sideWeight="0.5079051" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40934065" sideWeight="0.4922879" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3489011" sideWeight="0.4922879" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1707,14 +1717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/dish.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3076923">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sukhaniuk/insert/insertCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1816,18 +1818,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sukhaniuk/models/dish.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8706468">
-          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-          <folding>
-            <element signature="e#823#824#0" expanded="true" />
-            <element signature="e#863#864#0" expanded="true" />
-            <element signature="e#895#896#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sukhaniuk/controller/ReservationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.6551723">
@@ -1838,36 +1828,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sukhaniuk/models/dish.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27860695">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sukhaniuk/select/selectCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.275862">
-          <caret line="154" column="212" selection-start-line="154" selection-start-column="212" selection-end-line="154" selection-end-column="212" />
+          <caret line="154" column="184" selection-start-line="154" selection-start-column="184" selection-end-line="154" selection-end-column="184" />
           <folding>
-            <marker date="1462622892795" expanded="true" signature="642:681" placeholder="select * fro... webmenu" />
-            <marker date="1462622892795" expanded="true" signature="1401:1432" placeholder="select max(i... reservation" />
-            <marker date="1462622892795" expanded="true" signature="2111:2139" placeholder="select * fro... cafecoordinate" />
-            <marker date="1462622892795" expanded="true" signature="3051:3073" placeholder="select * fro... category" />
-            <marker date="1462622892795" expanded="true" signature="4093:4280" placeholder="select * fro... dish" />
-            <marker date="1462622892795" expanded="true" signature="4184:4260" placeholder="select perce... hotprice" />
-            <marker date="1462622892795" expanded="true" signature="4352:4539" placeholder="select id as... dish" />
-            <marker date="1462622892795" expanded="true" signature="4352:4560" placeholder="select * fro... dish" />
-            <marker date="1462622892795" expanded="true" signature="4443:4519" placeholder="select perce... hotprice" />
-            <marker date="1462622892795" expanded="true" signature="5961:5979" placeholder="select * fro... news" />
-            <marker date="1462622892795" expanded="true" signature="6093:6139" placeholder="select * fro... news" />
-            <marker date="1462622892795" expanded="true" signature="6251:6283" placeholder="select * fro... news" />
-            <marker date="1462622892795" expanded="true" signature="6391:6420" placeholder="select * fro... news" />
-            <marker date="1462622892795" expanded="true" signature="7525:7561" placeholder="select * fro... news" />
-            <marker date="1462622892795" expanded="true" signature="7525:7572" placeholder="select * fro... news" />
-            <marker date="1462622892795" expanded="true" signature="8640:8648" placeholder="select * fro... news" />
-            <marker date="1462622892795" expanded="true" signature="8640:8680" placeholder="select * fro... reports" />
+            <marker date="1462623857671" expanded="true" signature="642:681" placeholder="select * fro... webmenu" />
+            <marker date="1462623857671" expanded="true" signature="1401:1432" placeholder="select max(i... reservation" />
+            <marker date="1462623857671" expanded="true" signature="2111:2139" placeholder="select * fro... cafecoordinate" />
+            <marker date="1462623857671" expanded="true" signature="3051:3073" placeholder="select * fro... category" />
+            <marker date="1462623857671" expanded="true" signature="4093:4281" placeholder="select * fro... dish" />
+            <marker date="1462623857671" expanded="true" signature="4184:4261" placeholder="select perce... hotprice" />
+            <marker date="1462623857671" expanded="true" signature="4353:4541" placeholder="select id as... dish" />
+            <marker date="1462623857671" expanded="true" signature="4353:4562" placeholder="select * fro... dish" />
+            <marker date="1462623857671" expanded="true" signature="4444:4521" placeholder="select perce... hotprice" />
+            <marker date="1462623857671" expanded="true" signature="5971:5989" placeholder="select * fro... news" />
+            <marker date="1462623857671" expanded="true" signature="6103:6149" placeholder="select * fro... news" />
+            <marker date="1462623857671" expanded="true" signature="6261:6293" placeholder="select * fro... news" />
+            <marker date="1462623857671" expanded="true" signature="6401:6430" placeholder="select * fro... news" />
+            <marker date="1462623857671" expanded="true" signature="7535:7571" placeholder="select * fro... news" />
+            <marker date="1462623857671" expanded="true" signature="7535:7582" placeholder="select * fro... news" />
+            <marker date="1462623857671" expanded="true" signature="8650:8658" placeholder="select * fro... news" />
+            <marker date="1462623857671" expanded="true" signature="8650:8690" placeholder="select * fro... reports" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/dish.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.461538">
+          <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/reservation.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4293948">
-          <caret line="84" column="54" selection-start-line="84" selection-start-column="54" selection-end-line="84" selection-end-column="102" />
+        <state vertical-scroll-proportion="0.3073286">
+          <caret line="163" column="107" selection-start-line="163" selection-start-column="107" selection-end-line="163" selection-end-column="107" />
           <folding />
         </state>
       </provider>

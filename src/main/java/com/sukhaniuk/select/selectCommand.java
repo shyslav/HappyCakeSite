@@ -152,10 +152,10 @@ public class selectCommand {
         switch (category)
         {
             case 0:
-                query = "select id as idfromdish, categoryID, name, description, amount, price, image, readyORnot, (select percent from hotprice where dishID = idfromdish and dateEnd>curdate() ) as sell from dish";
+                query = "select id as idfromdish, categoryID, name, description, amount, price, image, readyORnot, (select percent from hotprice where dishID = idfromdish and dateEnd>=curdate() ) as sell from dish";
                 break;
             default:
-                query = "select id as idfromdish, categoryID, name, description, amount, price, image, readyORnot, (select percent from hotprice where dishID = idfromdish and dateEnd>curdate() ) as sell from dish  where categoryID = " + category;
+                query = "select id as idfromdish, categoryID, name, description, amount, price, image, readyORnot, (select percent from hotprice where dishID = idfromdish and dateEnd>=curdate() ) as sell from dish  where categoryID = " + category;
         }
         db.getConnection();
         try
@@ -164,7 +164,7 @@ public class selectCommand {
             while(db.rs.next())
             {
                 result.add(new dish(
-                        db.rs.getInt("id"),
+                        db.rs.getInt("idfromdish"),
                         db.rs.getInt("categoryID"),
                         db.rs.getString("name"),
                         db.rs.getString("description"),

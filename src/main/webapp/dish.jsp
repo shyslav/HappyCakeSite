@@ -18,7 +18,17 @@ Content
                                     ${items.description}
                                 <br>
                                     Вес: <span class="color1 fw">${items.amount} грамм </span> <br>
-                                    Цена: <span class="color1 fw"> ${items.price} ₴</span> <br>
+                                <c:choose>
+                                    <c:when test="${not empty items.sell }">
+                                        Цена: <span class="color1 fw"><s>${items.price}₴</s></span>
+                                        <span class="color1 fw"> ${items.price-items.price*items.sell/100} ₴</span>
+                                        <input type="hidden" value="${items.price-items.price*items.sell/100}" name = "price">
+                                    </c:when>
+                                    <c:otherwise>
+                                        Цена: <span class="color1 fw"> ${items.price} ₴</span>
+                                        <input type="hidden" value="${items.price}" name="price">
+                                    </c:otherwise>
+                                </c:choose>
                                     <c:if test="${items.readyORnot eq '+'}">
                                         <hr>
                                         Блюдо выдается не сразу, скорость выполнения зависит от загруженности кафе.
@@ -28,7 +38,6 @@ Content
                                         Блюдо не требует приготовления, выдается сразу при оплате.
                                     </c:if>
                                 <br>
-                                <a href="category/${items.id}.htm" class="btn">Подробнее</a>
                             </div>
 
                         </div>
