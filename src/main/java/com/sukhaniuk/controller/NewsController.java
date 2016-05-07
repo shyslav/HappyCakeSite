@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -65,8 +66,25 @@ public class NewsController {
     @RequestMapping(value = "/news/like/{id}")
     public String likeNews(@PathVariable("id") String id, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr)
     {
-        map.addAttribute("webTitle","Новости");
-        map.addAttribute("webMenu", HomeController.headerLoader());
+        HttpSession ses = request.getSession();
+        Object tmp = ses.getAttribute("amountLike");
+        if (tmp==null) {
+            ses.setAttribute("amountLike",1);
+            tmp = 1;
+        }
+        else if((int)tmp>=2)
+        {
+            redirAtr.addFlashAttribute("headModal","Ошибка");
+            redirAtr.addFlashAttribute("textModal","В течении 30 минут разрешено ставить только 2 лайка");
+            return "redirect:/news.htm";
+        }
+        else
+        {
+            ses.setAttribute("amountLike",(int)tmp+1);
+            tmp = (int)tmp +1;
+        }
+        redirAtr.addFlashAttribute("headModal","Спасибо");
+        redirAtr.addFlashAttribute("textModal","Нам важно знать ваше мнение, с помощью лайков мы определяем что вам больше всего нравится. У вас остался еще 1 лайк, вы можете отдать его любой записи");
         updateCommands.updateTable("news",new String[] {"views = views+1"},new String[] {"id = " + id});
         return "redirect:/news.htm";
     }

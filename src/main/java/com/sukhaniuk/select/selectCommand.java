@@ -46,7 +46,29 @@ public class selectCommand {
         }
         return result;
     }
-
+    public static int selectMaxFromReservation()
+    {
+        String query = "select max(id) from reservation";
+        db.getConnection();
+        int max = 1;
+        try
+        {
+            db.rs = db.st.executeQuery(query);
+            while(db.rs.next())
+            {
+               max = db.rs.getInt(1);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        finally
+        {
+            db.closeConnection();
+        }
+        return  max;
+    }
     /**
      * Получить координаты кафе
      * @return
@@ -126,7 +148,15 @@ public class selectCommand {
     public static ArrayList<dish> selectdish(int category) throws SQLException
     {
         ArrayList <dish> result = new ArrayList();
-        String query = "select * from dish where categoryID = " + category;
+        String query = new String();
+        switch (category)
+        {
+            case 0:
+                query = "select id as idfromdish, categoryID, name, description, amount, price, image, readyORnot, (select percent from hotprice where dishID = idfromdish and dateEnd>=curdate() ) as sell from dish";
+                break;
+            default:
+                query = "select id as idfromdish, categoryID, name, description, amount, price, image, readyORnot, (select percent from hotprice where dishID = idfromdish and dateEnd>=curdate() ) as sell from dish  where categoryID = " + category;
+        }
         db.getConnection();
         try
         {
@@ -134,14 +164,15 @@ public class selectCommand {
             while(db.rs.next())
             {
                 result.add(new dish(
-                        db.rs.getInt("id"),
+                        db.rs.getInt("idfromdish"),
                         db.rs.getInt("categoryID"),
                         db.rs.getString("name"),
                         db.rs.getString("description"),
                         db.rs.getInt("amount"),
                         db.rs.getDouble("price"),
                         db.rs.getString("image"),
-                        db.rs.getString("readyORnot").trim()));
+                        db.rs.getString("readyORnot").trim(),
+                        db.rs.getString("sell")));
             }
         }
         catch(Exception ex)

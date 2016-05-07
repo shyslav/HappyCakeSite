@@ -12,8 +12,9 @@ public class dish {
     private double price;
     private String image;
     private String readyORnot;
+    private String sell;
 
-    public dish(int id, int categoryId, String name, String description, int amount, double price, String image, String readyORnot) {
+    public dish(int id, int categoryId, String name, String description, int amount, double price, String image, String readyORnot, String sell) {
         this.id = id;
         this.categoryId = categoryId;
         this.name = name;
@@ -22,6 +23,15 @@ public class dish {
         this.price = price;
         this.image = image;
         this.readyORnot = readyORnot;
+        this.sell = sell;
+    }
+
+    public String getSell() {
+        return sell;
+    }
+
+    public void setSell(String sell) {
+        this.sell = sell;
     }
 
     public int getId() {
