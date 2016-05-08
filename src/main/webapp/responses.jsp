@@ -6,6 +6,11 @@ Content
 ======================-->
 <section class="content">
     <div class="container">
+        <a class="bq_title" style="font-size: x-large; padding-left: 30px;">
+            <br>
+            Отзывы о нас:
+            <br>
+        </a>
         <div class="row">
             <%--Новости все--%>
             <br>
@@ -22,7 +27,6 @@ Content
                             </div>
                             <p>${items.rText} </p>
                         </div>
-
                     </div>
                     <br>
                 </div>

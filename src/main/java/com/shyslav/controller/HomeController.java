@@ -1,6 +1,6 @@
 package com.shyslav.controller;
 
-import com.sukhaniuk.models.webMenu;
+import com.sukhaniuk.models.*;
 import com.sukhaniuk.select.selectCommand;
 import org.json.JSONException;
 import org.json.simple.JSONArray;
@@ -29,6 +29,8 @@ public class HomeController {
     public String home(ModelMap map) throws IOException, JSONException {
         map.addAttribute("webTitle","Главная");
         map.addAttribute("webMenu",headerLoader());
+        map.addAttribute("hotPrice", hotPriceLoader());
+        map.addAttribute("randCategory", randCategory());
         return "index.jsp";
     }
     @RequestMapping(value="contacts")
@@ -56,5 +58,25 @@ public class HomeController {
             e.printStackTrace();
         }
         return menu;
+    }
+    public static ArrayList<hotPrice> hotPriceLoader()
+    {
+        ArrayList<hotPrice> hotPrice = null;
+        try {
+            hotPrice = selectCommand.selectHotPrice();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return hotPrice;
+    }
+    public static ArrayList<category> randCategory()
+    {
+        ArrayList<category> category = null;
+        try {
+            category = selectCommand.selectRandCategory();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return category;
     }
 }

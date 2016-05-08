@@ -176,7 +176,7 @@ a:hover {
 }
 
 .link1 {
-    margin-top: 29px;
+    margin-top: 0px;
     display: block;
     float: right;
     color: #fff;
@@ -191,7 +191,7 @@ a:hover {
 }
 
 .link1:hover {
-    background-color: #aaccaa;
+    background-color: #FF9572;
     color: #fff;
 }
 
@@ -380,7 +380,7 @@ header h1 a img {
     margin: 0 auto;
     height: 119px;
     text-align: center;
-    font: 40px/116px 'Dosis', sans-serif;
+    font: 30px/116px 'Dosis', sans-serif;
     border-radius: 500px;
     border: 1px solid #939393;
     margin-bottom: 25px;

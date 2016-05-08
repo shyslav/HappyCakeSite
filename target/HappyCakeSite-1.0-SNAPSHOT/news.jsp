@@ -53,15 +53,18 @@ Content
                 <%--Теги--%>
                 <h2>Теги</h2>
                 <ul class="list">
+
                     <c:forEach var="items" items="${newsAll}">
                         <li><a href="/news/${items.tegs}.htm">${items.tegs}</a></li>
                     </c:forEach>
                     <li><a href="/news.htm">Все теги</a></li>
+
                 </ul>
                 <%--Популярные новости--%>
                 <h2>Самые популярные новости</h2>
                 <c:forEach var="items" items="${popularNews}">
-                    <div class="box" style="padding-left: 10px;">
+                    <%--<div class="box" style="padding-left: 10px;">--%>
+
                         <div class="block3">
                             <img src="${items.imageLink}" alt="" class="img_inner noresize fleft">
                             <div class="extra_wrapper">
@@ -71,8 +74,8 @@ Content
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <br>
+                    <%--</div>--%>
+                    <%--<br>--%>
                 </c:forEach>
 
             </div>
