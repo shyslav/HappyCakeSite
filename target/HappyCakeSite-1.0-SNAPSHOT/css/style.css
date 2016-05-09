@@ -709,9 +709,10 @@ header h1 a img {
 #footer {
     display: block;
     padding: 50px 0 40px;
-    color: #e2e2e2;
+    color: #585858;
     font-size: 14px;
     line-height: 18px;
+    background-color: rgba(143, 209, 195, 0.42);
 }
 
 .copyright {
@@ -742,7 +743,7 @@ header h1 a img {
 }
 
 .socials .fa {
-    background-color: #ddd;
+    background-color: rgba(82, 125, 113, 0.56);
     font-size: 25px;
     float: left;
     line-height: 50px;

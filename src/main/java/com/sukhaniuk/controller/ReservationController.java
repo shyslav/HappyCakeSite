@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class ReservationController extends SimpleValidation {
     @RequestMapping(value = "/reservation")
     public String news(ModelMap map, HttpServletRequest request) throws IOException, JSONException {
-        map.addAttribute("webTitle", "Резервация");
+        map.addAttribute("webTitle", "Бронювання");
         map.addAttribute("webMenu", HomeController.headerLoader());
         HttpSession ses = request.getSession();
         Object tmp = ses.getAttribute("reservationConfig");
@@ -56,7 +56,7 @@ public class ReservationController extends SimpleValidation {
                 } else if ((int) tmp >= 5) {
                     //redirAtr.addFlashAttribute("alert","Вы исчерпали все попытки отправки отзыва, вам запрещено отправлять сообщения в течении 30 минут");
                     redirAtr.addFlashAttribute("headModal", "Проблема");
-                    redirAtr.addFlashAttribute("textModal", "Вы исчерпали все попытки создания резервации, вам запрещено отправлять сообщения в течении 30 минут");
+                    redirAtr.addFlashAttribute("textModal", "Ви вичерпали всі спроби створення резервації, Вам заборонено відправляти повідомлення на протязі 30 хвилин");
                     return "redirect:/index.htm";
                 }
                 String name = request.getParameter("name").trim();
@@ -70,7 +70,7 @@ public class ReservationController extends SimpleValidation {
                     //Увеличить счетчик не правильных попыток
                     ses.setAttribute("amountReservation", (int) tmp + 1);
                     redirAtr.addFlashAttribute("headModal", "Вы допустили ошибки при заполнении");
-                    redirAtr.addFlashAttribute("textModal", String.join("<br>", validation(name, phone, amountPeople)) + "<br>Будьте внимательны, у вас осталось " + (5 - (int) tmp) + " попыток");
+                    redirAtr.addFlashAttribute("textModal", String.join("<br>", validation(name, phone, amountPeople)) + "<br>Будьте уважні, у Вас залишилось " + (5 - (int) tmp) + " спроб");
                     return "redirect:/reservation.htm";
                 } else {
                     redirAtr.addFlashAttribute("step", "second");
@@ -98,8 +98,8 @@ public class ReservationController extends SimpleValidation {
         Object aboutUser = ses.getAttribute("reservationConfig");
         if(aboutUser==null)
         {
-            redirAtr.addFlashAttribute("headModal", "Ошибка");
-            redirAtr.addFlashAttribute("textModal", "Время сессии истекло. Введите данные снова");
+            redirAtr.addFlashAttribute("headModal", "Помилка");
+            redirAtr.addFlashAttribute("textModal", "Час сесії минув. Введіть дані знову");
             return "redirect:/reservation.htm";
         }
         ArrayList<preOrder> preOrders = new ArrayList<>();
@@ -139,8 +139,8 @@ public class ReservationController extends SimpleValidation {
         HttpSession ses = request.getSession();
         Object tmp = ses.getAttribute("preOrderList");
         if (tmp == null) {
-            redirAtr.addFlashAttribute("headModal", "Ошибка");
-            redirAtr.addFlashAttribute("textModal", "Вы пытаетесь удалить не добавленный в корзину продукт");
+            redirAtr.addFlashAttribute("headModal", "Помилка");
+            redirAtr.addFlashAttribute("textModal", "Ви намагаєтесь видалити недобавлену до кошика сраву.");
         } else {
             preOrders = (ArrayList<preOrder>) ses.getAttribute("preOrderList");
             for (int i = 0; i < preOrders.size(); i++) {
@@ -159,8 +159,8 @@ public class ReservationController extends SimpleValidation {
         HttpSession ses = request.getSession();
         Object tmp = ses.getAttribute("reservationConfig");
         if (tmp == null) {
-            redirAtr.addFlashAttribute("headModal", "Ошибка");
-            redirAtr.addFlashAttribute("textModal", "Вы пытаетесь выполнить не верный запрос");
+            redirAtr.addFlashAttribute("headModal", "Помилка");
+            redirAtr.addFlashAttribute("textModal", "Ви намагались виконати невірний запит");
         } else {
             ses.removeAttribute("reservationConfig");
         }
@@ -173,8 +173,8 @@ public class ReservationController extends SimpleValidation {
         Object reservationConfig = ses.getAttribute("reservationConfig");
         Object preOrderList = ses.getAttribute("preOrderList");
         if (reservationConfig == null || preOrderList == null) {
-            redirAtr.addFlashAttribute("headModal", "Ошибка");
-            redirAtr.addFlashAttribute("textModal", "Вы пытаетесь выполнить не верный запрос");
+            redirAtr.addFlashAttribute("headModal", "Помилка");
+            redirAtr.addFlashAttribute("textModal", "Ви намагались виконати невірний запит");
             return "redirect:/reservation.htm";
         }
         ArrayList<preOrder> preOrders = new ArrayList<>();
@@ -187,8 +187,8 @@ public class ReservationController extends SimpleValidation {
             sum += preOrders.get(i).getPrice() * preOrders.get(i).getAmount();
         }
         if (sum < 150.0) {
-            redirAtr.addFlashAttribute("headModal", "Ошибка");
-            redirAtr.addFlashAttribute("textModal", "Сумма заказа меньше 150 гривен");
+            redirAtr.addFlashAttribute("headModal", "Помилка");
+            redirAtr.addFlashAttribute("textModal", "Сума замовлення менша за 150 грн");
         } else {
             int max = selectCommand.selectMaxFromReservation() + 1;
             insertCommand.insert("reservation", new String[]{"1", resData.get(0).getName(), resData.get(0).getPhone(), resData.get(0).getDate(), resData.get(0).getTime(), "-", resData.get(0).getAmountPeople(), resData.get(0).getMessage()}, new String[]{"cafeID", "clientName", "clientPhone", "rDate", "rTime", "confirmORnot", "amountPeople", "description"});
@@ -198,8 +198,8 @@ public class ReservationController extends SimpleValidation {
             ses.removeAttribute("reservationConfig");
             ses.removeAttribute("preOrderList");
             ses.removeAttribute("amountReservation");
-            redirAtr.addFlashAttribute("headModal", "Спасибо за резервацию");
-            redirAtr.addFlashAttribute("textModal", "В течении 30 минут с вами свяжется Администратор и уточнит все детали.");
+            redirAtr.addFlashAttribute("headModal", "Дякуємо за бронювання столика");
+            redirAtr.addFlashAttribute("textModal", "Протягом 30 хвилин з Вами зв'яжеться адміністратор і уточнить всі деталі.");
         }
         return "redirect:/reservation.htm";
     }
@@ -214,7 +214,7 @@ public class ReservationController extends SimpleValidation {
         }
         int amountPeoples = Integer.parseInt(amountPeople);
         if (amountPeoples < 2 || amountPeoples > 4) {
-            errors.add("Не верное количество человек");
+            errors.add("Невірна кількість людей");
         }
         return errors;
     }

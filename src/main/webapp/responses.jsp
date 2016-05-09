@@ -51,7 +51,7 @@ Content
                     <input type="email" name="email" placeholder="Пошта" value=""/>
                     <input type="text" name="phone" placeholder="Телефон: +380919096699:" value=""/>
                     <textarea name="message" placeholder="Повідомлення"></textarea>
-                    <input type="submit" data-type="submit" class="btn"/>
+                    <input type="submit" value="Відправити" class="btn"/>
                 </form>
             </div>
         </div>

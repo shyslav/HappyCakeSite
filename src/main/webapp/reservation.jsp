@@ -42,7 +42,7 @@ Content
                                         <option value="19:00">19:00</option>
                                     </select>
                                     <textarea name="message" placeholder="Побажання"></textarea>
-                                    <input type="submit" data-type="Відправити" class="btn"/>
+                                    <input type="submit" value="Відправити" class="btn"/>
                                 </form>
                             </div>
                             <div class="grid_3">
@@ -88,7 +88,7 @@ Content
                                                 <a href="${items.image}" class="gall_item"><img width="100" height="330"
                                                                                                 src="${items.image}"
                                                                                                 alt=""></a>
-                                                Вfuf: <span class="color1 fw">${items.amount} гр. </span> <br>
+                                                Вага: <span class="color1 fw">${items.amount} гр. </span> <br>
 
                                                 <c:choose>
                                                     <c:when test="${not empty items.sell }">
@@ -106,7 +106,7 @@ Content
                                                 <input type="hidden" value="${items.name}" name="dishName">
                                                 <input type="number" name="amount" placeholder="Количество" max="10"
                                                        required>
-                                                <input type="submit" value="Добавить в корзину">
+                                                <input type="submit" value="Додати в кошик">
                                             </div>
                                         </div>
                                     </form>
@@ -216,7 +216,7 @@ Content
                                         <option value="19:00">19:00</option>
                                     </select>
                                     <textarea name="message" placeholder="Пожелания"></textarea>
-                                    <input type="submit" data-type="Відправити" class="btn"/>
+                                    <input type="submit" value="Відправити" class="btn"/>
                                 </form>
                             </div>
                             <div class="grid_3">

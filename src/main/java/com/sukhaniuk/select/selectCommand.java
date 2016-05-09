@@ -325,7 +325,7 @@ public class selectCommand {
     public static ArrayList<hotPrice> selectHotPrice() throws SQLException
     {
         ArrayList <hotPrice> result = new ArrayList();
-        String query = "select * from hotprice order by dateStart, dateEnd ";
+        String query = "select * from hotprice order by  dateStart desc, dateEnd DESC";
         db.getConnection();
         try
         {

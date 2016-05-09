@@ -27,7 +27,7 @@ public class MenuController {
     @RequestMapping(value = "/menu")
     public String menu(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr)
     {
-        map.addAttribute("webTitle","Категории");
+        map.addAttribute("webTitle","Категорії");
         map.addAttribute("webMenu", HomeController.headerLoader());
         map.addAttribute("category",category());
         return "menu.jsp";
@@ -42,7 +42,7 @@ public class MenuController {
     @RequestMapping(value="/category/{id}")
     public String dish(@PathVariable("id") String id,ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr)
     {
-        map.addAttribute("webTitle","Блюда");
+        map.addAttribute("webTitle","Страви");
         map.addAttribute("webMenu", HomeController.headerLoader());
         try {
             map.addAttribute("dish",selectCommand.selectdish(Integer.parseInt(id)));

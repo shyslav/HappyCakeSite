@@ -43,7 +43,7 @@ public class ResponsesController extends SimpleValidation{
         {
             //redirAtr.addFlashAttribute("alert","Вы исчерпали все попытки отправки отзыва, вам запрещено отправлять сообщения в течении 30 минут");
             redirAtr.addFlashAttribute("headModal","Проблема");
-            redirAtr.addFlashAttribute("textModal","Вы исчерпали все попытки отправки отзыва, вам запрещено отправлять сообщения в течении 30 минут");
+            redirAtr.addFlashAttribute("textModal","Ви вичерпали всі спроби створення резервації, Вам заборонено відправляти повідомлення на протязі 30 хвилин");
             return "redirect:/index.htm";
         }
         else
@@ -72,8 +72,8 @@ public class ResponsesController extends SimpleValidation{
         {
             ses.setAttribute("amountsSends",null);
             //redirAtr.addFlashAttribute("alert","Сообщение успешно отправлено");
-            redirAtr.addFlashAttribute("textModal","Спасибо за ваш отзыв, все ваши отзывы очень важны. Он будет отображен после проверки администрацией.");
-            redirAtr.addFlashAttribute("headModal","Сообщение успешно отправлено");
+            redirAtr.addFlashAttribute("textModal","Дякуємо за відгук. Ми цінуємо Вашу думку.");
+            redirAtr.addFlashAttribute("headModal","Повідомлення успішно відправлено");
             //задать формат даты
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date date = new Date();
@@ -84,15 +84,15 @@ public class ResponsesController extends SimpleValidation{
         else
         {
             //redirAtr.addFlashAttribute("alert","Сообщение имеет следующие ошибки: \\n"+String.join("\\n",errors)+"\\n Внимание: У вас осталось " + (5 - (int)tmp) +" попыток");
-            redirAtr.addFlashAttribute("headModal","Осторожно!");
-            redirAtr.addFlashAttribute("textModal","Сообщение имеет следующие ошибки: <br>"+String.join("<br>",errors)+"<br>Внимание: У вас осталось " + (5 - (int)tmp) +" попыток");
+            redirAtr.addFlashAttribute("headModal","Обережно!");
+            redirAtr.addFlashAttribute("textModal","Повідомлення має настпуні помилки: <br>"+String.join("<br>",errors)+"<br>Увага: У вас залишилось " + (5 - (int)tmp) +" спроб");
             return "redirect:/responses.htm";
         }
     }
     @RequestMapping(value = "/responses")
     public String responses(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr)
     {
-        map.addAttribute("webTitle","Отзывы");
+        map.addAttribute("webTitle","Відгуки");
         map.addAttribute("webMenu", HomeController.headerLoader());
         try {
             map.addAttribute("responses", selectCommand.selectReports());

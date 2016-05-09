@@ -96,22 +96,34 @@
       <primary-key name="PRIMARY" columns="id"/>
       <index name="name" unique="true" columns="name"/>
     </table>
+    <table name="preorder" schema="" catalog="happycake" type="TABLE">
+      <column name="reservID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dishID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="amount" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <foreign-key name="preorder_ibfk_1" columns="dishID" ref-table="dish" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="preorder_ibfk_2" columns="reservID" ref-table="reservation" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
     <table name="reports" schema="" catalog="happycake" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="author" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <column name="rText" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="false" jdbcType="-1"/>
       <column name="rDate" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" def="Jyc="/>
+      <column name="mail" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="phone" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="vision" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="reservation" schema="" catalog="happycake" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="cafeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="clientName" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="clientPhone" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="clientPhone" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <column name="rDate" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91" def="Jyc="/>
       <column name="rTime" sqlType="TIME" precision="8" scale="0" nullable="false" jdbcType="92" def="Jyc="/>
-      <column name="confirmORnot" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="confirmORnot" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1" def="Jyc="/>
       <column name="amountPeople" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="description" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="reservation_ibfk_1" columns="cafeID" ref-table="cafecoordinate" ref-schema="" ref-catalog="happycake" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>

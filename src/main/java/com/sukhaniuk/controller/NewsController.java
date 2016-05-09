@@ -22,7 +22,7 @@ import java.sql.SQLException;
 public class NewsController {
     @RequestMapping(value="news")
     public String news(ModelMap map) throws IOException, JSONException {
-        map.addAttribute("webTitle","Новости");
+        map.addAttribute("webTitle","Новини");
         map.addAttribute("webMenu", HomeController.headerLoader());
         try {
             map.addAttribute("newsAll", selectCommand.selectNews(-3)); // select all news для вывода всех тегов
@@ -36,7 +36,7 @@ public class NewsController {
     @RequestMapping(value = "/news/{teg}")
     public String newsTeg(@PathVariable("teg") String teg, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr)
     {
-        map.addAttribute("webTitle","Новости");
+        map.addAttribute("webTitle","Новини");
         map.addAttribute("webMenu", HomeController.headerLoader());
         try {
             map.addAttribute("news",selectCommand.selectNewsWithTeg(teg));  //select teg news
@@ -51,7 +51,7 @@ public class NewsController {
     @RequestMapping(value = "/news/fullnews/{id}")
     public String newsWhereId(@PathVariable("id") int id, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr)
     {
-        map.addAttribute("webTitle","Новости");
+        map.addAttribute("webTitle","Новини");
         map.addAttribute("webMenu", HomeController.headerLoader());
         try {
             map.addAttribute("news",selectCommand.selectNews(id));  //select news from id
@@ -75,7 +75,7 @@ public class NewsController {
         else if((int)tmp>=2)
         {
             redirAtr.addFlashAttribute("headModal","Ошибка");
-            redirAtr.addFlashAttribute("textModal","В течении 30 минут разрешено ставить только 2 лайка");
+            redirAtr.addFlashAttribute("textModal","Протягом 20ти хвилин дозволено ставити тільки 2 лайки");
             return "redirect:/news.htm";
         }
         else
@@ -83,8 +83,8 @@ public class NewsController {
             ses.setAttribute("amountLike",(int)tmp+1);
             tmp = (int)tmp +1;
         }
-        redirAtr.addFlashAttribute("headModal","Спасибо");
-        redirAtr.addFlashAttribute("textModal","Нам важно знать ваше мнение, с помощью лайков мы определяем что вам больше всего нравится. У вас остался еще 1 лайк, вы можете отдать его любой записи");
+        redirAtr.addFlashAttribute("headModal","Дякуємо");
+        redirAtr.addFlashAttribute("textModal","Нам важливо знати Вашу думку. За допомогою лайків ми визначаємо, що Вам найбільше до вподоби. У Вас залишився ще 1 лайк, Ви можете віддати його будь-якому запису");
         updateCommands.updateTable("news",new String[] {"views = views+1"},new String[] {"id = " + id});
         return "redirect:/news.htm";
     }
