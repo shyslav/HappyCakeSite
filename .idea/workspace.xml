@@ -79,20 +79,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footer.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="footer.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/includes/footer.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.153846">
-              <caret line="17" column="133" selection-start-line="17" selection-start-column="123" selection-end-line="17" selection-end-column="133" />
+            <state vertical-scroll-proportion="0.67741936">
+              <caret line="20" column="86" selection-start-line="20" selection-start-column="86" selection-end-line="20" selection-end-column="86" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reservation.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="reservation.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/reservation.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.9483871">
+            <state vertical-scroll-proportion="-17.653847">
               <caret line="108" column="90" selection-start-line="108" selection-start-column="90" selection-end-line="108" selection-end-column="90" />
               <folding>
                 <marker date="1462786049411" expanded="true" signature="3282:3414" placeholder="..." />
@@ -161,7 +161,6 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c9a4f7e8-4b92-43e7-a6c4-8ab617fac31d/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/sukhaniuk/select/selectCommand.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/style.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/includes/footer.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/responses.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/contacts.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/sukhaniuk/controller/NewsController.java" />
@@ -169,6 +168,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sukhaniuk/controller/ReservationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sukhaniuk/controller/ResponsesController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/reservation.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/includes/footer.jsp" />
       </list>
     </option>
   </component>
@@ -1089,15 +1089,15 @@
       <workItem from="1461866583588" duration="4222000" />
       <workItem from="1462363234296" duration="53753000" />
       <workItem from="1462543807639" duration="30976000" />
-      <workItem from="1462627277520" duration="32416000" />
+      <workItem from="1462627277520" duration="33166000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157814000" />
+    <option name="totallyTimeSpent" value="158564000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1464,7 +1464,7 @@
         <state vertical-scroll-proportion="0.55263156">
           <caret line="75" column="31" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1473,14 +1473,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.8">
           <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/includes/footer.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.153846">
-          <caret line="17" column="133" selection-start-line="17" selection-start-column="123" selection-end-line="17" selection-end-column="133" />
           <folding />
         </state>
       </provider>
@@ -1543,11 +1535,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/reservation.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.9483871">
+        <state vertical-scroll-proportion="-17.653847">
           <caret line="108" column="90" selection-start-line="108" selection-start-column="90" selection-end-line="108" selection-end-column="90" />
           <folding>
             <marker date="1462786049411" expanded="true" signature="3282:3414" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/includes/footer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67741936">
+          <caret line="20" column="86" selection-start-line="20" selection-start-column="86" selection-end-line="20" selection-end-column="86" />
+          <folding />
         </state>
       </provider>
     </entry>
