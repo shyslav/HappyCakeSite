@@ -61,7 +61,7 @@ Content
 
                 </ul>
                 <%--Популярные новости--%>
-                <h2>Самые популярные новости</h2>
+                <h2>Найпопулярніші новини</h2>
                 <c:forEach var="items" items="${popularNews}">
                     <%--<div class="box" style="padding-left: 10px;">--%>
 

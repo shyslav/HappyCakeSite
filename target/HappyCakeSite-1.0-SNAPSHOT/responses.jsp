@@ -8,7 +8,7 @@ Content
     <div class="container">
         <a class="bq_title" style="font-size: x-large; padding-left: 30px;">
             <br>
-            Отзывы о нас:
+            Відгуки про нас:
             <br>
         </a>
         <div class="row">
@@ -34,7 +34,7 @@ Content
         </div>
         <hr>
         <div class="grid_12">
-            <p class="text-center"><span class="color1 fw">Всем спасибо за ваши отзывы. Нас очень греют Ваши радушные слова, и от них мы работаем еще лучше.</span>
+            <p class="text-center"><span class="color1 fw">Дякуємо всім за Ваші відгуки! Вони дуже важливі для нас.</span>
             </p>
         </div>
         <hr>
@@ -45,12 +45,12 @@ Content
     <div class="container">
         <div class="row">
             <div class="grid_12">
-                <h2>Оставьте отзыв о нашем кафе</h2>
+                <h2>Залишіть відгук про наше кафе</h2>
                 <form class="myForm" action="/contacts/send.htm" method="POST">
-                    <input type="text" name="name" placeholder="Имя:" value=""/>
-                    <input type="email" name="email" placeholder="Почта" value=""/>
+                    <input type="text" name="name" placeholder="Ім'я:" value=""/>
+                    <input type="email" name="email" placeholder="Пошта" value=""/>
                     <input type="text" name="phone" placeholder="Телефон: +380919096699:" value=""/>
-                    <textarea name="message" placeholder="Сообщение"></textarea>
+                    <textarea name="message" placeholder="Повідомлення"></textarea>
                     <input type="submit" data-type="submit" class="btn"/>
                 </form>
             </div>

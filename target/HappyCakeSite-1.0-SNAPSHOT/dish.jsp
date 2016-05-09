@@ -8,7 +8,7 @@ Content
     <div class="container">
 
         <a class="bq_title"  style="font-size: x-large; padding-left: 30px;" >
-            Блюда за категорией:
+            Страви за категорією:
             <br><br>
         </a>
 
@@ -23,25 +23,25 @@ Content
                                 <div class="text1"><a href="#">${items.name}</a></div>
                                     ${items.description}
                                 <br>
-                                    Вес: <span class="color1 fw">${items.amount} грамм </span> <br>
+                                    Вага: <span class="color1 fw">${items.amount} гр </span> <br>
                                 <c:choose>
                                     <c:when test="${not empty items.sell }">
-                                        Цена: <span class="color1 fw"><s>${items.price}₴</s></span>
+                                        Ціна: <span class="color1 fw"><s>${items.price}₴</s></span>
                                         <span class="color1 fw"> ${items.price-items.price*items.sell/100} ₴</span>
                                         <input type="hidden" value="${items.price-items.price*items.sell/100}" name = "price">
                                     </c:when>
                                     <c:otherwise>
-                                        Цена: <span class="color1 fw"> ${items.price} ₴</span>
+                                        Ціна: <span class="color1 fw"> ${items.price} ₴</span>
                                         <input type="hidden" value="${items.price}" name="price">
                                     </c:otherwise>
                                 </c:choose>
                                     <c:if test="${items.readyORnot eq '+'}">
                                         <hr>
-                                        Блюдо выдается не сразу, скорость выполнения зависит от загруженности кафе.
+                                        Страва видається не відразу. Швидкість залежить від завантаження кафе.
                                     </c:if>
                                     <c:if test="${items.readyORnot eq '-'}">
                                         <hr>
-                                        Блюдо не требует приготовления, выдается сразу при оплате.
+                                        Страва не потребує приготування. Видається відразу.
                                     </c:if>
                                 <br>
                             </div>

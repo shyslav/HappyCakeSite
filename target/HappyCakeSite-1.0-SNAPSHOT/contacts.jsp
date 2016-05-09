@@ -8,7 +8,7 @@ Content
     <div class="container">
         <div class="row">
             <div class="grid_12">
-                <h2>Наше расположение</h2>
+                <h2>Наше розташування</h2>
                 <div class="map">
                     <div class="row">
                         <div class="grid_9">
@@ -20,7 +20,7 @@ Content
                         <c:forEach var="item" items="${contacts}">
                             <div class="grid_3">
                                 <div class="map_block">
-                                    <div class="map_title">Адресс:</div>
+                                    <div class="map_title">Адреса:</div>
                                         ${item.address}
                                 </div>
                                 <div class="map_block">
@@ -28,7 +28,7 @@ Content
                                         ${item.mobilePhone}
                                 </div>
                                 <div class="map_block">
-                                    <div class="map_title">Почта:</div>
+                                    <div class="map_title">Пошта:</div>
                                     <a href="#">${item.cafeemail}</a>
                                 </div>
                             </div>
@@ -37,8 +37,8 @@ Content
                 </div>
             </div>
             <div class="grid_8">
-                <p><span class="color1 fw">Все кафе работает с 8.30 до 22.00</span></p>
-                <p>Не коректном поведении персонала, хамство? Пишите на почту<span class="color1 fw"> reports@happycake.com </span>
+                <p><span class="color1 fw">Усі кафе працюють з 8.30 до 22.00</span></p>
+                <p>Некоректна поведінка персоналу, хамство? Пишіть на пошту<span class="color1 fw"> reports@happycake.com </span>
                 </p>
             </div>
         </div>
@@ -48,7 +48,7 @@ Content
     <div class="container">
         <div class="row">
             <div class="grid_11">
-                <h2>Оставь отзыв о нашем кафе</h2>
+                <h2>Залиши відгук про наше кафе</h2>
                 <form class="myForm" action="/contacts/send.htm" method="POST">
                         <input type="text" name="name" placeholder="Имя:" value=""/>
                         <input type="email" name="email" placeholder="Почта" value=""/>

@@ -17,7 +17,7 @@ Content
                                 <div class="text1"><a href="#">${items.name}</a></div>
                                     ${items.description}
                                 <br>
-                                <a href="category/${items.id}.htm" class="btn">Просмотреть блюда</a></div>
+                                <a href="category/${items.id}.htm" class="btn">Продивитись страви</a></div>
                         </div>
                     </div>
                 </div>

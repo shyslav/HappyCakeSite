@@ -16,7 +16,7 @@
                             <div class="maxheight">
                                 <img src="images/icon1.png" alt="">
                                 <div class="bann_title">Меню</div>
-                                <a href="/menu.htm.htm">more</a>
+                                <a href="/menu.htm.htm">Детальніше</a>
                             </div>
                         </div>
                     </div>
@@ -29,8 +29,8 @@
                             <div class="maxheight">
                                 <br>
                                 <img src="images/icon_news.png" alt="">
-                                <div class="bann_title"> Новости</div>
-                                <a href="/news.htm">more</a>
+                                <div class="bann_title"> Новини</div>
+                                <a href="/news.htm">Детальніше</a>
                             </div>
                         </div>
                         <img src="images/main/pin/buter.jpg" alt="">
@@ -45,8 +45,8 @@
                             <div class="maxheight">
                                 <br>
                                 <img src="images/icon_cont.png" alt="">
-                                <div class="bann_title"> Контакты</div>
-                                <a href="/contacts.htm">more</a>
+                                <div class="bann_title"> Контакти</div>
+                                <a href="/contacts.htm">Детальніше</a>
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
             </div>
             <c:forEach var="item" items="${randCategory}">
             <div class="gallery">
-                <div class="grid_4"><a href="${item.image}" class="gall_item"><img src="${item.image}" alt=""></a><br><h3>${item.name}</h3><a href="category/${item.id}.htm" class="link1"><img src="images/icon_more.png" alt=""></a><div class="clear"></div></div>
+                <div class="grid_4"><a href="${item.image}" class="gall_item"><img src="${item.image}" alt=""></a><div class="map_block">${item.name}</div><a href="category/${item.id}.htm" class="link1"><img src="images/icon_more.png" alt=""></a><div class="clear"></div></div>
 
                 <%--<div class="grid_4"><a href="images/big2.jpg" class="gall_item"><img src="images/page1_img5.jpg" alt=""></a><a href="#" class="link1">+</a><div class="clear"></div></div>--%>
                 <%--<div class="grid_4"><a href="images/big3.jpg" class="gall_item"><img src="images/page1_img6.jpg" alt=""></a><a href="#" class="link1">+</a><div class="clear"></div></div>--%>

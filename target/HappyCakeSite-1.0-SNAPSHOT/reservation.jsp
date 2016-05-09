@@ -12,13 +12,13 @@ Content
                     <c:choose>
                         <c:when test="${step eq 'first'}">
                             <div class="grid_9">
-                                <h2>Резервация</h2>
+                                <h2>Бронювання столика</h2>
                                 <form class="myForm" method="POST" action="/reservation/${step}.htm">
-                                    <input type="text" name="name" placeholder="Имя:" value="" required/>
+                                    <input type="text" name="name" placeholder="І'мя:" value="" required/>
                                     <input type="text" name="phone" placeholder="Телефон: +380919096699:" value=""
                                            required/>
                                     <input type="number" name="amountpeople" max="4" min="2" value=""
-                                           placeholder="Количество человек" required>
+                                           placeholder="КІлькість людей" required>
                                     <input type="date" name="date" required>
                                     <select id="country" name="time" required>
                                         <option value="10:00">10:00</option>
@@ -41,31 +41,38 @@ Content
                                         <option value="18:30">18:30</option>
                                         <option value="19:00">19:00</option>
                                     </select>
-                                    <textarea name="message" placeholder="Пожелания"></textarea>
-                                    <input type="submit" data-type="submit" class="btn"/>
+                                    <textarea name="message" placeholder="Побажання"></textarea>
+                                    <input type="submit" data-type="Відправити" class="btn"/>
                                 </form>
                             </div>
                             <div class="grid_3">
                                 <h2>Правила</h2>
                                 <ul class="list">
-                                    <li>Предложение действительно только для выбранного времени, даты, и количества
-                                        человек.
+                                        <%--<li>Предложение действительно только для выбранного времени, даты, и количества--%>
+                                        <%--человек.--%>
+                                    <li> Пропозиція дійсна тільки для обраного часу, дати та кількості людей.
                                     </li>
                                     <li>
-                                        Имя должно быть только с использованием кирилицы
+                                        <%--Имя должно быть только с использованием кирилицы--%>
+                                        Ім'я має бути тільки з використанням кирилиці.
                                     </li>
                                     <li>
-                                        Телефон должен начинатьcя на +380 и иметь 9 цифр
+                                        <%--Телефон должен начинатьcя на +380 и иметь 9 цифр--%>
+                                        Телефон має починатися з +380 та містити 9 цифр.
                                     </li>
                                     <li>
-                                        Количество человек должно быть от 2-4
+                                        <%--Количество человек должно быть от 2-4--%>
+                                        Кількість людей має бути від 2-4.
                                     </li>
                                     <li>
-                                        Предзаказ должен быть более чем 150 грн
+                                        <%--Предзаказ должен быть более чем 150 грн--%>
+                                        Предзамовлення має бути від 150ти грн.
                                     </li>
                                     <li>
-                                        Если ответ не поступил в течении 2 часов, наберите нас по телефону указанному в
-                                        разделе "Контакты"
+                                        <%--Если ответ не поступил в течении 2 часов, наберите нас по телефону указанному в--%>
+                                        <%--разделе "Контакты"--%>
+                                        Якщо відповідь не прийшла протягом 2-ох годин, наберіть на за телефоном, вказаному
+                                        у розділі "Контакти".
                                     </li>
                                 </ul>
                             </div>
@@ -81,16 +88,18 @@ Content
                                                 <a href="${items.image}" class="gall_item"><img width="100" height="330"
                                                                                                 src="${items.image}"
                                                                                                 alt=""></a>
-                                                Вес: <span class="color1 fw">${items.amount} грамм </span> <br>
+                                                Вfuf: <span class="color1 fw">${items.amount} гр. </span> <br>
 
                                                 <c:choose>
                                                     <c:when test="${not empty items.sell }">
-                                                        Цена: <span class="color1 fw"><s>${items.price}₴</s></span>
+                                                        Ціна: <span class="color1 fw"><s>${items.price}₴</s></span>
                                                         <span class="color1 fw"> ${items.price-items.price*items.sell/100} ₴</span>
-                                                        <input type="hidden" value="${items.price-items.price*items.sell/100}" name = "price">
+                                                        <input type="hidden"
+                                                               value="${items.price-items.price*items.sell/100}"
+                                                               name="price">
                                                     </c:when>
                                                     <c:otherwise>
-                                                        Цена: <span class="color1 fw"> ${items.price} ₴</span>
+                                                        Ціна: <span class="color1 fw"> ${items.price} ₴</span>
                                                         <input type="hidden" value="${items.price}" name="price">
                                                     </c:otherwise>
                                                 </c:choose>
@@ -104,17 +113,17 @@ Content
                                 </c:forEach>
                             </div>
                             <div class="grid_3">
-                                <h2>Ваши данные: </h2>
+                                <h2>Ваші дані: </h2>
                                 <c:forEach var="var" items="${sessionScope.reservationConfig}">
-                                    Имя: ${var.name} <br>
+                                    Ім'я: ${var.name} <br>
                                     Телефон: ${var.phone} <br>
-                                    Количество человек: ${var.amountPeople} <br>
+                                    Кількість людей: ${var.amountPeople} <br>
                                     Дата: ${var.date} <br>
-                                    Время: ${var.time} <br>
-                                    Пожелания: ${var.message} <br>
+                                    Час: ${var.time} <br>
+                                    Побажання: ${var.message} <br>
                                 </c:forEach>
                                 <form class="myForm" action="/reservation/changeData.htm">
-                                    <input type="submit" value="Изменить данные">
+                                    <input type="submit" value="Змінити дані">
                                 </form>
                             </div>
                             <div class="grid_3">
@@ -134,7 +143,7 @@ Content
                                     </tbody>
                                 </table>
                                 <hr>
-                                <p class="text-center">Сумма вашего предзаказа: ${total} грн</p>
+                                <p class="text-center">Сума вашого предзамовлення: ${total} грн</p>
                                 <hr>
                                 <c:if test="${total>=150}">
                                     <form class="myForm" action="/reservation/complite.htm">
@@ -145,24 +154,31 @@ Content
                             <div class="grid_3">
                                 <h2>Правила</h2>
                                 <ul class="list">
-                                    <li>Предложение действительно только для выбранного времени, даты, и количества
-                                        человек.
+                                        <%--<li>Предложение действительно только для выбранного времени, даты, и количества--%>
+                                        <%--человек.--%>
+                                    <li> Пропозиція дійсна тільки для обраного часу, дати та кількості людей.
                                     </li>
                                     <li>
-                                        Имя должно быть только с использованием кирилицы
+                                            <%--Имя должно быть только с использованием кирилицы--%>
+                                        Ім'я має бути тільки з використанням кирилиці.
                                     </li>
                                     <li>
-                                        Телефон должен начинатьcя на +380 и иметь 9 цифр
+                                            <%--Телефон должен начинатьcя на +380 и иметь 9 цифр--%>
+                                        Телефон має починатися з +380 та містити 9 цифр.
                                     </li>
                                     <li>
-                                        Количество человек должно быть от 2-4
+                                            <%--Количество человек должно быть от 2-4--%>
+                                        Кількість людей має бути від 2-4.
                                     </li>
                                     <li>
-                                        Предзаказ должен быть более чем 150 грн
+                                            <%--Предзаказ должен быть более чем 150 грн--%>
+                                        Предзамовлення має бути від 150ти грн.
                                     </li>
                                     <li>
-                                        Если ответ не поступил в течении 2 часов, наберите нас по телефону, указанному в
-                                        разделе "Контакты"
+                                            <%--Если ответ не поступил в течении 2 часов, наберите нас по телефону указанному в--%>
+                                            <%--разделе "Контакты"--%>
+                                        Якщо відповідь не прийшла протягом 2-ох годин, наберіть на за телефоном, вказаному
+                                        у розділі "Контакти".
                                     </li>
                                 </ul>
                             </div>
@@ -170,13 +186,13 @@ Content
                         </c:when>
                         <c:otherwise>
                             <div class="grid_9">
-                                <h2>Резервация</h2>
+                                <h2>Бронювання столика</h2>
                                 <form class="myForm" method="POST" action="/reservation/first.htm">
-                                    <input type="text" name="name" placeholder="Имя:" value="" required/>
+                                    <input type="text" name="name" placeholder="Ім'я:" value="" required/>
                                     <input type="text" name="phone" placeholder="Телефон: +380919096699:" value=""
                                            required/>
                                     <input type="number" name="amountpeople" max="4" min="2" value=""
-                                           placeholder="Количество человек" required>
+                                           placeholder="Кількість людей" required>
                                     <input type="date" name="date" required>
                                     <select name="time" required>
                                         <option value="10:00">10:00</option>
@@ -200,30 +216,37 @@ Content
                                         <option value="19:00">19:00</option>
                                     </select>
                                     <textarea name="message" placeholder="Пожелания"></textarea>
-                                    <input type="submit" data-type="submit" class="btn"/>
+                                    <input type="submit" data-type="Відправити" class="btn"/>
                                 </form>
                             </div>
                             <div class="grid_3">
                                 <h2>Правила</h2>
                                 <ul class="list">
-                                    <li>Предложение действительно только для выбранного времени, даты, и количества
-                                        человек.
+                                        <%--<li>Предложение действительно только для выбранного времени, даты, и количества--%>
+                                        <%--человек.--%>
+                                    <li> Пропозиція дійсна тільки для обраного часу, дати та кількості людей.
                                     </li>
                                     <li>
-                                        Имя должно быть только с использованием кирилицы
+                                            <%--Имя должно быть только с использованием кирилицы--%>
+                                        Ім'я має бути тільки з використанням кирилиці.
                                     </li>
                                     <li>
-                                        Телефон должен начинатьcя на +380 и иметь 9 цифр
+                                            <%--Телефон должен начинатьcя на +380 и иметь 9 цифр--%>
+                                        Телефон має починатися з +380 та містити 9 цифр.
                                     </li>
                                     <li>
-                                        Количество человек должно быть от 2-4
+                                            <%--Количество человек должно быть от 2-4--%>
+                                        Кількість людей має бути від 2-4.
                                     </li>
                                     <li>
-                                        Предзаказ должен быть более чем 150 грн
+                                            <%--Предзаказ должен быть более чем 150 грн--%>
+                                        Предзамовлення має бути від 150ти грн.
                                     </li>
                                     <li>
-                                        Если ответ не поступил в течении 2 часов, наберите нас по телефону указанному в
-                                        разделе "Контакты"
+                                            <%--Если ответ не поступил в течении 2 часов, наберите нас по телефону указанному в--%>
+                                            <%--разделе "Контакты"--%>
+                                        Якщо відповідь не прийшла протягом 2-ох годин, наберіть на за телефоном, вказаному
+                                        у розділі "Контакти".
                                     </li>
                                 </ul>
                             </div>

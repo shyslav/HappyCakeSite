@@ -49,7 +49,8 @@
     cursor: pointer;
 }
 .myForm input[type=submit]:hover {
-    background-color: #FF9572;
+    background-color: #ffc0ab;
+    transition-duration: 0.5s;
 }
 .text-center {
     padding-top:10px;
