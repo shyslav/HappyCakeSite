@@ -23,7 +23,7 @@ import java.util.ArrayList;
 @Controller
 public class ReservationController extends SimpleValidation {
     @RequestMapping(value = "/reservation")
-    public String news(ModelMap map, HttpServletRequest request) throws IOException, JSONException {
+    public String reservationData (ModelMap map, HttpServletRequest request) throws IOException, JSONException {
         map.addAttribute("webTitle", "Бронювання");
         map.addAttribute("webMenu", HomeController.headerLoader());
         HttpSession ses = request.getSession();
@@ -40,7 +40,7 @@ public class ReservationController extends SimpleValidation {
     }
 
     @RequestMapping(value = "/reservation/{step}")
-    public String newsTeg(@PathVariable("step") String step, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
+    public String reservationStep(@PathVariable("step") String step, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
         try {
             request.setCharacterEncoding("UTF-8");
         } catch (UnsupportedEncodingException e) {

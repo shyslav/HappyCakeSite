@@ -42,7 +42,7 @@ public class SimpleValidation {
 
     public static String messageValidation(String str)
     {
-        if(str.length()<100)
+        if(str.length()<50)
         {
             return "Текст слишком маленький";
         }

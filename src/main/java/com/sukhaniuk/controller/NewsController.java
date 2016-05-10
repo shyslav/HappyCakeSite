@@ -84,7 +84,7 @@ public class NewsController {
             tmp = (int)tmp +1;
         }
         redirAtr.addFlashAttribute("headModal","Дякуємо");
-        redirAtr.addFlashAttribute("textModal","Нам важливо знати Вашу думку. За допомогою лайків ми визначаємо, що Вам найбільше до вподоби. У Вас залишився ще 1 лайк, Ви можете віддати його будь-якому запису");
+        redirAtr.addFlashAttribute("textModal","Нам важливо знати Вашу думку. За допомогою лайків ми визначаємо, що Вам найбільше до вподоби. У Вас залишився ще "+(2-(int)tmp)+" лайк, Ви можете віддати його будь-якому запису");
         updateCommands.updateTable("news",new String[] {"views = views+1"},new String[] {"id = " + id});
         return "redirect:/news.htm";
     }
