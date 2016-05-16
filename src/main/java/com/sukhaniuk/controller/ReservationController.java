@@ -21,7 +21,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 @Controller
-public class ReservationController extends SimpleValidation {
+    public class ReservationController extends SimpleValidation {
     @RequestMapping(value = "/reservation")
     public String reservationData (ModelMap map, HttpServletRequest request) throws IOException, JSONException {
         map.addAttribute("webTitle", "Бронювання");
@@ -87,7 +87,7 @@ public class ReservationController extends SimpleValidation {
 
 
     @RequestMapping(value = "/reservation/addpreorder/{id}")
-    public String newsTeg(@PathVariable("id") int id, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
+    public String addPreorder(@PathVariable("id") int id, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
         try {
             request.setCharacterEncoding("UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -168,7 +168,7 @@ public class ReservationController extends SimpleValidation {
     }
 
     @RequestMapping(value = "/reservation/complite")
-    public String delete(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
+    public String complite(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
         HttpSession ses = request.getSession();
         Object reservationConfig = ses.getAttribute("reservationConfig");
         Object preOrderList = ses.getAttribute("preOrderList");
