@@ -7,7 +7,6 @@ import com.sukhaniuk.select.selectCommand;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by Shyshkin Vladyslav on 18.08.2016.
@@ -21,6 +20,10 @@ public class SiteData extends selectCommand {
     private ArrayList<reports> repartees;
     private final ArrayList<hotPrice> hotPrices;
 
+    /**
+     * Load all data
+     * @throws SQLException
+     */
     public SiteData() throws SQLException {
         webMenu = selectWebMenu();
         cafeCoordinates = selectCafeCoordinate();
@@ -37,6 +40,9 @@ public class SiteData extends selectCommand {
         hotPrices = selectHotPrice();
     }
 
+    /**
+     * action to reload news
+     */
     public void reloadNews() {
         try {
             newsList.clear();
@@ -49,6 +55,9 @@ public class SiteData extends selectCommand {
         }
     }
 
+    /**
+     * action to reload reports
+     */
     public void reloadReported() {
         try {
             repartees = selectReports();
