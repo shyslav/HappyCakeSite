@@ -37,11 +37,11 @@ public class MenuController extends GlobalController {
      * @return - страница блюд в данной категории
      */
     @RequestMapping(value = "/category/{id}")
-    public String dish(@PathVariable("id") String id, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
+    public String dish(@PathVariable("id") int id, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Страви");
         map.addAttribute("webMenu", headerLoader(request));
-        map.addAttribute("dish", user.getSiteData().getDishes());
+        map.addAttribute("dish", user.getSiteData().getDishes().getByCategoryId(id));
         return "/dish.jsp";
     }
 }

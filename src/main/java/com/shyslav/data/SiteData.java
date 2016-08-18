@@ -1,5 +1,6 @@
 package com.shyslav.data;
 
+import com.happycake.storage.DishStorage;
 import com.happycake.storage.NewsStorage;
 import com.sukhaniuk.models.*;
 import com.sukhaniuk.select.selectCommand;
@@ -15,7 +16,7 @@ public class SiteData extends selectCommand {
     private final ArrayList<webMenu> webMenu;
     private final ArrayList<cafeCoordinate> cafeCoordinates;
     private final ArrayList<category> categories;
-    private final ArrayList<dish> dishes;
+    private final DishStorage dishes;
     private NewsStorage newsList;
     private ArrayList<reports> repartees;
     private final ArrayList<hotPrice> hotPrices;
@@ -24,7 +25,10 @@ public class SiteData extends selectCommand {
         webMenu = selectWebMenu();
         cafeCoordinates = selectCafeCoordinate();
         categories = selectCategory();
-        dishes = selectdish(0);
+        dishes = new DishStorage();
+        selectdish(0).forEach(
+                element->dishes.add(element)
+        );
         newsList = new NewsStorage();
         for (news element : selectNews()) {
             newsList.put(element.getId(), element);
@@ -65,7 +69,7 @@ public class SiteData extends selectCommand {
         return categories;
     }
 
-    public ArrayList<dish> getDishes() {
+    public DishStorage getDishes() {
         return dishes;
     }
 
