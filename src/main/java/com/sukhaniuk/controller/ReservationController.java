@@ -1,6 +1,7 @@
 package com.sukhaniuk.controller;
 
-import com.shyslav.controller.HomeController;
+import com.happycake.GlobalController;
+import com.shyslav.data.UserBean;
 import com.shyslav.validation.SimpleValidation;
 import com.sukhaniuk.insert.insertCommand;
 import com.sukhaniuk.models.preOrder;
@@ -17,24 +18,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 @Controller
-public class ReservationController extends SimpleValidation {
+public class ReservationController extends GlobalController {
     @RequestMapping(value = "/reservation")
     public String reservationData (ModelMap map, HttpServletRequest request) throws IOException, JSONException {
+        UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Бронювання");
-        map.addAttribute("webMenu", HomeController.headerLoader());
+        map.addAttribute("webMenu", headerLoader(request));
         HttpSession ses = request.getSession();
         Object tmp = ses.getAttribute("reservationConfig");
         if (tmp != null) {
             map.addAttribute("step", "second");
-            try {
-                map.addAttribute("dish", selectCommand.selectdish(0));
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            map.addAttribute("dish", user.getSiteData().getDishes());
         }
         return "/reservation.jsp";
     }
@@ -206,11 +203,11 @@ public class ReservationController extends SimpleValidation {
 
     private ArrayList<String> validation(String name, String phone, String amountPeople) {
         ArrayList<String> errors = new ArrayList<>();
-        if (!super.nameValidation(name).equals("done")) {
-            errors.add(super.nameValidation(name));
+        if (!SimpleValidation.nameValidation(name).equals("done")) {
+            errors.add(SimpleValidation.nameValidation(name));
         }
-        if (!super.phoneValidation(phone).equals("done")) {
-            errors.add(super.phoneValidation(phone));
+        if (!SimpleValidation.phoneValidation(phone).equals("done")) {
+            errors.add(SimpleValidation.phoneValidation(phone));
         }
         int amountPeoples = Integer.parseInt(amountPeople);
         if (amountPeoples < 2 || amountPeoples > 4) {

@@ -17,7 +17,7 @@ public class selectCommand {
      * @return
      * @throws SQLException
      */
-    public static ArrayList<webMenu> selectWebMenu() throws SQLException
+    protected static ArrayList<webMenu> selectWebMenu() throws SQLException
     {
         ArrayList <webMenu> result = new ArrayList();
         String query = "select * from webmenu order by menusort";
@@ -74,7 +74,7 @@ public class selectCommand {
      * @return
      * @throws SQLException
      */
-    public static ArrayList<cafeCoordinate> selectCafeCoordinate() throws SQLException
+    protected static ArrayList<cafeCoordinate> selectCafeCoordinate() throws SQLException
     {
         ArrayList <cafeCoordinate> result = new ArrayList();
         String query = "select * from cafecoordinate";
@@ -109,7 +109,7 @@ public class selectCommand {
      * @return
      * @throws SQLException
      */
-    public static ArrayList<category> selectCategory() throws SQLException
+    protected static ArrayList<category> selectCategory() throws SQLException
     {
         ArrayList <category> result = new ArrayList();
         String query = "select * from category";
@@ -145,7 +145,7 @@ public class selectCommand {
      * @return
      * @throws SQLException
      */
-    public static ArrayList<dish> selectdish(int category) throws SQLException
+    protected static ArrayList<dish> selectdish(int category) throws SQLException
     {
         ArrayList <dish> result = new ArrayList();
         String query = new String();
@@ -190,28 +190,14 @@ public class selectCommand {
 
     /**
      * Получить Все новости (-1) Получить лучшие 3 новости (-2) Получить носоть по ид (0...id)
-     * @param select
      * @return
      * @throws SQLException
      */
-    public static ArrayList<news> selectNews(int select) throws SQLException
+    protected static ArrayList<news> selectNews() throws SQLException
     {
         ArrayList <news> result = new ArrayList();
-        String query = null;
+        String query="select * from news";
         db.getConnection();
-        switch (select) {
-            case -1:                        //Все новости
-                query="select * from news";
-                break;
-            case -2:                        //Популярные новости
-                query="select * from news ORDER BY views desc LIMIT 3";
-                break;
-            case -3:                        //Новости по тегам
-                query="select * from news group by tegs";
-                break;
-            default:                       //новости по ид
-                query="select * from news where id =" + select;
-        }
         try
         {
             db.rs = db.st.executeQuery(query);
@@ -286,7 +272,7 @@ public class selectCommand {
      * @return
      * @throws SQLException
      */
-    public static ArrayList<reports> selectReports() throws SQLException
+    protected static ArrayList<reports> selectReports() throws SQLException
     {
         ArrayList <reports> result = new ArrayList();
         String query = "select * from reports where vision = '+'";
@@ -322,7 +308,7 @@ public class selectCommand {
      * @return
      * @throws SQLException
      */
-    public static ArrayList<hotPrice> selectHotPrice() throws SQLException
+    protected static ArrayList<hotPrice> selectHotPrice() throws SQLException
     {
         ArrayList <hotPrice> result = new ArrayList();
         String query = "select * from hotprice order by  dateStart desc, dateEnd DESC";

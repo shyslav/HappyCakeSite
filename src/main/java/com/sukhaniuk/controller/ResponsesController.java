@@ -1,20 +1,17 @@
 package com.sukhaniuk.controller;
 
-import com.shyslav.controller.HomeController;
+import com.happycake.GlobalController;
+import com.shyslav.data.UserBean;
 import com.shyslav.validation.SimpleValidation;
 import com.sukhaniuk.insert.insertCommand;
-import com.sukhaniuk.select.selectCommand;
-import com.sukhaniuk.updateCommand.updateCommands;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,7 +21,7 @@ import java.util.Date;
  * Created by Shyshkin Vladyslav on 05.05.2016.
  */
 @Controller
-public class ResponsesController extends SimpleValidation{
+public class ResponsesController extends GlobalController {
     @RequestMapping(value = "/contacts/send")
     public String addResponses(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr)
     {
@@ -56,10 +53,10 @@ public class ResponsesController extends SimpleValidation{
         String email = request.getParameter("email").trim();
         String phone = request.getParameter("phone").trim();
         String message = request.getParameter("message").trim();
-        errors.add(super.messageValidation(message));
-        errors.add(super.nameValidation(name));
-        errors.add(super.emailValidation(email));
-        errors.add(super.phoneValidation(phone));
+        errors.add(SimpleValidation.messageValidation(message));
+        errors.add(SimpleValidation.nameValidation(name));
+        errors.add(SimpleValidation.emailValidation(email));
+        errors.add(SimpleValidation.phoneValidation(phone));
         for (int i = 0; i < errors.size();i++)
         {
             if(errors.get(i).equals("done"))
@@ -92,13 +89,10 @@ public class ResponsesController extends SimpleValidation{
     @RequestMapping(value = "/responses")
     public String responses(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr)
     {
+        UserBean user = getUserInfo(request);
         map.addAttribute("webTitle","Відгуки");
-        map.addAttribute("webMenu", HomeController.headerLoader());
-        try {
-            map.addAttribute("responses", selectCommand.selectReports());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        map.addAttribute("webMenu",headerLoader(request));
+        map.addAttribute("responses", user.getSiteData().getRepartees());
         return "responses.jsp";
     }
 }
