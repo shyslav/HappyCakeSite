@@ -46,9 +46,10 @@ public class NewsStorage extends HashMap<Integer, news> {
         return result;
     }
 
-    @Override
-    public news get(Object key) {
-        return super.get(key);
+    public ArrayList<news> getById(int id){
+        ArrayList <news> result = new ArrayList();
+        result.add(super.get(id));
+        return result;
     }
 
 }

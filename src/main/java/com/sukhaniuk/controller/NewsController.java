@@ -53,7 +53,7 @@ public class NewsController extends GlobalController {
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Новини");
         map.addAttribute("webMenu", headerLoader(request));
-        map.addAttribute("news", user.getSiteData().getNewsList().get(id));  //select news from id
+        map.addAttribute("news", user.getSiteData().getNewsList().getById(id));  //select news from id
         map.addAttribute("popularNews", user.getSiteData().getNewsList().getPopular()); //select popular News
         map.addAttribute("newsAll", user.getSiteData().getNewsList().uniqueTagArray()); // select all news для вывода всех тегов
         return "/news.jsp";
