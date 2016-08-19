@@ -1,10 +1,8 @@
 package com.sukhaniuk.controller;
 
 import com.happycake.GlobalController;
-import com.shyslav.controller.HomeController;
 import com.shyslav.data.UserBean;
-import com.sukhaniuk.select.selectCommand;
-import com.sukhaniuk.updateCommand.updateCommands;
+import com.sukhaniuk.updateCommand.UpdateCommand;
 import org.json.JSONException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,7 +13,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.SQLException;
 
 /**
  * Created by Shyshkin Vladyslav on 05.05.2016.
@@ -73,7 +70,7 @@ public class NewsController extends GlobalController {
         }
         redirAtr.addFlashAttribute("headModal", "Дякуємо");
         redirAtr.addFlashAttribute("textModal", "Нам важливо знати Вашу думку. За допомогою лайків ми визначаємо, що Вам найбільше до вподоби. У Вас залишився ще " + (2 - (int) tmp) + " лайк, Ви можете віддати його будь-якому запису");
-        updateCommands.updateTable("news", new String[]{"views = views+1"}, new String[]{"id = " + id});
+        UpdateCommand.updateTable("news", new String[]{"views = views+1"}, new String[]{"id = " + id});
         return "redirect:/news.htm";
     }
 }

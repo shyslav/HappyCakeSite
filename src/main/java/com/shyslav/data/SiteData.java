@@ -4,7 +4,7 @@ import com.happycake.storage.CategoryStorage;
 import com.happycake.storage.DishStorage;
 import com.happycake.storage.NewsStorage;
 import com.sukhaniuk.models.*;
-import com.sukhaniuk.select.selectCommand;
+import com.sukhaniuk.select.SelectCommand;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,14 +12,14 @@ import java.util.ArrayList;
 /**
  * Created by Shyshkin Vladyslav on 18.08.2016.
  */
-public class SiteData extends selectCommand {
-    private final ArrayList<webMenu> webMenu;
-    private final ArrayList<cafeCoordinate> cafeCoordinates;
+public class SiteData extends SelectCommand {
+    private final ArrayList<WebMenu> webMenu;
+    private final ArrayList<CafeCoordinate> cafeCoordinates;
     private final CategoryStorage categories;
     private final DishStorage dishes;
     private NewsStorage newsList;
-    private ArrayList<reports> repartees;
-    private final ArrayList<hotPrice> hotPrices;
+    private ArrayList<Reports> repartees;
+    private final ArrayList<HotPrice> hotPrices;
 
     /**
      * Load all data
@@ -37,7 +37,7 @@ public class SiteData extends selectCommand {
                 element->dishes.add(element)
         );
         newsList = new NewsStorage();
-        for (news element : selectNews()) {
+        for (News element : selectNews()) {
             newsList.put(element.getId(), element);
         }
         repartees = selectReports();
@@ -70,11 +70,11 @@ public class SiteData extends selectCommand {
         }
     }
 
-    public ArrayList<webMenu> getWebMenu() {
+    public ArrayList<WebMenu> getWebMenu() {
         return webMenu;
     }
 
-    public ArrayList<cafeCoordinate> getCafeCoordinates() {
+    public ArrayList<CafeCoordinate> getCafeCoordinates() {
         return cafeCoordinates;
     }
 
@@ -90,11 +90,11 @@ public class SiteData extends selectCommand {
         return newsList;
     }
 
-    public ArrayList<reports> getRepartees() {
+    public ArrayList<Reports> getRepartees() {
         return repartees;
     }
 
-    public ArrayList<hotPrice> getHotPrices() {
+    public ArrayList<HotPrice> getHotPrices() {
         return hotPrices;
     }
 }

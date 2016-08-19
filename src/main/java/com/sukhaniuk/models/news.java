@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by Shyshkin Vladyslav on 28.03.2016.
  */
-public class news {
+public class News {
     private int id;
     private int authorID;
     private String name;
@@ -15,7 +15,7 @@ public class news {
     private int view;
     private String imageLink;
 
-    public news(int id, int authorID, String name, String nText, Date nDate, String tegs, int view, String imageLink) {
+    public News(int id, int authorID, String name, String nText, Date nDate, String tegs, int view, String imageLink) {
         this.id = id;
         this.authorID = authorID;
         this.name = name;

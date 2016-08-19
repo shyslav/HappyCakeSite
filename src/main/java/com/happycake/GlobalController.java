@@ -1,10 +1,9 @@
 package com.happycake;
 
 import com.shyslav.data.UserBean;
-import com.sukhaniuk.models.category;
-import com.sukhaniuk.models.hotPrice;
-import com.sukhaniuk.models.webMenu;
-import com.sukhaniuk.select.selectCommand;
+import com.sukhaniuk.models.Category;
+import com.sukhaniuk.models.HotPrice;
+import com.sukhaniuk.models.WebMenu;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -36,7 +35,7 @@ public class GlobalController {
      * @param request
      * @return
      */
-    protected ArrayList<webMenu> headerLoader (HttpServletRequest request)
+    protected ArrayList<WebMenu> headerLoader (HttpServletRequest request)
     {
         UserBean user = getUserInfo(request);
         return user.getSiteData().getWebMenu();
@@ -47,7 +46,7 @@ public class GlobalController {
      * @param request
      * @return
      */
-    protected ArrayList<hotPrice> hotPriceLoader(HttpServletRequest request)
+    protected ArrayList<HotPrice> hotPriceLoader(HttpServletRequest request)
     {
         UserBean user = getUserInfo(request);
         return user.getSiteData().getHotPrices();
@@ -58,7 +57,7 @@ public class GlobalController {
      * @param request
      * @return
      */
-    protected ArrayList<category> randCategory(HttpServletRequest request)
+    protected ArrayList<Category> randCategory(HttpServletRequest request)
     {
         UserBean user = getUserInfo(request);
         return user.getSiteData().getCategories().getRand();

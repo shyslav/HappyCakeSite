@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * Created by shyshkin_vlad on 22.04.16.
  */
-public class reservation {
+public class Reservation {
     private int id;
     private int cafeId;
     private String clientName;
@@ -17,7 +17,7 @@ public class reservation {
     private int amountPeople;
     private String description;
 
-    public reservation(int id, int cafeId, String clientName, String clientPhone, Date rDate, Time rTime, String confirmORnot, int amountPeople, String description) {
+    public Reservation(int id, int cafeId, String clientName, String clientPhone, Date rDate, Time rTime, String confirmORnot, int amountPeople, String description) {
         this.id = id;
         this.cafeId = cafeId;
         this.clientName = clientName;

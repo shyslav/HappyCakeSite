@@ -6,7 +6,7 @@ import com.sukhaniuk.models.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class selectCommand {
+public class SelectCommand {
     private static DatabaseConnection db = new DatabaseConnection();
 
     /**
@@ -15,14 +15,14 @@ public class selectCommand {
      * @return
      * @throws SQLException
      */
-    protected ArrayList<webMenu> selectWebMenu() throws SQLException {
-        ArrayList<webMenu> result = new ArrayList();
+    protected ArrayList<WebMenu> selectWebMenu() throws SQLException {
+        ArrayList<WebMenu> result = new ArrayList();
         String query = "select * from webmenu order by menusort";
         db.getConnection();
         try {
             db.rs = db.st.executeQuery(query);
             while (db.rs.next()) {
-                result.add(new webMenu(
+                result.add(new WebMenu(
                         db.rs.getInt("id"),
                         db.rs.getString("name"),
                         db.rs.getString("link"),
@@ -61,14 +61,14 @@ public class selectCommand {
      * @return
      * @throws SQLException
      */
-    protected ArrayList<cafeCoordinate> selectCafeCoordinate() throws SQLException {
-        ArrayList<cafeCoordinate> result = new ArrayList();
+    protected ArrayList<CafeCoordinate> selectCafeCoordinate() throws SQLException {
+        ArrayList<CafeCoordinate> result = new ArrayList();
         String query = "select * from cafecoordinate";
         db.getConnection();
         try {
             db.rs = db.st.executeQuery(query);
             while (db.rs.next()) {
-                result.add(new cafeCoordinate(
+                result.add(new CafeCoordinate(
                         db.rs.getInt("id"),
                         db.rs.getString("adress"),
                         db.rs.getString("mobilePhone"),
@@ -90,14 +90,14 @@ public class selectCommand {
      * @return
      * @throws SQLException
      */
-    protected ArrayList<category> selectCategory() throws SQLException {
-        ArrayList<category> result = new ArrayList();
+    protected ArrayList<Category> selectCategory() throws SQLException {
+        ArrayList<Category> result = new ArrayList();
         String query = "select * from category";
         db.getConnection();
         try {
             db.rs = db.st.executeQuery(query);
             while (db.rs.next()) {
-                result.add(new category(
+                result.add(new Category(
                         db.rs.getInt("id"),
                         db.rs.getString("name"),
                         db.rs.getString("description"),
@@ -120,8 +120,8 @@ public class selectCommand {
      * @return
      * @throws SQLException
      */
-    protected ArrayList<dish> selectdish(int category) throws SQLException {
-        ArrayList<dish> result = new ArrayList();
+    protected ArrayList<Dish> selectdish(int category) throws SQLException {
+        ArrayList<Dish> result = new ArrayList();
         String query = new String();
         switch (category) {
             case 0:
@@ -134,7 +134,7 @@ public class selectCommand {
         try {
             db.rs = db.st.executeQuery(query);
             while (db.rs.next()) {
-                result.add(new dish(
+                result.add(new Dish(
                         db.rs.getInt("idfromdish"),
                         db.rs.getInt("categoryID"),
                         db.rs.getString("name"),
@@ -161,14 +161,14 @@ public class selectCommand {
      * @return
      * @throws SQLException
      */
-    protected ArrayList<news> selectNews() throws SQLException {
-        ArrayList<news> result = new ArrayList();
+    protected ArrayList<News> selectNews() throws SQLException {
+        ArrayList<News> result = new ArrayList();
         String query = "select * from news";
         db.getConnection();
         try {
             db.rs = db.st.executeQuery(query);
             while (db.rs.next()) {
-                result.add(new news(
+                result.add(new News(
                         db.rs.getInt("id"),
                         db.rs.getInt("authorID"),
                         db.rs.getString("name"),
@@ -194,14 +194,14 @@ public class selectCommand {
      * @return
      * @throws SQLException
      */
-    protected ArrayList<reports> selectReports() throws SQLException {
-        ArrayList<reports> result = new ArrayList();
+    protected ArrayList<Reports> selectReports() throws SQLException {
+        ArrayList<Reports> result = new ArrayList();
         String query = "select * from reports where vision = '+'";
         db.getConnection();
         try {
             db.rs = db.st.executeQuery(query);
             while (db.rs.next()) {
-                result.add(new reports(db.rs.getInt("id"),
+                result.add(new Reports(db.rs.getInt("id"),
                         db.rs.getString("author"),
                         db.rs.getString("rText"),
                         db.rs.getDate("rDate"),
@@ -225,14 +225,14 @@ public class selectCommand {
      * @return
      * @throws SQLException
      */
-    protected ArrayList<hotPrice> selectHotPrice() throws SQLException {
-        ArrayList<hotPrice> result = new ArrayList();
+    protected ArrayList<HotPrice> selectHotPrice() throws SQLException {
+        ArrayList<HotPrice> result = new ArrayList();
         String query = "select * from hotprice order by  dateStart desc, dateEnd DESC";
         db.getConnection();
         try {
             db.rs = db.st.executeQuery(query);
             while (db.rs.next()) {
-                result.add(new hotPrice(db.rs.getInt("id"),
+                result.add(new HotPrice(db.rs.getInt("id"),
                         db.rs.getInt("dishId"),
                         db.rs.getInt("percent"),
                         db.rs.getString("description"),

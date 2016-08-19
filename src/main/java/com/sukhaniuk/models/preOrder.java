@@ -3,13 +3,13 @@ package com.sukhaniuk.models;
 /**
  * Created by Shyshkin Vladyslav on 06.05.2016.
  */
-public class preOrder {
+public class PreOrder {
     private int dishID;
     private String dishName;
     private int amount;
     private double price;
 
-    public preOrder(int dishID, String dishName, int amount, double price) {
+    public PreOrder(int dishID, String dishName, int amount, double price) {
         this.dishID = dishID;
         this.dishName = dishName;
         this.amount = amount;

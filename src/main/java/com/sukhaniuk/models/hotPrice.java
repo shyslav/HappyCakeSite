@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by shyshkin_vlad on 22.04.16.
  */
-public class hotPrice {
+public class HotPrice {
     private int id;
     private int dishId;
     private int percent;
@@ -13,7 +13,7 @@ public class hotPrice {
     private Date dateStart;
     private Date dateEnd;
 
-    public hotPrice(int id, int dishId, int percent, String description, Date dateStart, Date dateEnd) {
+    public HotPrice(int id, int dishId, int percent, String description, Date dateStart, Date dateEnd) {
         this.id = id;
         this.dishId = dishId;
         this.percent = percent;

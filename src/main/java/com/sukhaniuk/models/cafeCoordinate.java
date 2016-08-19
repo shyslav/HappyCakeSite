@@ -3,13 +3,13 @@ package com.sukhaniuk.models;
 /**
  * Created by shyshkin_vlad on 22.04.16.
  */
-public class cafeCoordinate {
+public class CafeCoordinate {
     private int id;
     private String address;
     private String mobilePhone;
     private String cafeemail;
 
-    public cafeCoordinate(int id, String address, String mobilePhone, String cafeemail) {
+    public CafeCoordinate(int id, String address, String mobilePhone, String cafeemail) {
         this.id = id;
         this.address = address;
         this.mobilePhone = mobilePhone;

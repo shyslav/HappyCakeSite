@@ -3,7 +3,7 @@ package com.sukhaniuk.models;
 /**
  * Created by Shyshkin Vladyslav on 07.05.2016.
  */
-public class reservationData {
+public class ReservationData {
     private String name;
     private String phone;
     private String amountPeople;
@@ -11,7 +11,7 @@ public class reservationData {
     private String time;
     private String message;
 
-    public reservationData(String name, String phone, String amountPeople, String date, String time, String message) {
+    public ReservationData(String name, String phone, String amountPeople, String date, String time, String message) {
         this.name = name;
         this.phone = phone;
         this.amountPeople = amountPeople;

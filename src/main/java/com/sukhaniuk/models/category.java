@@ -3,13 +3,13 @@ package com.sukhaniuk.models;
 /**
  * Created by shyshkin_vlad on 22.04.16.
  */
-public class category {
+public class Category {
     private int id;
     private String name;
     private String description;
     private String image;
 
-    public category(int id, String name, String description, String image) {
+    public Category(int id, String name, String description, String image) {
         this.id = id;
         this.name = name;
         this.description = description;

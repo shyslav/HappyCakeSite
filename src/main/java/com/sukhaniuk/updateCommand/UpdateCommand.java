@@ -7,7 +7,7 @@ import java.sql.SQLException;
 /**
  * Created by Shyshkin Vladyslav on 05.05.2016.
  */
-public class updateCommands {
+public class UpdateCommand {
     private static DatabaseConnection db = new DatabaseConnection();
     public static String updateTable(String tableName, String [] args, String [] where)
     {

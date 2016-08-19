@@ -4,9 +4,9 @@ import com.happycake.GlobalController;
 import com.shyslav.data.UserBean;
 import com.shyslav.validation.SimpleValidation;
 import com.sukhaniuk.insert.insertCommand;
-import com.sukhaniuk.models.preOrder;
-import com.sukhaniuk.models.reservationData;
-import com.sukhaniuk.select.selectCommand;
+import com.sukhaniuk.models.PreOrder;
+import com.sukhaniuk.models.ReservationData;
+import com.sukhaniuk.select.SelectCommand;
 import org.json.JSONException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -72,8 +72,8 @@ public class ReservationController extends GlobalController {
                     return "redirect:/reservation.htm";
                 } else {
                     redirAtr.addFlashAttribute("step", "second");
-                    ArrayList<reservationData> reservationData = new ArrayList<>();
-                    reservationData.add(new reservationData(name, phone, amountPeople, date, time, message));
+                    ArrayList<ReservationData> reservationData = new ArrayList<>();
+                    reservationData.add(new ReservationData(name, phone, amountPeople, date, time, message));
                     ses.setAttribute("reservationConfig", reservationData);
                 }
                 break;
@@ -100,17 +100,17 @@ public class ReservationController extends GlobalController {
             redirAtr.addFlashAttribute("textModal", "Час сесії минув. Введіть дані знову");
             return "redirect:/reservation.htm";
         }
-        ArrayList<preOrder> preOrders = new ArrayList<>();
+        ArrayList<PreOrder> preOrders = new ArrayList<>();
         int amount = Integer.parseInt(request.getParameter("amount"));
         double price = Double.parseDouble(request.getParameter("price"));
         String dishName = request.getParameter("dishName");
         if (tmp == null) {
-            preOrders.add(new preOrder(id, dishName, amount, amount * price));
+            preOrders.add(new PreOrder(id, dishName, amount, amount * price));
             ses.setAttribute("preOrderList", preOrders);
         } else {
-            preOrders = (ArrayList<preOrder>) ses.getAttribute("preOrderList");
+            preOrders = (ArrayList<PreOrder>) ses.getAttribute("preOrderList");
             boolean comp = false;
-            for (preOrder order : preOrders) {
+            for (PreOrder order : preOrders) {
                 if (order.getDishID() == id) {
                     order.setAmount(order.getAmount() + amount);
                     order.setPrice(order.getAmount() * price);
@@ -119,7 +119,7 @@ public class ReservationController extends GlobalController {
                 }
             }
             if(!comp) {
-                preOrders.add(new preOrder(id, dishName, amount,amount*price));
+                preOrders.add(new PreOrder(id, dishName, amount,amount*price));
             }
             ses.setAttribute("preOrderList", preOrders);
         }
@@ -133,14 +133,14 @@ public class ReservationController extends GlobalController {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        ArrayList<preOrder> preOrders;
+        ArrayList<PreOrder> preOrders;
         HttpSession ses = request.getSession();
         Object tmp = ses.getAttribute("preOrderList");
         if (tmp == null) {
             redirAtr.addFlashAttribute("headModal", "Помилка");
             redirAtr.addFlashAttribute("textModal", "Ви намагаєтесь видалити недобавлену до кошика сраву.");
         } else {
-            preOrders = (ArrayList<preOrder>) ses.getAttribute("preOrderList");
+            preOrders = (ArrayList<PreOrder>) ses.getAttribute("preOrderList");
             for (int i = 0; i < preOrders.size(); i++) {
                 if (preOrders.get(i).getDishID() == delete) {
                     preOrders.remove(i);
@@ -175,22 +175,22 @@ public class ReservationController extends GlobalController {
             redirAtr.addFlashAttribute("textModal", "Ви намагались виконати невірний запит");
             return "redirect:/reservation.htm";
         }
-        ArrayList<preOrder> preOrders;
-        preOrders = (ArrayList<preOrder>) preOrderList;
-        ArrayList<reservationData> resData;
-        resData = (ArrayList<reservationData>) reservationConfig;
+        ArrayList<PreOrder> preOrders;
+        preOrders = (ArrayList<PreOrder>) preOrderList;
+        ArrayList<ReservationData> resData;
+        resData = (ArrayList<ReservationData>) reservationConfig;
         //get sum
         double sum = 0.0;
-        for (preOrder order : preOrders) {
+        for (PreOrder order : preOrders) {
             sum += order.getPrice() * order.getAmount();
         }
         if (sum < 150.0) {
             redirAtr.addFlashAttribute("headModal", "Помилка");
             redirAtr.addFlashAttribute("textModal", "Сума замовлення менша за 150 грн");
         } else {
-            int max = selectCommand.selectMaxFromReservation() + 1;
+            int max = SelectCommand.selectMaxFromReservation() + 1;
             insertCommand.insert("reservation", new String[]{"1", resData.get(0).getName(), resData.get(0).getPhone(), resData.get(0).getDate(), resData.get(0).getTime(), "-", resData.get(0).getAmountPeople(), resData.get(0).getMessage()}, new String[]{"cafeID", "clientName", "clientPhone", "rDate", "rTime", "confirmORnot", "amountPeople", "description"});
-            for (preOrder order : preOrders) {
+            for (PreOrder order : preOrders) {
                 insertCommand.insert("preorder", new String[]{String.valueOf(max), String.valueOf(order.getDishID()), String.valueOf(order.getAmount()), String.valueOf(order.getPrice())}, new String[]{"reservID", "dishID", "amount", "price"});
             }
             ses.removeAttribute("reservationConfig");

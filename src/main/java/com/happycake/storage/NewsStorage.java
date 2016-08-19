@@ -1,14 +1,14 @@
 package com.happycake.storage;
 
-import com.sukhaniuk.models.news;
+import com.sukhaniuk.models.News;
 
 import java.util.*;
 /**
  * Created by Shyshkin Vladyslav on 18.08.2016.
  */
-public class NewsStorage extends HashMap<Integer, news> {
+public class NewsStorage extends HashMap<Integer, News> {
     @Override
-    public news put(Integer key, news value) {
+    public News put(Integer key, News value) {
         return super.put(key, value);
     }
 
@@ -16,9 +16,9 @@ public class NewsStorage extends HashMap<Integer, news> {
      * Get 3 popular news
      * @return arraylist of popular news
      */
-    public ArrayList<news> getPopular() {
-        ArrayList<news> result = new ArrayList();
-        List<news> listOfNews = new ArrayList(this.values());
+    public ArrayList<News> getPopular() {
+        ArrayList<News> result = new ArrayList();
+        List<News> listOfNews = new ArrayList(this.values());
         listOfNews.sort((e1, e2) -> e2.getView() - e1.getView());
         int end = 3;
         if (end > listOfNews.size()) {
@@ -30,9 +30,9 @@ public class NewsStorage extends HashMap<Integer, news> {
         return result;
     }
 
-    public ArrayList<news> getByTag(String teg){
-        ArrayList<news> result = new ArrayList();
-        for (news element: this.values()){
+    public ArrayList<News> getByTag(String teg){
+        ArrayList<News> result = new ArrayList();
+        for (News element: this.values()){
             if(element.getTegs().contains(teg)){
                 result.add(element);
             }
@@ -54,7 +54,7 @@ public class NewsStorage extends HashMap<Integer, news> {
      */
     public ArrayList uniqueTagArray(){
         ArrayList result = new ArrayList();
-        for (news element: this.values()){
+        for (News element: this.values()){
             if(!result.contains(element.getTegs())){
                 result.add(element);
             }
@@ -67,7 +67,7 @@ public class NewsStorage extends HashMap<Integer, news> {
      * @param id id news
      * @return arraylist of news
      */
-    public ArrayList<news> getById(int id){
+    public ArrayList<News> getById(int id){
         ArrayList result = new ArrayList();
         result.add(super.get(id));
         return result;

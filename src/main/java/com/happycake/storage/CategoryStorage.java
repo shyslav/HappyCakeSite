@@ -1,6 +1,6 @@
 package com.happycake.storage;
 
-import com.sukhaniuk.models.category;
+import com.sukhaniuk.models.Category;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -8,7 +8,7 @@ import java.util.Random;
 /**
  * Created by Shyshkin Vladyslav on 19.08.2016.
  */
-public class CategoryStorage extends ArrayList<category> {
+public class CategoryStorage extends ArrayList<Category> {
     private final int RANDOM_ELEMENTS_ON_PAGE = 3;
 
     /**

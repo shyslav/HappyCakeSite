@@ -3,13 +3,13 @@ package com.sukhaniuk.models;
 /**
  * Created by shyshkin_vlad on 22.04.16.
  */
-public class webMenu {
+public class WebMenu {
     private int id;
     private String name;
     private String link;
     private int menuSort;
 
-    public webMenu(int id, String name, String link, int menuSort) {
+    public WebMenu(int id, String name, String link, int menuSort) {
         this.id = id;
         this.name = name;
         this.link = link;
