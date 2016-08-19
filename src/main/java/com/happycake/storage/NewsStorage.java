@@ -30,6 +30,16 @@ public class NewsStorage extends HashMap<Integer, news> {
         return result;
     }
 
+    public ArrayList<news> getByTag(String teg){
+        ArrayList<news> result = new ArrayList();
+        for (news element: this.values()){
+            if(element.getTegs().contains(teg)){
+                result.add(element);
+            }
+        }
+        return result;
+    }
+
     /**
      *  Get map by arraylist
      * @return arrylist of news

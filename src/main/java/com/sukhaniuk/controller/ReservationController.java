@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
+@SuppressWarnings("unused")
 @Controller
 public class ReservationController extends GlobalController {
     @RequestMapping(value = "/reservation")
@@ -109,10 +110,10 @@ public class ReservationController extends GlobalController {
         } else {
             preOrders = (ArrayList<preOrder>) ses.getAttribute("preOrderList");
             boolean comp = false;
-            for (int i = 0; i < preOrders.size(); i++) {
-                if (preOrders.get(i).getDishID() == id) {
-                    preOrders.get(i).setAmount(preOrders.get(i).getAmount() + amount);
-                    preOrders.get(i).setPrice(preOrders.get(i).getAmount()*price);
+            for (preOrder order : preOrders) {
+                if (order.getDishID() == id) {
+                    order.setAmount(order.getAmount() + amount);
+                    order.setPrice(order.getAmount() * price);
                     comp = true;
                     break;
                 }
@@ -132,7 +133,7 @@ public class ReservationController extends GlobalController {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        ArrayList<preOrder> preOrders = new ArrayList<>();
+        ArrayList<preOrder> preOrders;
         HttpSession ses = request.getSession();
         Object tmp = ses.getAttribute("preOrderList");
         if (tmp == null) {
@@ -174,14 +175,14 @@ public class ReservationController extends GlobalController {
             redirAtr.addFlashAttribute("textModal", "Ви намагались виконати невірний запит");
             return "redirect:/reservation.htm";
         }
-        ArrayList<preOrder> preOrders = new ArrayList<>();
+        ArrayList<preOrder> preOrders;
         preOrders = (ArrayList<preOrder>) preOrderList;
-        ArrayList<reservationData> resData = new ArrayList<>();
+        ArrayList<reservationData> resData;
         resData = (ArrayList<reservationData>) reservationConfig;
         //get sum
         double sum = 0.0;
-        for (int i = 0; i < preOrders.size(); i++) {
-            sum += preOrders.get(i).getPrice() * preOrders.get(i).getAmount();
+        for (preOrder order : preOrders) {
+            sum += order.getPrice() * order.getAmount();
         }
         if (sum < 150.0) {
             redirAtr.addFlashAttribute("headModal", "Помилка");
@@ -189,8 +190,8 @@ public class ReservationController extends GlobalController {
         } else {
             int max = selectCommand.selectMaxFromReservation() + 1;
             insertCommand.insert("reservation", new String[]{"1", resData.get(0).getName(), resData.get(0).getPhone(), resData.get(0).getDate(), resData.get(0).getTime(), "-", resData.get(0).getAmountPeople(), resData.get(0).getMessage()}, new String[]{"cafeID", "clientName", "clientPhone", "rDate", "rTime", "confirmORnot", "amountPeople", "description"});
-            for (int i = 0; i < preOrders.size(); i++) {
-                insertCommand.insert("preorder", new String[]{String.valueOf(max), String.valueOf(preOrders.get(i).getDishID()), String.valueOf(preOrders.get(i).getAmount()), String.valueOf(preOrders.get(i).getPrice())}, new String[]{"reservID", "dishID", "amount", "price"});
+            for (preOrder order : preOrders) {
+                insertCommand.insert("preorder", new String[]{String.valueOf(max), String.valueOf(order.getDishID()), String.valueOf(order.getAmount()), String.valueOf(order.getPrice())}, new String[]{"reservID", "dishID", "amount", "price"});
             }
             ses.removeAttribute("reservationConfig");
             ses.removeAttribute("preOrderList");
