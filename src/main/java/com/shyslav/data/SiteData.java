@@ -1,5 +1,6 @@
 package com.shyslav.data;
 
+import com.happycake.storage.CategoryStorage;
 import com.happycake.storage.DishStorage;
 import com.happycake.storage.NewsStorage;
 import com.sukhaniuk.models.*;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class SiteData extends selectCommand {
     private final ArrayList<webMenu> webMenu;
     private final ArrayList<cafeCoordinate> cafeCoordinates;
-    private final ArrayList<category> categories;
+    private final CategoryStorage categories;
     private final DishStorage dishes;
     private NewsStorage newsList;
     private ArrayList<reports> repartees;
@@ -27,7 +28,10 @@ public class SiteData extends selectCommand {
     public SiteData() throws SQLException {
         webMenu = selectWebMenu();
         cafeCoordinates = selectCafeCoordinate();
-        categories = selectCategory();
+        categories = new CategoryStorage();
+        selectCategory().forEach(
+                element->categories.add(element)
+        );
         dishes = new DishStorage();
         selectdish(0).forEach(
                 element->dishes.add(element)
@@ -74,7 +78,7 @@ public class SiteData extends selectCommand {
         return cafeCoordinates;
     }
 
-    public ArrayList<category> getCategories() {
+    public CategoryStorage getCategories() {
         return categories;
     }
 

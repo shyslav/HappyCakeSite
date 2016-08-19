@@ -338,38 +338,4 @@ public class selectCommand {
         }
         return result;
     }
-    /**
-     * Получить 3 рандомные категории
-     * @return
-     * @throws SQLException
-     */
-    public static ArrayList<category> selectRandCategory() throws SQLException
-    {
-        ArrayList <category> result = new ArrayList();
-        String query = "SELECT * FROM category ORDER BY RAND() LIMIT 3 ";
-        db.getConnection();
-        try
-        {
-            db.rs = db.st.executeQuery(query);
-            while(db.rs.next())
-            {
-                result.add(new category(
-                        db.rs.getInt("id"),
-                        db.rs.getString("name"),
-                        db.rs.getString("description"),
-                        db.rs.getString("image")));
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
-        finally
-        {
-            db.closeConnection();
-            db.rs.close();
-            db.st.close();
-        }
-        return result;
-    }
 }

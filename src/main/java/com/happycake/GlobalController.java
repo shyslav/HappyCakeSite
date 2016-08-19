@@ -60,12 +60,7 @@ public class GlobalController {
      */
     protected ArrayList<category> randCategory(HttpServletRequest request)
     {
-        ArrayList<category> category = null;
-        try {
-            category = selectCommand.selectRandCategory();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return category;
+        UserBean user = getUserInfo(request);
+        return user.getSiteData().getCategories().getRand();
     }
 }
