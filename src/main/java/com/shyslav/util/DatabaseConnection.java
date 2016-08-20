@@ -11,11 +11,13 @@ public class DatabaseConnection {
     public Statement st;
     public ResultSet rs;
 
+    /**
+     * Open mysql connection and create statement
+     */
     public void getConnection()
     {
         ClassLoader classLoader = getClass().getClassLoader();
         Properties props = new Properties();
-        //try (InputStream in = DatabaseConnection.class.getResourceAsStream("database.properties")) {
         try (InputStream in = classLoader.getResourceAsStream("database/database.properties")) {
         props.load(in);
         } catch (IOException ex) {
@@ -31,6 +33,28 @@ public class DatabaseConnection {
             System.out.println("Error"+ex);
         }
     }
+
+    /**
+     * Get connection without statement
+     * @return connection
+     */
+    public Connection getPrepareConnection(){
+        ClassLoader classLoader = getClass().getClassLoader();
+        Properties props = new Properties();
+        try (InputStream in = classLoader.getResourceAsStream("database/database.properties")) {
+            props.load(in);
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        try {
+            Class.forName(props.getProperty("jdbc.drivers"));
+            con = DriverManager.getConnection(props.getProperty("jdbc.url"),props.getProperty("jdbc.username"),props.getProperty("jdbc.password"));
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return con;
+    }
+
     public void closeConnection()
     {
         try {
