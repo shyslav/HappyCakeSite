@@ -22,7 +22,7 @@ public class DatabaseInsert {
      * @return result of query execute
      */
     public static String insert(String tableName, String[] values, String[] rows) {
-        db.getConnection();
+        db.openConnection();
         String command = "insert into " + tableName + "(" + String.join(",", rows) + ") values ('" + String.join("','", values) + "')";
         System.out.println(command);
         try {
@@ -45,7 +45,7 @@ public class DatabaseInsert {
      * @return result of query execute
      */
     public static boolean prepareInsert(String tableName, Object[] values, String[] rows) {
-        Connection conn = db.getPrepareConnection();
+        Connection conn = db.getConnection();
 
         String command = "insert into " + tableName + "(" + String.join(",", rows) + ") values (" + generatePrepare(values.length) + ")";
         try {

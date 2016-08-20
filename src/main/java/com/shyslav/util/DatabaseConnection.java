@@ -14,7 +14,7 @@ public class DatabaseConnection {
     /**
      * Open mysql connection and create statement
      */
-    public void getConnection()
+    public void openConnection()
     {
         ClassLoader classLoader = getClass().getClassLoader();
         Properties props = new Properties();
@@ -38,7 +38,7 @@ public class DatabaseConnection {
      * Get connection without statement
      * @return connection
      */
-    public Connection getPrepareConnection(){
+    public Connection getConnection(){
         ClassLoader classLoader = getClass().getClassLoader();
         Properties props = new Properties();
         try (InputStream in = classLoader.getResourceAsStream("database/database.properties")) {

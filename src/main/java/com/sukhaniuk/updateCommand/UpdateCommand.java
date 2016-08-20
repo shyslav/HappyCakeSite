@@ -13,7 +13,7 @@ public class UpdateCommand {
     {
         String query = "update "+ tableName +" set " +String.join(",",args) + " where " + String.join(" and ",where);
         System.out.println(query);
-        db.getConnection();
+        db.openConnection();
         try {
             db.st.execute(query);
         } catch (SQLException ex) {

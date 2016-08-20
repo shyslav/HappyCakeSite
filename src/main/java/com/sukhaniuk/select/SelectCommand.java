@@ -18,7 +18,7 @@ public class SelectCommand {
     protected ArrayList<WebMenu> selectWebMenu() throws SQLException {
         ArrayList<WebMenu> result = new ArrayList();
         String query = "select * from webmenu order by menusort";
-        db.getConnection();
+        db.openConnection();
         try {
             db.rs = db.st.executeQuery(query);
             while (db.rs.next()) {
@@ -40,7 +40,7 @@ public class SelectCommand {
 
     public static int selectMaxFromReservation() {
         String query = "select max(id) from reservation";
-        db.getConnection();
+        db.openConnection();
         int max = 1;
         try {
             db.rs = db.st.executeQuery(query);
@@ -64,7 +64,7 @@ public class SelectCommand {
     protected ArrayList<CafeCoordinate> selectCafeCoordinate() throws SQLException {
         ArrayList<CafeCoordinate> result = new ArrayList();
         String query = "select * from cafecoordinate";
-        db.getConnection();
+        db.openConnection();
         try {
             db.rs = db.st.executeQuery(query);
             while (db.rs.next()) {
@@ -93,7 +93,7 @@ public class SelectCommand {
     protected ArrayList<Category> selectCategory() throws SQLException {
         ArrayList<Category> result = new ArrayList();
         String query = "select * from category";
-        db.getConnection();
+        db.openConnection();
         try {
             db.rs = db.st.executeQuery(query);
             while (db.rs.next()) {
@@ -130,7 +130,7 @@ public class SelectCommand {
             default:
                 query = "select id as idfromdish, categoryID, name, description, amount, price, image, readyORnot, (select percent from hotprice where dishID = idfromdish and dateEnd>=curdate() ) as sell from dish  where categoryID = " + category;
         }
-        db.getConnection();
+        db.openConnection();
         try {
             db.rs = db.st.executeQuery(query);
             while (db.rs.next()) {
@@ -164,7 +164,7 @@ public class SelectCommand {
     protected ArrayList<News> selectNews() throws SQLException {
         ArrayList<News> result = new ArrayList();
         String query = "select * from news";
-        db.getConnection();
+        db.openConnection();
         try {
             db.rs = db.st.executeQuery(query);
             while (db.rs.next()) {
@@ -197,7 +197,7 @@ public class SelectCommand {
     protected ArrayList<Reports> selectReports() throws SQLException {
         ArrayList<Reports> result = new ArrayList();
         String query = "select * from reports where vision = '+'";
-        db.getConnection();
+        db.openConnection();
         try {
             db.rs = db.st.executeQuery(query);
             while (db.rs.next()) {
@@ -228,7 +228,7 @@ public class SelectCommand {
     protected ArrayList<HotPrice> selectHotPrice() throws SQLException {
         ArrayList<HotPrice> result = new ArrayList();
         String query = "select * from hotprice order by  dateStart desc, dateEnd DESC";
-        db.getConnection();
+        db.openConnection();
         try {
             db.rs = db.st.executeQuery(query);
             while (db.rs.next()) {
