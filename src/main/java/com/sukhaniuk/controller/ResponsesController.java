@@ -3,7 +3,7 @@ package com.sukhaniuk.controller;
 import com.happycake.GlobalController;
 import com.shyslav.data.UserBean;
 import com.shyslav.validation.SimpleValidation;
-import com.sukhaniuk.insert.insertCommand;
+import com.sukhaniuk.insert.DatabaseInsert;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -75,7 +75,7 @@ public class ResponsesController extends GlobalController {
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date date = new Date();
             //выполнить вставку в таблицу
-            insertCommand.insert("reports",new String [] {name,message,dateFormat.format(date),email,phone,"-"},new String [] {"author","rText","rDate","mail","phone","vision"});
+            DatabaseInsert.insert("reports",new String [] {name,message,dateFormat.format(date),email,phone,"-"},new String [] {"author","rText","rDate","mail","phone","vision"});
             return "redirect:/responses.htm";
         }
         else
