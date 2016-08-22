@@ -2,6 +2,7 @@ package com.sukhaniuk.select;
 
 import com.shyslav.util.DatabaseConnection;
 import com.sukhaniuk.models.*;
+import org.apache.commons.io.IOUtils;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -101,7 +102,7 @@ public class SelectCommand {
                         db.rs.getInt("id"),
                         db.rs.getString("name"),
                         db.rs.getString("description"),
-                        db.rs.getString("image")));
+                        IOUtils.toByteArray(db.rs.getBinaryStream("image"))));
             }
         } catch (Exception ex) {
             System.out.println(ex);
@@ -141,7 +142,7 @@ public class SelectCommand {
                         db.rs.getString("description"),
                         db.rs.getInt("amount"),
                         db.rs.getDouble("price"),
-                        db.rs.getString("image"),
+                        IOUtils.toByteArray(db.rs.getBinaryStream("image")),
                         db.rs.getString("readyORnot").trim(),
                         db.rs.getString("sell")));
             }

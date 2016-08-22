@@ -3,13 +3,21 @@ package com.happycake.storage;
 import com.sukhaniuk.models.Category;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 /**
  * Created by Shyshkin Vladyslav on 19.08.2016.
  */
 public class CategoryStorage extends ArrayList<Category> {
+    private HashMap<Integer,Category> map = new HashMap();
     private final int RANDOM_ELEMENTS_ON_PAGE = 3;
+
+    @Override
+    public boolean add(Category category) {
+        map.put(category.getId(),category);
+        return super.add(category);
+    }
 
     /**
      * Get rand category
@@ -48,5 +56,14 @@ public class CategoryStorage extends ArrayList<Category> {
             }
         }
         return false;
+    }
+
+    /**
+     * Get arrayelement by id
+     * @param id category id
+     * @return category object
+     */
+    public Category getById(int id){
+        return map.get(id);
     }
 }
