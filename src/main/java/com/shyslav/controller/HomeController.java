@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.sql.SQLException;
-
 /**
  * Created by shyshkin_vlad on 10.04.16.
  */
@@ -32,11 +31,5 @@ public class HomeController extends GlobalController {
         map.addAttribute("webMenu",headerLoader(request));
         map.addAttribute("contacts",user.getSiteData().getCafeCoordinates());
         return "contacts.jsp";
-    }
-    @RequestMapping(value="lalal")
-    public String lalal(ModelMap map, HttpServletRequest request) throws IOException, JSONException {
-        UserBean user = getUserInfo(request);
-        map.addAttribute("webTitle","lol");
-        return "index.jsp";
     }
 }

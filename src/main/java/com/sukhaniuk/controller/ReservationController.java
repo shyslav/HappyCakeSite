@@ -3,7 +3,7 @@ package com.sukhaniuk.controller;
 import com.happycake.GlobalController;
 import com.shyslav.data.UserBean;
 import com.shyslav.validation.SimpleValidation;
-import com.sukhaniuk.insert.insertCommand;
+import com.sukhaniuk.insert.DatabaseInsert;
 import com.sukhaniuk.models.PreOrder;
 import com.sukhaniuk.models.ReservationData;
 import com.sukhaniuk.select.SelectCommand;
@@ -189,9 +189,9 @@ public class ReservationController extends GlobalController {
             redirAtr.addFlashAttribute("textModal", "Сума замовлення менша за 150 грн");
         } else {
             int max = SelectCommand.selectMaxFromReservation() + 1;
-            insertCommand.insert("reservation", new String[]{"1", resData.get(0).getName(), resData.get(0).getPhone(), resData.get(0).getDate(), resData.get(0).getTime(), "-", resData.get(0).getAmountPeople(), resData.get(0).getMessage()}, new String[]{"cafeID", "clientName", "clientPhone", "rDate", "rTime", "confirmORnot", "amountPeople", "description"});
+            DatabaseInsert.insert("reservation", new String[]{"1", resData.get(0).getName(), resData.get(0).getPhone(), resData.get(0).getDate(), resData.get(0).getTime(), "-", resData.get(0).getAmountPeople(), resData.get(0).getMessage()}, new String[]{"cafeID", "clientName", "clientPhone", "rDate", "rTime", "confirmORnot", "amountPeople", "description"});
             for (PreOrder order : preOrders) {
-                insertCommand.insert("preorder", new String[]{String.valueOf(max), String.valueOf(order.getDishID()), String.valueOf(order.getAmount()), String.valueOf(order.getPrice())}, new String[]{"reservID", "dishID", "amount", "price"});
+                DatabaseInsert.insert("preorder", new String[]{String.valueOf(max), String.valueOf(order.getDishID()), String.valueOf(order.getAmount()), String.valueOf(order.getPrice())}, new String[]{"reservID", "dishID", "amount", "price"});
             }
             ses.removeAttribute("reservationConfig");
             ses.removeAttribute("preOrderList");
