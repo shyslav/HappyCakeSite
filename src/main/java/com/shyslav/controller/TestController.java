@@ -2,12 +2,14 @@ package com.shyslav.controller;
 
 import com.happycake.GlobalController;
 import com.shyslav.data.UserBean;
-import com.shyslav.util.DatabaseConnection;
+import database.configuration.DatabaseConnection;
+import database.select.SelectCommand;
 import org.apache.commons.io.IOUtils;
-import org.json.JSONException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import sitemodels.*;
+import sitestorages.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +22,7 @@ import java.io.InputStream;
 @Controller
 public class TestController extends GlobalController {
     @RequestMapping(value="imageTest")
-    public void imageTest(ModelMap map, HttpServletRequest request, HttpServletResponse response) throws IOException, JSONException {
+    public void imageTest(ModelMap map, HttpServletRequest request, HttpServletResponse response) throws IOException {
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle","lol");
 

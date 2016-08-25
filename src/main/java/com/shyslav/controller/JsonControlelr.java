@@ -2,9 +2,8 @@ package com.shyslav.controller;
 
 import com.happycake.GlobalController;
 import com.shyslav.data.UserBean;
-import com.sukhaniuk.models.CafeCoordinate;
-import com.sukhaniuk.models.*;
-import com.sukhaniuk.select.SelectCommand;
+import database.select.SelectCommand;
+import sitemodels.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

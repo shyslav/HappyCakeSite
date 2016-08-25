@@ -1,10 +1,9 @@
 package com.shyslav.data;
 
-import com.happycake.storage.CategoryStorage;
-import com.happycake.storage.DishStorage;
-import com.happycake.storage.NewsStorage;
-import com.sukhaniuk.models.*;
-import com.sukhaniuk.select.SelectCommand;
+
+import database.select.SelectCommand;
+import sitemodels.*;
+import sitestorages.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

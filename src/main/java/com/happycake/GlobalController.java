@@ -1,10 +1,7 @@
 package com.happycake;
 
 import com.shyslav.data.UserBean;
-import com.sukhaniuk.models.Category;
-import com.sukhaniuk.models.HotPrice;
-import com.sukhaniuk.models.WebMenu;
-
+import sitemodels.*;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 import java.util.ArrayList;

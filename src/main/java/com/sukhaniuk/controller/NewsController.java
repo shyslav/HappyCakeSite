@@ -2,7 +2,7 @@ package com.sukhaniuk.controller;
 
 import com.happycake.GlobalController;
 import com.shyslav.data.UserBean;
-import com.sukhaniuk.updateCommand.UpdateCommand;
+import database.updateCommand.UpdateCommand;
 import org.json.JSONException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

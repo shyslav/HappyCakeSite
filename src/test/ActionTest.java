@@ -1,5 +1,5 @@
-import com.shyslav.util.DatabaseConnection;
-import com.sukhaniuk.insert.DatabaseInsert;
+import database.configuration.DatabaseConnection;
+import database.insert.DatabaseInsert;
 import junit.framework.Assert;
 import org.junit.Test;
 
