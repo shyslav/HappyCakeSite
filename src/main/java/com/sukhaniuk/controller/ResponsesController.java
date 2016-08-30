@@ -3,6 +3,7 @@ package com.sukhaniuk.controller;
 import com.happycake.GlobalController;
 import com.shyslav.data.UserBean;
 import database.insert.DatabaseInsert;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,9 +23,12 @@ import java.util.Date;
  */
 @Controller
 public class ResponsesController extends GlobalController {
+    private static final Logger log = Logger.getLogger(ResponsesController.class.getName());
+
     @RequestMapping(value = "/contacts/send")
     public String addResponses(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr)
     {
+        log.info("controller enter to add response");
         try {
             request.setCharacterEncoding("UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -89,6 +93,7 @@ public class ResponsesController extends GlobalController {
     @RequestMapping(value = "/responses")
     public String responses(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr)
     {
+        log.info("controller enter to view all responses");
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle","Відгуки");
         map.addAttribute("webMenu",headerLoader(request));

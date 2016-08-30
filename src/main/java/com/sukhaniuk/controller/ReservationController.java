@@ -4,6 +4,7 @@ import com.happycake.GlobalController;
 import com.shyslav.data.UserBean;
 import database.insert.DatabaseInsert;
 import database.select.SelectCommand;
+import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,8 +24,10 @@ import java.util.ArrayList;
 @SuppressWarnings("unused")
 @Controller
 public class ReservationController extends GlobalController {
+    private static final Logger log = Logger.getLogger(ReservationController.class.getName());
     @RequestMapping(value = "/reservation")
     public String reservationData (ModelMap map, HttpServletRequest request) throws IOException, JSONException {
+        log.info("controller enter to reservation");
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Бронювання");
         map.addAttribute("webMenu", headerLoader(request));
@@ -39,6 +42,7 @@ public class ReservationController extends GlobalController {
 
     @RequestMapping(value = "/reservation/{step}")
     public String reservationStep(@PathVariable("step") String step, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
+        log.info("controller enter to reservation by step where step = " + step);
         try {
             request.setCharacterEncoding("UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -86,6 +90,7 @@ public class ReservationController extends GlobalController {
 
     @RequestMapping(value = "/reservation/addpreorder/{id}")
     public String newsTeg(@PathVariable("id") int id, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
+        log.info("controller enter to addpreorder by id where id = " + id);
         try {
             request.setCharacterEncoding("UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -128,6 +133,7 @@ public class ReservationController extends GlobalController {
 
     @RequestMapping(value = "/reservation/delete/{delete}")
     public String delete(@PathVariable("delete") int delete, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
+        log.info("controller enter to delete dish by id where id = " + delete);
         try {
             request.setCharacterEncoding("UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -154,6 +160,7 @@ public class ReservationController extends GlobalController {
 
     @RequestMapping(value = "/reservation/changeData")
     public String changeData(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
+        log.info("controller enter to change reservation data");
         HttpSession ses = request.getSession();
         Object tmp = ses.getAttribute("reservationConfig");
         if (tmp == null) {
@@ -167,6 +174,7 @@ public class ReservationController extends GlobalController {
 
     @RequestMapping(value = "/reservation/complite")
     public String delete(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
+        log.info("controller enter complite reservation");
         HttpSession ses = request.getSession();
         Object reservationConfig = ses.getAttribute("reservationConfig");
         Object preOrderList = ses.getAttribute("preOrderList");

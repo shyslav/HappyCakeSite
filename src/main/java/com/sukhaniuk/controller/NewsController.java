@@ -3,6 +3,7 @@ package com.sukhaniuk.controller;
 import com.happycake.GlobalController;
 import com.shyslav.data.UserBean;
 import database.updateCommand.UpdateCommand;
+import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,8 +20,11 @@ import java.io.IOException;
  */
 @Controller
 public class NewsController extends GlobalController {
+    private static final Logger log = Logger.getLogger(NewsController.class.getName());
+
     @RequestMapping(value = "news")
     public String news(ModelMap map, HttpServletRequest request) throws IOException, JSONException {
+        log.info("controller enter to news");
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Новини");
         map.addAttribute("webMenu", headerLoader(request));
@@ -32,6 +36,7 @@ public class NewsController extends GlobalController {
 
     @RequestMapping(value = "/news/{teg}")
     public String newsTeg(@PathVariable("teg") String teg, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
+        log.info("controller enter to news by teg where teg = " + teg);
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Новини");
         map.addAttribute("webMenu", headerLoader(request));
@@ -43,6 +48,7 @@ public class NewsController extends GlobalController {
 
     @RequestMapping(value = "/news/fullnews/{id}")
     public String newsWhereId(@PathVariable("id") int id, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
+        log.info("controller enter to fullnews by id where id = " + id);
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Новини");
         map.addAttribute("webMenu", headerLoader(request));
@@ -54,6 +60,7 @@ public class NewsController extends GlobalController {
 
     @RequestMapping(value = "/news/like/{id}")
     public String likeNews(@PathVariable("id") String id, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
+        log.info("controller enter to news like by id where id = " + id);
         UserBean user = getUserInfo(request);
         HttpSession ses = request.getSession();
         Object tmp = ses.getAttribute("amountLike");

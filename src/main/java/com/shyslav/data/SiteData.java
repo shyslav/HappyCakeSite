@@ -2,16 +2,19 @@ package com.shyslav.data;
 
 
 import database.select.SelectCommand;
+import org.apache.log4j.Logger;
 import sitemodels.*;
 import sitestorages.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 /**
  * Created by Shyshkin Vladyslav on 18.08.2016.
  */
+@SuppressWarnings("unused")
 public class SiteData extends SelectCommand {
+    private static final Logger log = Logger.getLogger(SiteData.class.getName());
+
     private final ArrayList<WebMenu> webMenu;
     private final ArrayList<CafeCoordinate> cafeCoordinates;
     private final CategoryStorage categories;
@@ -21,10 +24,11 @@ public class SiteData extends SelectCommand {
     private final ArrayList<HotPrice> hotPrices;
 
     /**
-     * Load all data
-     * @throws SQLException
+     * load all site data
+     * @throws SQLException sql exseption
      */
     public SiteData() throws SQLException {
+        log.info("initialize SiteData");
         webMenu = selectWebMenu();
         cafeCoordinates = selectCafeCoordinate();
         categories = new CategoryStorage();
@@ -32,7 +36,7 @@ public class SiteData extends SelectCommand {
                 element->categories.add(element)
         );
         dishes = new DishStorage();
-        selectdish(0).forEach(
+        selectdish().forEach(
                 element->dishes.add(element)
         );
         newsList = new NewsStorage();
@@ -47,26 +51,16 @@ public class SiteData extends SelectCommand {
      * action to reload news
      */
     public void reloadNews() {
-        try {
-            newsList.clear();
-            selectNews().forEach(element ->
-            {
-                newsList.put(element.getId(), element);
-            });
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        newsList.clear();
+        selectNews().forEach(element ->
+                newsList.put(element.getId(), element));
     }
 
     /**
      * action to reload reports
      */
     public void reloadReported() {
-        try {
-            repartees = selectReports();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        repartees = selectReports();
     }
 
     public ArrayList<WebMenu> getWebMenu() {

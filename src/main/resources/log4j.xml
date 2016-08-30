@@ -10,7 +10,7 @@
 
     <appender name="file" class="org.apache.log4j.RollingFileAppender">
         <param name="append" value="false" />
-        <param name="maxFileSize" value="10KB" />
+        <param name="maxFileSize" value="10MB" />
         <param name="maxBackupIndex" value="5" />
         <param name="file" value="/var/log/happycake/site.log" />
         <layout class="org.apache.log4j.PatternLayout">
@@ -19,6 +19,7 @@
     </appender>
 
     <logger name="org.springframework">
+        <priority value="ERROR"/>
         <priority value="WARN"/>
     </logger>
 

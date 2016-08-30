@@ -3,6 +3,7 @@ package com.shyslav.controller;
 import com.happycake.GlobalController;
 import com.shyslav.data.UserBean;
 import org.apache.commons.io.IOUtils;
+import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,8 +20,11 @@ import java.sql.SQLException;
  */
 @Controller
 public class HomeController extends GlobalController {
+    private static final Logger log = Logger.getLogger(HomeController.class.getName());
+
     @RequestMapping(value="index")
     public String home(ModelMap map , HttpServletRequest request) throws IOException, JSONException, SQLException {
+        log.info("controller enter to index");
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle","Главная");
         map.addAttribute("webMenu",headerLoader(request));
@@ -30,6 +34,7 @@ public class HomeController extends GlobalController {
     }
     @RequestMapping(value="contacts")
     public String contacts(ModelMap map, HttpServletRequest request) throws IOException, JSONException {
+        log.info("controller enter to contacts");
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle","Контакты");
         map.addAttribute("webMenu",headerLoader(request));
