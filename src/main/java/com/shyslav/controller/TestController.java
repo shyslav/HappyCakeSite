@@ -26,7 +26,8 @@ public class TestController extends GlobalController {
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle","lol");
 
-        String command = "select * from blobTest";
+        //String command = "select * from blobTest";
+        String command = "select * from dish";
         DatabaseConnection db = new DatabaseConnection();
         db.openConnection();
         InputStream inputStream = null;
