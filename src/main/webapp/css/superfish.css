@@ -184,7 +184,7 @@ nav {
     }
 
     .sf-menu {
-        display: inline-block !important;
+        display: none !important;
         float: none;
     }
 

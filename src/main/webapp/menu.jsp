@@ -9,7 +9,7 @@ Content
         <div class="row">
             <%int i = 0;%>
             <c:forEach var="items" items="${category}">
-                <div class="grid_4">
+                <div class="col-md-4">
                     <div class="gall_block">
                         <div class="maxheight">
                             <a href="/categoryImage/${items.id}.htm" class="gall_item"><img src="/categoryImage/${items.id}.htm" alt=""></a>
