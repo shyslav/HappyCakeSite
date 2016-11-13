@@ -9,7 +9,7 @@ Content
     <div class="container">
         <div class="row">
             <%--Новости все--%>
-            <div class="grid_7">
+            <div class="col-md-7">
 
 
                 <c:forEach var="items" items="${news}">
@@ -49,7 +49,7 @@ Content
 
             </div>
 
-            <div class="grid_4 preffix_1">
+            <div class="col-md-4">
                 <%--Теги--%>
                 <h2>Теги</h2>
                 <ul class="list">
