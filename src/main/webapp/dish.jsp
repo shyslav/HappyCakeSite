@@ -15,7 +15,7 @@ Content
         <div class="row">
             <%int i = 0;%>
             <c:forEach var="items" items="${dish}">
-                <div class="grid_4">
+                <div class="col-md-4">
                     <div class="gall_block">
                         <div class="maxheight">
                             <a href="/dishImage/${items.id}.htm" class="gall_item">
