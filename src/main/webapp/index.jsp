@@ -5,13 +5,11 @@
 Content
 ======================-->
 <section class="content">
-    <div class="ic">More Website Templates @ TemplateMonster.com - July 30, 2014!</div>
-
     <div class="container">
         <div class="row">
-            <div class="grid_4">
+            <div class="col-md-4 center-block">
                 <div class="banner">
-                    <div class="gall_block">
+                    <div class="block">
                         <img src="images/main/pin/cof.jpg" alt="">
                         <div class="bann_capt ">
                             <div class="maxheight">
@@ -23,9 +21,9 @@ Content
                     </div>
                 </div>
             </div>
-            <div class="grid_4">
+            <div class="col-md-4 center-block">
                 <div class="banner">
-                    <div class="gall_block">
+                    <div class="block">
                         <div class="bann_capt  bn__1">
                             <div class="maxheight">
                                 <br>
@@ -38,11 +36,12 @@ Content
                     </div>
                 </div>
             </div>
-            <div class="grid_4">
-                <div class="banner ">
+
+            <div class="col-md-4 center-block">
+                <div class="banner">
                     <div class="gall_block">
                         <img src="images/main/pin/bright.jpg" alt="">
-                        <div class="bann_capt  bn__2">
+                        <div class="bann_capt ">
                             <div class="maxheight">
                                 <br>
                                 <img src="images/icon_cont.png" alt="">
@@ -53,10 +52,9 @@ Content
                     </div>
                 </div>
             </div>
-
             <%int i = 1;%>
             <c:forEach var="item" items="${hotPrice}" begin="0" end="2">
-                <div class="grid_4">
+                <div class="col-md-4">
                     <div class="block1">
                         <div class="count">Акція</div>
                             ${item.description}
@@ -67,34 +65,31 @@ Content
                 </div>
                 <% i++;%>
             </c:forEach>
-            <div class="grid_12">
-                <div class="box">
+            <div class="col-lg-12">
                     <div class="row">
-                        <div class="grid_5 preffix_1">
+                        <div class="col-lg-6">
                             <h2>Смак із добрим настроєм!</h2>
                             <p>Вітаємо Вас у нашому кафе<strong> Happy Cake</strong></p>
                             <p>Тут Ви завжди зможете смачно поїсти та приємно провести час. У нас затишний інтер'єр та
                                 чудові страви. </p><br>
 
                         </div>
-                        <div class="grid_5">
+                        <div class="col-lg-6">
                             <h2>На нашому сайті...</h2>
                             Усі страви розділені на категорії. За будь-якою категорією Ви зможете перейти на сторінку
                             страв. Також на нашому сайті наявна можливість залишити відгук або побажання.<br>
-
                         </div>
-                    </div>
                 </div>
             </div>
-            <div class="grid_12">
+            <div class="col-md-12 text-center">
                 <h2>Страви, які варто спробувати</h2>
             </div>
             <%--ouput 3 random dishes--%>
             <c:forEach var="item" items="${randCategory}">
                 <div class="gallery">
-                    <div class="grid_4">
-                        <a href="/dishImage/${item.id}.htm" class="gall_item">
-                            <img src="/dishImage/${item.id}.htm" alt="">
+                    <div class="col-md-4">
+                        <a href="/dishImage/${item.id}.htm" class="gall_item text-center" style="background-color: white">
+                            <img src="/dishImage/${item.id}.htm" alt="" style="max-width:250px;height: 250px;">
                         </a>
                         <div class="map_block">${item.name}</div>
                         <a href="category/${item.id}.htm" class="link1">
