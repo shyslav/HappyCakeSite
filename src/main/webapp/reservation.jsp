@@ -7,11 +7,11 @@ Content
 <section class="content gallery pad1">
     <div class="container">
         <div class="row">
-            <div class="grid_12">
+            <div class="col-md-12">
                 <div class="row">
                     <c:choose>
                         <c:when test="${step eq 'first'}">
-                            <div class="grid_9">
+                            <div class="col-md-9">
                                 <h2>Бронювання столика</h2>
                                 <form class="myForm" method="POST" action="/reservation/${step}.htm">
                                     <input type="text" name="name" placeholder="І'мя:" value="" required/>
@@ -45,113 +45,7 @@ Content
                                     <input type="submit" value="Відправити" class="btn"/>
                                 </form>
                             </div>
-                            <div class="grid_3">
-                                <h2>Правила</h2>
-                                <ul class="list">
-                                        <%--<li>Предложение действительно только для выбранного времени, даты, и количества--%>
-                                        <%--человек.--%>
-                                    <li> Пропозиція дійсна тільки для обраного часу, дати та кількості людей.
-                                    </li>
-                                    <li>
-                                        <%--Имя должно быть только с использованием кирилицы--%>
-                                        Ім'я має бути тільки з використанням кирилиці.
-                                    </li>
-                                    <li>
-                                        <%--Телефон должен начинатьcя на +380 и иметь 9 цифр--%>
-                                        Телефон має починатися з +380 та містити 9 цифр.
-                                    </li>
-                                    <li>
-                                        <%--Количество человек должно быть от 2-4--%>
-                                        Кількість людей має бути від 2-4.
-                                    </li>
-                                    <li>
-                                        <%--Предзаказ должен быть более чем 150 грн--%>
-                                        Предзамовлення має бути від 150ти грн.
-                                    </li>
-                                    <li>
-                                        <%--Если ответ не поступил в течении 2 часов, наберите нас по телефону указанному в--%>
-                                        <%--разделе "Контакты"--%>
-                                        Якщо відповідь не прийшла протягом 2-ох годин, наберіть на за телефоном, вказаному
-                                        у розділі "Контакти".
-                                    </li>
-                                </ul>
-                            </div>
-                        </c:when>
-                        <c:when test="${step eq 'second'}">
-                            <div class="grid_9">
-                                <c:forEach var="items" items="${dish}">
-                                    <form class="myForm" action="/reservation/addpreorder/${items.id}.htm"
-                                          method="POST">
-                                        <div class="grid_4">
-                                            <div class="maxheight">
-                                                <h3 class="text-center"> ${items.name}</h3>
-                                                <a href="${items.image}" class="gall_item"><img width="100" height="330"
-                                                                                                src="${items.image}"
-                                                                                                alt=""></a>
-                                                Вага: <span class="color1 fw">${items.amount} гр. </span> <br>
-
-                                                <c:choose>
-                                                    <c:when test="${not empty items.sell }">
-                                                        Ціна: <span class="color1 fw"><s>${items.price}₴</s></span>
-                                                        <span class="color1 fw"> ${items.price-items.price*items.sell/100} ₴</span>
-                                                        <input type="hidden"
-                                                               value="${items.price-items.price*items.sell/100}"
-                                                               name="price">
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        Ціна: <span class="color1 fw"> ${items.price} ₴</span>
-                                                        <input type="hidden" value="${items.price}" name="price">
-                                                    </c:otherwise>
-                                                </c:choose>
-                                                <input type="hidden" value="${items.name}" name="dishName">
-                                                <input type="number" name="amount" placeholder="Количество" max="10"
-                                                       required>
-                                                <input type="submit" value="Додати в кошик">
-                                            </div>
-                                        </div>
-                                    </form>
-                                </c:forEach>
-                            </div>
-                            <div class="grid_3">
-                                <h2>Ваші дані: </h2>
-                                <c:forEach var="var" items="${sessionScope.reservationConfig}">
-                                    Ім'я: ${var.name} <br>
-                                    Телефон: ${var.phone} <br>
-                                    Кількість людей: ${var.amountPeople} <br>
-                                    Дата: ${var.date} <br>
-                                    Час: ${var.time} <br>
-                                    Побажання: ${var.message} <br>
-                                </c:forEach>
-                                <form class="myForm" action="/reservation/changeData.htm">
-                                    <input type="submit" value="Змінити дані">
-                                </form>
-                            </div>
-                            <div class="grid_3">
-                                <h2>Чек</h2>
-                                <table>
-                                    <tbody>
-                                    <c:set var="total" value="${0}"/>
-                                    <c:forEach var="items" items="${sessionScope.preOrderList}">
-                                        <tr>
-                                            <td>${items.dishName} |</td>
-                                            <td>${items.amount} |</td>
-                                            <td>${items.price} грн |</td>
-                                            <c:set var="total" value="${total + items.price}"/>
-                                            <td><a href="/reservation/delete/${items.dishID}.htm">X</a></td>
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                                <hr>
-                                <p class="text-center">Сума вашого предзамовлення: ${total} грн</p>
-                                <hr>
-                                <c:if test="${total>=150}">
-                                    <form class="myForm" action="/reservation/complite.htm">
-                                        <input type="submit" value="Заказать">
-                                    </form>
-                                </c:if>
-                            </div>
-                            <div class="grid_3">
+                            <div class="col-md-3">
                                 <h2>Правила</h2>
                                 <ul class="list">
                                         <%--<li>Предложение действительно только для выбранного времени, даты, и количества--%>
@@ -177,7 +71,116 @@ Content
                                     <li>
                                             <%--Если ответ не поступил в течении 2 часов, наберите нас по телефону указанному в--%>
                                             <%--разделе "Контакты"--%>
-                                        Якщо відповідь не прийшла протягом 2-ох годин, наберіть на за телефоном, вказаному
+                                        Якщо відповідь не прийшла протягом 2-ох годин, наберіть на за телефоном,
+                                        вказаному
+                                        у розділі "Контакти".
+                                    </li>
+                                </ul>
+                            </div>
+                        </c:when>
+                        <c:when test="${step eq 'second'}">
+                            <div class="col-md-9">
+                                <c:forEach var="items" items="${dish}">
+                                    <form class="myForm" action="/reservation/addpreorder/${items.id}.htm"
+                                          method="POST">
+                                        <div class="col-md-4">
+                                            <div class="maxheight">
+                                                <h3 class="text-center"> ${items.name}</h3>
+                                                <a href="/dishImage/${items.id}.htm" class="gall_item text-center" style="background-color: white">
+                                                    <img style="width:150px; height:150px"
+                                                         src="/dishImage/${items.id}.htm" alt="">
+                                                </a>
+                                                Вага: <span class="color1 fw">${items.amount} гр. </span> <br>
+
+                                                <c:choose>
+                                                    <c:when test="${not empty items.sell }">
+                                                        Ціна: <span class="color1 fw"><s>${items.price}₴</s></span>
+                                                        <span class="color1 fw"> ${items.price-items.price*items.sell/100} ₴</span>
+                                                        <input type="hidden"
+                                                               value="${items.price-items.price*items.sell/100}"
+                                                               name="price">
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        Ціна: <span class="color1 fw"> ${items.price} ₴</span>
+                                                        <input type="hidden" value="${items.price}" name="price">
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                <input type="hidden" value="${items.name}" name="dishName">
+                                                <input type="number" name="amount" placeholder="Количество" max="10"
+                                                       required>
+                                                <input type="submit" value="Додати в кошик">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </c:forEach>
+                            </div>
+                            <div class="col-md-3">
+                                <h2>Ваші дані: </h2>
+                                <c:forEach var="var" items="${sessionScope.reservationConfig}">
+                                    Ім'я: ${var.name} <br>
+                                    Телефон: ${var.phone} <br>
+                                    Кількість людей: ${var.amountPeople} <br>
+                                    Дата: ${var.date} <br>
+                                    Час: ${var.time} <br>
+                                    Побажання: ${var.message} <br>
+                                </c:forEach>
+                                <form class="myForm" action="/reservation/changeData.htm">
+                                    <input type="submit" value="Змінити дані">
+                                </form>
+                            </div>
+                            <div class="col-md-3">
+                                <h2>Чек</h2>
+                                <table>
+                                    <tbody>
+                                    <c:set var="total" value="${0}"/>
+                                    <c:forEach var="items" items="${sessionScope.preOrderList}">
+                                        <tr>
+                                            <td>${items.dishName} |</td>
+                                            <td>${items.amount} |</td>
+                                            <td>${items.price} грн |</td>
+                                            <c:set var="total" value="${total + items.price}"/>
+                                            <td><a href="/reservation/delete/${items.dishID}.htm">X</a></td>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                </table>
+                                <hr>
+                                <p class="text-center">Сума вашого предзамовлення: ${total} грн</p>
+                                <hr>
+                                <c:if test="${total>=150}">
+                                    <form class="myForm" action="/reservation/complite.htm">
+                                        <input type="submit" value="Заказать">
+                                    </form>
+                                </c:if>
+                            </div>
+                            <div class="col-md-3">
+                                <h2>Правила</h2>
+                                <ul class="list">
+                                        <%--<li>Предложение действительно только для выбранного времени, даты, и количества--%>
+                                        <%--человек.--%>
+                                    <li> Пропозиція дійсна тільки для обраного часу, дати та кількості людей.
+                                    </li>
+                                    <li>
+                                            <%--Имя должно быть только с использованием кирилицы--%>
+                                        Ім'я має бути тільки з використанням кирилиці.
+                                    </li>
+                                    <li>
+                                            <%--Телефон должен начинатьcя на +380 и иметь 9 цифр--%>
+                                        Телефон має починатися з +380 та містити 9 цифр.
+                                    </li>
+                                    <li>
+                                            <%--Количество человек должно быть от 2-4--%>
+                                        Кількість людей має бути від 2-4.
+                                    </li>
+                                    <li>
+                                            <%--Предзаказ должен быть более чем 150 грн--%>
+                                        Предзамовлення має бути від 150ти грн.
+                                    </li>
+                                    <li>
+                                            <%--Если ответ не поступил в течении 2 часов, наберите нас по телефону указанному в--%>
+                                            <%--разделе "Контакты"--%>
+                                        Якщо відповідь не прийшла протягом 2-ох годин, наберіть на за телефоном,
+                                        вказаному
                                         у розділі "Контакти".
                                     </li>
                                 </ul>
@@ -185,7 +188,7 @@ Content
 
                         </c:when>
                         <c:otherwise>
-                            <div class="grid_9">
+                            <div class="col-md-9">
                                 <h2>Бронювання столика</h2>
                                 <form class="myForm" method="POST" action="/reservation/first.htm">
                                     <input type="text" name="name" placeholder="Ім'я:" value="" required/>
@@ -219,7 +222,7 @@ Content
                                     <input type="submit" value="Відправити" class="btn"/>
                                 </form>
                             </div>
-                            <div class="grid_3">
+                            <div class="col-md-3">
                                 <h2>Правила</h2>
                                 <ul class="list">
                                         <%--<li>Предложение действительно только для выбранного времени, даты, и количества--%>
@@ -245,7 +248,8 @@ Content
                                     <li>
                                             <%--Если ответ не поступил в течении 2 часов, наберите нас по телефону указанному в--%>
                                             <%--разделе "Контакты"--%>
-                                        Якщо відповідь не прийшла протягом 2-ох годин, наберіть на за телефоном, вказаному
+                                        Якщо відповідь не прийшла протягом 2-ох годин, наберіть на за телефоном,
+                                        вказаному
                                         у розділі "Контакти".
                                     </li>
                                 </ul>
