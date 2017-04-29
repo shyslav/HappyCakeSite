@@ -14,14 +14,17 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author Shyshkin Vladyslav on 04.05.2016.
  */
+@SuppressWarnings("unused")
 @Controller
 public class MenuController extends GlobalController {
     private static final Logger log = Logger.getLogger(MenuController.class.getName());
 
     /**
-     * @param map
-     * @param request
-     * @param redirAtr
+     * Get menu
+     *
+     * @param map      model map
+     * @param request  action request
+     * @param redirAtr redirect attributes
      * @return Страница меню
      */
     @RequestMapping(value = "/menu")
@@ -30,7 +33,7 @@ public class MenuController extends GlobalController {
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Категорії");
         map.addAttribute("webMenu", headerLoader(request));
-//        map.addAttribute("category", user.getSiteData().getCategories());
+        map.addAttribute("category", user.getSiteData().getCategories());
         return "menu.jsp";
     }
 
@@ -46,7 +49,7 @@ public class MenuController extends GlobalController {
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Страви");
         map.addAttribute("webMenu", headerLoader(request));
-//        map.addAttribute("dish", user.getSiteData().getDishes().getByCategoryId(id));
+        map.addAttribute("dish", user.getSiteData().getDishes().getByCategoryId(id));
         return "/dish.jsp";
     }
 }

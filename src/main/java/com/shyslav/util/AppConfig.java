@@ -9,16 +9,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
- * Created by shyshkin_vlad on 10.04.16.
+ * @author Shyshkin Vladyslav on 10.04.16.
  */
+@SuppressWarnings("unused")
 @Configuration
 @EnableWebMvc
 public class AppConfig extends WebMvcConfigurerAdapter {
     private static final Logger log = Logger.getLogger(AppConfig.class.getName());
 
     @Bean
-    public InternalResourceViewResolver viewResolver()
-    {
+    public InternalResourceViewResolver viewResolver() {
         log.info("initialise spring");
         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
         internalResourceViewResolver.setPrefix("/");
@@ -26,6 +26,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         internalResourceViewResolver.setSuffix(".json");
         return internalResourceViewResolver;
     }
+
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();

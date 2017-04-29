@@ -21,7 +21,7 @@ public class SiteData {
 //    private final DishStorage dishes;
 //    private NewsStorage newsList;
 //    private ArrayList<Reports> repartees;
-    private final ArrayList<HotPrice> hotPrices;
+    private final HotPriceList hotPrices;
     private final CategoriesList categories;
     private final DishesList dishes;
 
@@ -34,8 +34,12 @@ public class SiteData {
         log.info("initialize SiteData");
 
         webMenu = storage.webMenuStorage.getAll();
-        hotPrices = storage.hotPriceStorage.getAll();
         cafeCoordinates = storage.cafeCoordinate.getAll();
+
+        //load hot price
+        HotPriceList hotPrices = new HotPriceList();
+        storage.hotPriceStorage.getAll().forEach(e -> hotPrices.add((HotPrice) e));
+        this.hotPrices = hotPrices;
 
         //load categories
         CategoriesList categories = new CategoriesList();
@@ -45,6 +49,7 @@ public class SiteData {
         //load dishes
         DishesList dishes = new DishesList();
         storage.dishStorage.getAll().forEach(e -> dishes.add((Dish) e));
+        dishes.loadDiscount(hotPrices);
         this.dishes = dishes;
 
 //        cafeCoordinates = selectCafeCoordinate();
@@ -87,7 +92,8 @@ public class SiteData {
     public ArrayList<CafeCoordinate> getCafeCoordinates() {
         return cafeCoordinates;
     }
-//
+
+    //
     public CategoriesList getCategories() {
         return categories;
     }
@@ -105,7 +111,7 @@ public class SiteData {
 //    }
 //
 
-    public ArrayList<HotPrice> getHotPrices() {
+    public HotPriceList getHotPrices() {
         return hotPrices;
     }
 

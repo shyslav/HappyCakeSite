@@ -7,7 +7,7 @@ Content
 <section class="content gallery pad1">
     <div class="container">
 
-        <a class="bq_title"  style="font-size: x-large; padding-left: 30px;" >
+        <a class="bq_title" style="font-size: x-large; padding-left: 30px;">
             Страви за категорією:
             <br><br>
         </a>
@@ -25,26 +25,27 @@ Content
                                 <div class="text1"><a href="#">${items.name}</a></div>
                                     ${items.description}
                                 <br>
-                                    Вага: <span class="color1 fw">${items.amount} гр </span> <br>
+                                Вага: <span class="color1 fw">${items.amount} гр </span> <br>
                                 <c:choose>
-                                    <c:when test="${not empty items.sell }">
+                                    <c:when test="${items.discount != 0}">
                                         Ціна: <span class="color1 fw"><s>${items.price}₴</s></span>
-                                        <span class="color1 fw"> ${items.price-items.price*items.sell/100} ₴</span>
-                                        <input type="hidden" value="${items.price-items.price*items.sell/100}" name = "price">
+                                        <span class="color1 fw"> ${items.price-items.price*items.discount/100} ₴</span>
+                                        <input type="hidden" value="${items.price-items.price*items.discount/100}"
+                                               name="price">
                                     </c:when>
                                     <c:otherwise>
                                         Ціна: <span class="color1 fw"> ${items.price} ₴</span>
                                         <input type="hidden" value="${items.price}" name="price">
                                     </c:otherwise>
                                 </c:choose>
-                                    <c:if test="${items.readyORnot eq '+'}">
-                                        <hr>
-                                        Страва видається не відразу. Швидкість залежить від завантаження кафе.
-                                    </c:if>
-                                    <c:if test="${items.readyORnot eq '-'}">
-                                        <hr>
-                                        Страва не потребує приготування. Видається відразу.
-                                    </c:if>
+                                <c:if test="${items.readyORnot eq '+'}">
+                                    <hr>
+                                    Страва видається не відразу. Швидкість залежить від завантаження кафе.
+                                </c:if>
+                                <c:if test="${items.readyORnot eq '-'}">
+                                    <hr>
+                                    Страва не потребує приготування. Видається відразу.
+                                </c:if>
                                 <br>
                             </div>
 
