@@ -5,13 +5,10 @@
 Content
 ======================-->
 <section class="content">
-    <div class="ic">More Website Templates @ TemplateMonster.com - July 30, 2014!</div>
     <div class="container">
         <div class="row">
             <%--Новости все--%>
             <div class="col-md-7">
-
-
                 <c:forEach var="items" items="${news}">
                     <br>
                     <div class="box">
@@ -35,7 +32,7 @@ Content
                                 <tr>
                                     <td colspan="1">
                                         <div class="fa fa-tag"></div>
-                                            ${items.tegs}</td>
+                                            ${items.tags}</td>
                                     <td colspan="2"><a href="/news/like/${items.id}.htm">
                                         <div class="fa fa-thumbs-up"></div>
                                             ${items.view}</a></td>
@@ -55,7 +52,7 @@ Content
                 <ul class="list">
 
                     <c:forEach var="items" items="${newsAll}">
-                        <li><a href="/news/${items.tegs}.htm">${items.tegs}</a></li>
+                        <li><a href="/news/${items.tags}.htm">${items.tags}</a></li>
                     </c:forEach>
                     <li><a href="/news.htm">Все теги</a></li>
 
@@ -65,21 +62,22 @@ Content
                 <c:forEach var="items" items="${popularNews}">
                     <%--<div class="box" style="padding-left: 10px;">--%>
 
-                        <div class="block3">
-                            <img src="${items.imageLink}" alt="" class="img_inner noresize fleft">
-                            <div class="extra_wrapper">
-                                <div class="text1 color1">
-                                    <time datetime="${items.date}">${items.date}</time>
-                                    <a href="/news/fullnews/${items.id}.htm">${items.name} </a>
-                                </div>
+                    <div class="block3">
+                        <img src="${items.imageLink}" alt="" class="img_inner noresize fleft">
+                        <div class="extra_wrapper">
+                            <div class="text1 color1">
+                                <time datetime="${items.date}">${items.date}</time>
+                                <a href="/news/fullnews/${items.id}.htm">${items.name} </a>
                             </div>
                         </div>
+                    </div>
                     <%--</div>--%>
                     <%--<br>--%>
                 </c:forEach>
 
             </div>
         </div>
+    </div>
 </section>
 <!--==============================
 <jsp:include page="includes/footer.jsp" flush="true"/>

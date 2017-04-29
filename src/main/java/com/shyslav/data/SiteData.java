@@ -19,16 +19,17 @@ public class SiteData {
     private final ArrayList<CafeCoordinate> cafeCoordinates;
     //    private final CategoryStorage categories;
 //    private final DishStorage dishes;
-//    private NewsStorage newsList;
-//    private ArrayList<Reports> repartees;
+    //    private ArrayList<Reports> repartees;
     private final HotPriceList hotPrices;
     private final CategoriesList categories;
     private final DishesList dishes;
+    private final NewsList newsList;
+
 
     /**
      * load all site data
      *
-     * @throws SQLException sql exseption
+     * @throws SQLException sql exception
      */
     public SiteData() throws DBException {
         log.info("initialize SiteData");
@@ -51,6 +52,11 @@ public class SiteData {
         storage.dishStorage.getAll().forEach(e -> dishes.add((Dish) e));
         dishes.loadDiscount(hotPrices);
         this.dishes = dishes;
+
+        //load news list
+        NewsList newsList = new NewsList();
+        storage.newsStorage.getAll().forEach(e -> newsList.add((News) e));
+        this.newsList = newsList;
 
 //        cafeCoordinates = selectCafeCoordinate();
 //        categories = new CategoryStorage();
@@ -109,7 +115,11 @@ public class SiteData {
 //    public ArrayList<Reports> getRepartees() {
 //        return repartees;
 //    }
-//
+
+
+    public NewsList getNewsList() {
+        return newsList;
+    }
 
     public HotPriceList getHotPrices() {
         return hotPrices;
@@ -117,5 +127,9 @@ public class SiteData {
 
     public DishesList getDishes() {
         return dishes;
+    }
+
+    public static SiteStorages getStorage() {
+        return storage;
     }
 }
