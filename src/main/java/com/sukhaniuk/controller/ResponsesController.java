@@ -66,12 +66,8 @@ public class ResponsesController extends GlobalController {
         }
         if (errors.size() == 0) {
             ses.setAttribute("amountsSends", null);
-            //redirAtr.addFlashAttribute("alert","Сообщение успешно отправлено");
             redirAtr.addFlashAttribute("textModal", "Дякуємо за відгук. Ми цінуємо Вашу думку.");
             redirAtr.addFlashAttribute("headModal", "Повідомлення успішно відправлено");
-            //задать формат даты
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            Date date = new Date();
             //выполнить вставку в таблицу
             Reports report = new Reports();
             report.setDate(LazyDate.getUnixDate());
