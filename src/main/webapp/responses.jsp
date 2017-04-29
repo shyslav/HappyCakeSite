@@ -19,13 +19,13 @@ Content
                 <div class="col-md-6">
                     <div class="blog">
                         <div class="blog_title">
-                            <time datetime="${items.rDate}">
+                            <time datetime="${items.date}">
                                 <span class="fa fa-calendar"></span>
-                                    ${items.rDate}
+                                    ${items.date}
                             </time>
                             | <a href="#">${items.author} </a>
                         </div>
-                        <p>${items.rText} </p>
+                        <p>${items.text} </p>
                     </div>
                     <br>
                 </div>

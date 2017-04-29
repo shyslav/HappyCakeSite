@@ -17,13 +17,11 @@ public class SiteData {
 
     private ArrayList<WebMenu> webMenu;
     private final ArrayList<CafeCoordinate> cafeCoordinates;
-    //    private final CategoryStorage categories;
-//    private final DishStorage dishes;
-    //    private ArrayList<Reports> repartees;
     private final HotPriceList hotPrices;
     private final CategoriesList categories;
     private final DishesList dishes;
     private final NewsList newsList;
+    private ArrayList<Reports> reports;
 
 
     /**
@@ -36,6 +34,7 @@ public class SiteData {
 
         webMenu = storage.webMenuStorage.getAll();
         cafeCoordinates = storage.cafeCoordinate.getAll();
+        reports = storage.reportsStorage.getReportsByVision(true);
 
         //load hot price
         HotPriceList hotPrices = new HotPriceList();
@@ -57,65 +56,19 @@ public class SiteData {
         NewsList newsList = new NewsList();
         storage.newsStorage.getAll().forEach(e -> newsList.add((News) e));
         this.newsList = newsList;
-
-//        cafeCoordinates = selectCafeCoordinate();
-//        categories = new CategoryStorage();
-//        selectCategory().forEach(
-//                categories::add
-//        );
-//        dishes = new DishStorage();
-//        selectdish().forEach(
-//                dishes::add
-//        );
-//        newsList = new NewsStorage();
-//        for (News element : selectNews()) {
-//            newsList.put(element.getId(), element);
-//        }
-//        repartees = selectReports();
-//        hotPrices = selectHotPrice();
     }
 
-    /**
-     * action to reload news
-     */
-    public void reloadNews() {
-//        newsList.clear();
-//        selectNews().forEach(element ->
-//                newsList.put(element.getId(), element));
-    }
-
-    /**
-     * action to reload reports
-     */
-//    public void reloadReported() {
-//        repartees = selectReports();
-//    }
     public ArrayList<WebMenu> getWebMenu() {
         return webMenu;
     }
 
-    //
     public ArrayList<CafeCoordinate> getCafeCoordinates() {
         return cafeCoordinates;
     }
 
-    //
     public CategoriesList getCategories() {
         return categories;
     }
-//
-//    public DishStorage getDishes() {
-//        return dishes;
-//    }
-//
-//    public NewsStorage getNewsList() {
-//        return newsList;
-//    }
-//
-//    public ArrayList<Reports> getRepartees() {
-//        return repartees;
-//    }
-
 
     public NewsList getNewsList() {
         return newsList;
@@ -131,5 +84,9 @@ public class SiteData {
 
     public static SiteStorages getStorage() {
         return storage;
+    }
+
+    public ArrayList<Reports> getReports() {
+        return reports;
     }
 }

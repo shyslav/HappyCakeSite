@@ -1,12 +1,16 @@
 package com.sukhaniuk.controller;
 
 import com.happycake.GlobalController;
+import com.shyslav.data.SiteData;
 import com.shyslav.data.UserBean;
+import com.shyslav.mysql.exceptions.DBException;
+import com.shyslav.utils.LazyDate;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import sitemodels.Reports;
 import validations.SimpleValidation;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +29,7 @@ public class ResponsesController extends GlobalController {
     private static final Logger log = Logger.getLogger(ResponsesController.class.getName());
 
     @RequestMapping(value = "/contacts/send")
-    public String addResponses(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
+    public String addResponses(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) throws DBException {
         log.info("controller enter to add response");
         try {
             request.setCharacterEncoding("UTF-8");
@@ -38,7 +42,6 @@ public class ResponsesController extends GlobalController {
             ses.setAttribute("amountsSends", 1);
             tmp = 1;
         } else if ((int) tmp >= 5) {
-            //redirAtr.addFlashAttribute("alert","Вы исчерпали все попытки отправки отзыва, вам запрещено отправлять сообщения в течении 30 минут");
             redirAtr.addFlashAttribute("headModal", "Проблема");
             redirAtr.addFlashAttribute("textModal", "Ви вичерпали всі спроби створення резервації, Вам заборонено відправляти повідомлення на протязі 30 хвилин");
             return "redirect:/index.htm";
@@ -70,10 +73,15 @@ public class ResponsesController extends GlobalController {
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date date = new Date();
             //выполнить вставку в таблицу
-//            DatabaseInsert.insert("reports", new String[]{name, message, dateFormat.format(date), email, phone, "-"}, new String[]{"author", "rText", "rDate", "mail", "phone", "vision"});
+            Reports report = new Reports();
+            report.setDate(LazyDate.getUnixDate());
+            report.setAuthor(name);
+            report.setMail(email);
+            report.setPhone(phone);
+            report.setText(message);
+            SiteData.getStorage().reportsStorage.save(report);
             return "redirect:/responses.htm";
         } else {
-            //redirAtr.addFlashAttribute("alert","Сообщение имеет следующие ошибки: \\n"+String.join("\\n",errors)+"\\n Внимание: У вас осталось " + (5 - (int)tmp) +" попыток");
             redirAtr.addFlashAttribute("headModal", "Обережно!");
             redirAtr.addFlashAttribute("textModal", "Повідомлення має настпуні помилки: <br>" + String.join("<br>", errors) + "<br>Увага: У вас залишилось " + (5 - (int) tmp) + " спроб");
             return "redirect:/responses.htm";
@@ -86,7 +94,7 @@ public class ResponsesController extends GlobalController {
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Відгуки");
         map.addAttribute("webMenu", headerLoader(request));
-//        map.addAttribute("responses", user.getSiteData().getRepartees());
+        map.addAttribute("responses", user.getSiteData().getReports());
         return "responses.jsp";
     }
 }
