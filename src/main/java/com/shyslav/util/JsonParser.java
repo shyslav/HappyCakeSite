@@ -13,7 +13,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * Created by Shyshkin Vladyslav on 28.04.2016.
+ * @author Shyshkin Vladyslav on 28.04.2016.
  */
 public class JsonParser {
     public static void Parse()
@@ -42,11 +42,7 @@ public class JsonParser {
                 }
             }
             in.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }

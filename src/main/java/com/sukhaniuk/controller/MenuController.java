@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by Shyshkin Vladyslav on 04.05.2016.
+ * @author Shyshkin Vladyslav on 04.05.2016.
  */
 @Controller
 public class MenuController extends GlobalController {
@@ -30,7 +30,7 @@ public class MenuController extends GlobalController {
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Категорії");
         map.addAttribute("webMenu", headerLoader(request));
-        map.addAttribute("category", user.getSiteData().getCategories());
+//        map.addAttribute("category", user.getSiteData().getCategories());
         return "menu.jsp";
     }
 
@@ -46,7 +46,7 @@ public class MenuController extends GlobalController {
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Страви");
         map.addAttribute("webMenu", headerLoader(request));
-        map.addAttribute("dish", user.getSiteData().getDishes().getByCategoryId(id));
+//        map.addAttribute("dish", user.getSiteData().getDishes().getByCategoryId(id));
         return "/dish.jsp";
     }
 }

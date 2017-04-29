@@ -2,7 +2,6 @@ package com.sukhaniuk.controller;
 
 import com.happycake.GlobalController;
 import com.shyslav.data.UserBean;
-import database.updateCommand.UpdateCommand;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.springframework.stereotype.Controller;
@@ -16,8 +15,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created by Shyshkin Vladyslav on 05.05.2016.
+ * @author Shyshkin Vladyslav on 05.05.2016.
  */
+
 @Controller
 public class NewsController extends GlobalController {
     private static final Logger log = Logger.getLogger(NewsController.class.getName());
@@ -28,9 +28,9 @@ public class NewsController extends GlobalController {
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Новини");
         map.addAttribute("webMenu", headerLoader(request));
-        map.addAttribute("newsAll", user.getSiteData().getNewsList().uniqueTagArray()); // select all news для вывода всех тегов
-        map.addAttribute("news", user.getSiteData().getNewsList().getByArray());  //select all news
-        map.addAttribute("popularNews", user.getSiteData().getNewsList().getPopular()); //select popular News
+//        map.addAttribute("newsAll", user.getSiteData().getNewsList().uniqueTagArray()); // select all news для вывода всех тегов
+//        map.addAttribute("news", user.getSiteData().getNewsList().getByArray());  //select all news
+//        map.addAttribute("popularNews", user.getSiteData().getNewsList().getPopular()); //select popular News
         return "/news.jsp";
     }
 
@@ -40,9 +40,9 @@ public class NewsController extends GlobalController {
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Новини");
         map.addAttribute("webMenu", headerLoader(request));
-        map.addAttribute("news", user.getSiteData().getNewsList().getByTag(teg));  //select teg news
-        map.addAttribute("newsAll", user.getSiteData().getNewsList().uniqueTagArray()); // select all news для вывода всех тегов
-        map.addAttribute("popularNews", user.getSiteData().getNewsList().getPopular()); //select popular News
+//        map.addAttribute("news", user.getSiteData().getNewsList().getByTag(teg));  //select teg news
+//        map.addAttribute("newsAll", user.getSiteData().getNewsList().uniqueTagArray()); // select all news для вывода всех тегов
+//        map.addAttribute("popularNews", user.getSiteData().getNewsList().getPopular()); //select popular News
         return "/news.jsp";
     }
 
@@ -52,9 +52,9 @@ public class NewsController extends GlobalController {
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Новини");
         map.addAttribute("webMenu", headerLoader(request));
-        map.addAttribute("news", user.getSiteData().getNewsList().getById(id));  //select news from id
-        map.addAttribute("popularNews", user.getSiteData().getNewsList().getPopular()); //select popular News
-        map.addAttribute("newsAll", user.getSiteData().getNewsList().uniqueTagArray()); // select all news для вывода всех тегов
+//        map.addAttribute("news", user.getSiteData().getNewsList().getById(id));  //select news from id
+//        map.addAttribute("popularNews", user.getSiteData().getNewsList().getPopular()); //select popular News
+//        map.addAttribute("newsAll", user.getSiteData().getNewsList().uniqueTagArray()); // select all news для вывода всех тегов
         return "/news.jsp";
     }
 
@@ -77,7 +77,7 @@ public class NewsController extends GlobalController {
         }
         redirAtr.addFlashAttribute("headModal", "Дякуємо");
         redirAtr.addFlashAttribute("textModal", "Нам важливо знати Вашу думку. За допомогою лайків ми визначаємо, що Вам найбільше до вподоби. У Вас залишився ще " + (2 - (int) tmp) + " лайк, Ви можете віддати його будь-якому запису");
-        UpdateCommand.updateTable("news", new String[]{"views = views+1"}, new String[]{"id = " + id});
+//        UpdateCommand.updateTable("news", new String[]{"views = views+1"}, new String[]{"id = " + id});
         return "redirect:/news.htm";
     }
 }

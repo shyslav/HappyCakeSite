@@ -2,7 +2,6 @@ package com.shyslav.controller;
 
 import com.happycake.GlobalController;
 import com.shyslav.data.UserBean;
-import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.springframework.stereotype.Controller;
@@ -15,44 +14,87 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+
 /**
- * Created by shyshkin_vlad on 10.04.16.
+ * @author Shyshkin Vladyslav on 10.04.16.
  */
+@SuppressWarnings("unused")
 @Controller
 public class HomeController extends GlobalController {
     private static final Logger log = Logger.getLogger(HomeController.class.getName());
 
-    @RequestMapping(value="index")
-    public String home(ModelMap map , HttpServletRequest request) throws IOException, JSONException, SQLException {
+    /**
+     * load index page
+     *
+     * @param map      model map
+     * @param request  action request
+     * @param response action response
+     * @param redirAtr redirect attribute
+     * @return
+     * @throws IOException
+     * @throws JSONException
+     */
+    @RequestMapping(value = "index")
+    public String home(ModelMap map, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirAtr) throws IOException, JSONException, SQLException {
         log.info("controller enter to index");
         UserBean user = getUserInfo(request);
-        map.addAttribute("webTitle","Главная");
-        map.addAttribute("webMenu",headerLoader(request));
+        map.addAttribute("webTitle", "Главная");
+        map.addAttribute("webMenu", headerLoader(request));
         map.addAttribute("hotPrice", hotPriceLoader(request));
-        map.addAttribute("randCategory", randCategory(request));
+        map.addAttribute("randCategory", randCategory(request, 3));
         return "index.jsp";
     }
-    @RequestMapping(value="contacts")
-    public String contacts(ModelMap map, HttpServletRequest request) throws IOException, JSONException {
+
+    /**
+     * Get contacts
+     *
+     * @param map      model map
+     * @param request  action request
+     * @param response action response
+     * @param redirAtr redirect attribute
+     * @return
+     * @throws IOException
+     * @throws JSONException
+     */
+    @RequestMapping(value = "contacts")
+    public String contacts(ModelMap map, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirAtr) throws IOException, JSONException {
         log.info("controller enter to contacts");
         UserBean user = getUserInfo(request);
-        map.addAttribute("webTitle","Контакты");
-        map.addAttribute("webMenu",headerLoader(request));
+        map.addAttribute("webTitle", "Контакты");
+        map.addAttribute("webMenu", headerLoader(request));
         map.addAttribute("contacts",user.getSiteData().getCafeCoordinates());
         return "contacts.jsp";
     }
 
+    /**
+     * Get dish image stream
+     *
+     * @param id       dish id
+     * @param request  action request
+     * @param response action response
+     * @param redirAtr redirect attribute
+     * @throws IOException
+     */
     @RequestMapping(value = "/dishImage/{id}")
-    public void dishImage(@PathVariable("id") int id, ModelMap map, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirAtr) throws IOException {
+    public void dishImage(@PathVariable("id") int id, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirAtr) throws IOException {
         UserBean user = getUserInfo(request);
-        response.getOutputStream().write(user.getSiteData().getDishes().getById(id).getImage());
+        response.getOutputStream().write(user.getSiteData().getDishes().getByID(id).getImage());
         response.setContentType("image/gif");
     }
 
+    /**
+     * Get category image stream
+     *
+     * @param id       category id
+     * @param request  action request
+     * @param response action response
+     * @param redirAtr redirect attribute
+     * @throws IOException
+     */
     @RequestMapping(value = "/categoryImage/{id}")
-    public void categoryImage(@PathVariable("id") int id, ModelMap map, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirAtr) throws IOException {
+    public void categoryImage(@PathVariable("id") int id, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirAtr) throws IOException {
         UserBean user = getUserInfo(request);
-        response.getOutputStream().write(user.getSiteData().getCategories().getById(id).getImage());
+        response.getOutputStream().write(user.getSiteData().getCategories().getByID(id).getImage());
         response.setContentType("image/gif");
     }
 

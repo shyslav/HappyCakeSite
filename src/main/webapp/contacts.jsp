@@ -29,7 +29,7 @@ Content
                                 </div>
                                 <div class="map_block">
                                     <div class="map_title">Пошта:</div>
-                                    <a href="#">${item.cafeemail}</a>
+                                    <a href="#">${item.email}</a>
                                 </div>
                             </div>
                         </c:forEach>

@@ -1,14 +1,14 @@
 package com.shyslav.data;
 
-import java.sql.SQLException;
+import com.shyslav.mysql.exceptions.DBException;
 
 /**
- * Created by Shyshkin Vladyslav on 18.08.2016.
+ * @author Shyshkin Vladyslav on 18.08.2016.
  */
 public class UserBean {
     private final SiteData siteData;
 
-    public UserBean() throws SQLException {
+    public UserBean() throws DBException {
         this.siteData = new SiteData();
     }
 

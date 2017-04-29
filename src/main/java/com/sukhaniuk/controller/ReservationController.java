@@ -2,8 +2,6 @@ package com.sukhaniuk.controller;
 
 import com.happycake.GlobalController;
 import com.shyslav.data.UserBean;
-import database.insert.DatabaseInsert;
-import database.select.SelectCommand;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.springframework.stereotype.Controller;
@@ -25,8 +23,9 @@ import java.util.ArrayList;
 @Controller
 public class ReservationController extends GlobalController {
     private static final Logger log = Logger.getLogger(ReservationController.class.getName());
+
     @RequestMapping(value = "/reservation")
-    public String reservationData (ModelMap map, HttpServletRequest request) throws IOException, JSONException {
+    public String reservationData(ModelMap map, HttpServletRequest request) throws IOException, JSONException {
         log.info("controller enter to reservation");
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Бронювання");
@@ -35,7 +34,7 @@ public class ReservationController extends GlobalController {
         Object tmp = ses.getAttribute("reservationConfig");
         if (tmp != null) {
             map.addAttribute("step", "second");
-            map.addAttribute("dish", user.getSiteData().getDishes());
+//            map.addAttribute("dish", user.getSiteData().getDishes());
         }
         return "/reservation.jsp";
     }
@@ -99,8 +98,7 @@ public class ReservationController extends GlobalController {
         HttpSession ses = request.getSession();
         Object tmp = ses.getAttribute("preOrderList");
         Object aboutUser = ses.getAttribute("reservationConfig");
-        if(aboutUser==null)
-        {
+        if (aboutUser == null) {
             redirAtr.addFlashAttribute("headModal", "Помилка");
             redirAtr.addFlashAttribute("textModal", "Час сесії минув. Введіть дані знову");
             return "redirect:/reservation.htm";
@@ -123,8 +121,8 @@ public class ReservationController extends GlobalController {
                     break;
                 }
             }
-            if(!comp) {
-                preOrders.add(new PreOrder(id, dishName, amount,amount*price));
+            if (!comp) {
+                preOrders.add(new PreOrder(id, dishName, amount, amount * price));
             }
             ses.setAttribute("preOrderList", preOrders);
         }
@@ -196,11 +194,11 @@ public class ReservationController extends GlobalController {
             redirAtr.addFlashAttribute("headModal", "Помилка");
             redirAtr.addFlashAttribute("textModal", "Сума замовлення менша за 150 грн");
         } else {
-            int max = SelectCommand.selectMaxFromReservation() + 1;
-            DatabaseInsert.insert("reservation", new String[]{"1", resData.get(0).getName(), resData.get(0).getPhone(), resData.get(0).getDate(), resData.get(0).getTime(), "-", resData.get(0).getAmountPeople(), resData.get(0).getMessage()}, new String[]{"cafeID", "clientName", "clientPhone", "rDate", "rTime", "confirmORnot", "amountPeople", "description"});
-            for (PreOrder order : preOrders) {
-                DatabaseInsert.insert("preorder", new String[]{String.valueOf(max), String.valueOf(order.getDishID()), String.valueOf(order.getAmount()), String.valueOf(order.getPrice())}, new String[]{"reservID", "dishID", "amount", "price"});
-            }
+//            int max = SelectCommand.selectMaxFromReservation() + 1;
+//            DatabaseInsert.insert("reservation", new String[]{"1", resData.get(0).getName(), resData.get(0).getPhone(), resData.get(0).getDate(), resData.get(0).getTime(), "-", resData.get(0).getAmountPeople(), resData.get(0).getMessage()}, new String[]{"cafeID", "clientName", "clientPhone", "rDate", "rTime", "confirmORnot", "amountPeople", "description"});
+//            for (PreOrder order : preOrders) {
+//                DatabaseInsert.insert("preorder", new String[]{String.valueOf(max), String.valueOf(order.getDishID()), String.valueOf(order.getAmount()), String.valueOf(order.getPrice())}, new String[]{"reservID", "dishID", "amount", "price"});
+//            }
             ses.removeAttribute("reservationConfig");
             ses.removeAttribute("preOrderList");
             ses.removeAttribute("amountReservation");
