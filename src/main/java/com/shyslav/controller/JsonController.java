@@ -1,7 +1,9 @@
 package com.shyslav.controller;
 
 import com.happycake.GlobalController;
+import com.shyslav.data.SiteData;
 import com.shyslav.data.UserBean;
+import com.shyslav.mysql.exceptions.DBException;
 import sitemodels.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -70,4 +72,17 @@ public class JsonController extends GlobalController {
         return user.getSiteData().getDishes();
     }
 
+
+    /**
+     * Get max reservation id
+     *
+     * @param request Action request
+     * @return reservation id
+     */
+    @RequestMapping(value = "/reservationmaxid.json")
+    @ResponseBody
+    public int reservationMaxId(HttpServletRequest request) throws DBException {
+        UserBean user = getUserInfo(request);
+        return SiteData.getStorage().reservationStorage.getMaxID();
+    }
 }

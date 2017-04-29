@@ -1,7 +1,10 @@
 package com.sukhaniuk.controller;
 
 import com.happycake.GlobalController;
+import com.shyslav.data.SiteData;
 import com.shyslav.data.UserBean;
+import com.shyslav.mysql.exceptions.DBException;
+import com.shyslav.utils.LazyDate;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import sitemodels.PreOrder;
+import sitemodels.Reservation;
 import sitemodels.ReservationData;
 import validations.SimpleValidation;
 
@@ -34,7 +38,7 @@ public class ReservationController extends GlobalController {
         Object tmp = ses.getAttribute("reservationConfig");
         if (tmp != null) {
             map.addAttribute("step", "second");
-//            map.addAttribute("dish", user.getSiteData().getDishes());
+            map.addAttribute("dish", user.getSiteData().getDishes());
         }
         return "/reservation.jsp";
     }
@@ -55,7 +59,7 @@ public class ReservationController extends GlobalController {
                     ses.setAttribute("amountReservation", 1);
                     tmp = 1;
                 } else if ((int) tmp >= 5) {
-                    //redirAtr.addFlashAttribute("alert","Вы исчерпали все попытки отправки отзыва, вам запрещено отправлять сообщения в течении 30 минут");
+                    redirAtr.addFlashAttribute("alert", "Вы исчерпали все попытки отправки отзыва, вам запрещено отправлять сообщения в течении 30 минут");
                     redirAtr.addFlashAttribute("headModal", "Проблема");
                     redirAtr.addFlashAttribute("textModal", "Ви вичерпали всі спроби створення резервації, Вам заборонено відправляти повідомлення на протязі 30 хвилин");
                     return "redirect:/index.htm";
@@ -171,8 +175,9 @@ public class ReservationController extends GlobalController {
     }
 
     @RequestMapping(value = "/reservation/complite")
-    public String delete(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
+    public String delete(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) throws DBException {
         log.info("controller enter complite reservation");
+        UserBean user = getUserInfo(request);
         HttpSession ses = request.getSession();
         Object reservationConfig = ses.getAttribute("reservationConfig");
         Object preOrderList = ses.getAttribute("preOrderList");
@@ -183,8 +188,7 @@ public class ReservationController extends GlobalController {
         }
         ArrayList<PreOrder> preOrders;
         preOrders = (ArrayList<PreOrder>) preOrderList;
-        ArrayList<ReservationData> resData;
-        resData = (ArrayList<ReservationData>) reservationConfig;
+        ArrayList<ReservationData> resData = (ArrayList<ReservationData>) reservationConfig;
         //get sum
         double sum = 0.0;
         for (PreOrder order : preOrders) {
@@ -194,11 +198,20 @@ public class ReservationController extends GlobalController {
             redirAtr.addFlashAttribute("headModal", "Помилка");
             redirAtr.addFlashAttribute("textModal", "Сума замовлення менша за 150 грн");
         } else {
-//            int max = SelectCommand.selectMaxFromReservation() + 1;
-//            DatabaseInsert.insert("reservation", new String[]{"1", resData.get(0).getName(), resData.get(0).getPhone(), resData.get(0).getDate(), resData.get(0).getTime(), "-", resData.get(0).getAmountPeople(), resData.get(0).getMessage()}, new String[]{"cafeID", "clientName", "clientPhone", "rDate", "rTime", "confirmORnot", "amountPeople", "description"});
-//            for (PreOrder order : preOrders) {
-//                DatabaseInsert.insert("preorder", new String[]{String.valueOf(max), String.valueOf(order.getDishID()), String.valueOf(order.getAmount()), String.valueOf(order.getPrice())}, new String[]{"reservID", "dishID", "amount", "price"});
-//            }
+            Reservation reservation = new Reservation();
+            reservation.setClientName(resData.get(0).getName());
+            reservation.setClientPhone(resData.get(0).getPhone());
+            reservation.setAmountPeople(Integer.parseInt(resData.get(0).getAmountPeople()));
+            reservation.setDate(LazyDate.getUnixDate());
+            reservation.setDescription(resData.get(0).getMessage());
+            reservation.setClientName(resData.get(0).getName());
+            reservation.setCafeId(user.getSiteData().getCafeCoordinates().get(0).getId());
+            SiteData.getStorage().reservationStorage.save(reservation);
+            int max = SiteData.getStorage().reservationStorage.getMaxID();
+            for (PreOrder order : preOrders) {
+                order.setReservationID(max);
+                SiteData.getStorage().preOrderStorage.save(order);
+            }
             ses.removeAttribute("reservationConfig");
             ses.removeAttribute("preOrderList");
             ses.removeAttribute("amountReservation");

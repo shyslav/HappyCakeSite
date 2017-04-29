@@ -93,11 +93,11 @@ Content
                                                 Вага: <span class="color1 fw">${items.amount} гр. </span> <br>
 
                                                 <c:choose>
-                                                    <c:when test="${not empty items.sell }">
+                                                    <c:when test="${items.discount != 0}">
                                                         Ціна: <span class="color1 fw"><s>${items.price}₴</s></span>
-                                                        <span class="color1 fw"> ${items.price-items.price*items.sell/100} ₴</span>
+                                                        <span class="color1 fw"> ${items.price-items.price*items.discount/100} ₴</span>
                                                         <input type="hidden"
-                                                               value="${items.price-items.price*items.sell/100}"
+                                                               value="${items.price-items.price*items.discount/100}"
                                                                name="price">
                                                     </c:when>
                                                     <c:otherwise>

@@ -19,6 +19,8 @@ public class SiteStorages {
     public DishStorage dishStorage;
     public CafeCoordinateStorage cafeCoordinate;
     public NewsStorage newsStorage;
+    public ReservationStorage reservationStorage;
+    public PreOrderStorage preOrderStorage;
 
     public SiteStorages() {
         ApplicationContext context;
@@ -32,6 +34,8 @@ public class SiteStorages {
             this.dishStorage = new DishStorage(pool);
             this.cafeCoordinate = new CafeCoordinateStorage(pool);
             this.newsStorage = new NewsStorage(pool);
+            this.reservationStorage = new ReservationStorage(pool);
+            this.preOrderStorage = new PreOrderStorage(pool);
         } catch (DBException | SpringApplicationException e) {
             System.out.println("Unable to start db pool");
             System.exit(-1);
