@@ -4,9 +4,9 @@ import com.shyslav.data.UserBean;
 import com.shyslav.mysql.exceptions.DBException;
 import com.shyslav.utils.LazyRandom;
 import org.apache.log4j.Logger;
-import sitemodels.Category;
-import sitemodels.HotPrice;
-import sitemodels.WebMenu;
+import com.happycake.sitemodels.Category;
+import com.happycake.sitemodels.HotPrice;
+import com.happycake.sitemodels.WebMenu;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;

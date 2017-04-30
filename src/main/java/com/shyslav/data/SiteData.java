@@ -1,8 +1,9 @@
 package com.shyslav.data;
 
+import com.happycake.HappyCakeStorage;
 import com.shyslav.mysql.exceptions.DBException;
 import org.apache.log4j.Logger;
-import sitemodels.*;
+import com.happycake.sitemodels.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 @SuppressWarnings("unused")
 public class SiteData {
     private static final Logger log = Logger.getLogger(SiteData.class.getName());
-    private static final SiteStorages storage = new SiteStorages();
+    private static final HappyCakeStorage storage = new HappyCakeStorage();
 
     /**
      * Site web menu
@@ -103,7 +104,7 @@ public class SiteData {
         return dishes;
     }
 
-    public static SiteStorages getStorage() {
+    public static HappyCakeStorage getStorage() {
         return storage;
     }
 

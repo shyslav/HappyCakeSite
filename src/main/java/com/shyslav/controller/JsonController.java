@@ -4,7 +4,7 @@ import com.happycake.GlobalController;
 import com.shyslav.data.SiteData;
 import com.shyslav.data.UserBean;
 import com.shyslav.mysql.exceptions.DBException;
-import sitemodels.*;
+import com.happycake.sitemodels.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

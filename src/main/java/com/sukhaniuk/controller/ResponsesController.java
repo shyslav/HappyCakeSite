@@ -10,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import sitemodels.Reports;
-import validations.SimpleValidation;
+import com.happycake.sitemodels.Reports;
+import com.happycake.validations.SimpleValidation;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
