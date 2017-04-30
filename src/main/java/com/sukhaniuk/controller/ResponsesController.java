@@ -16,10 +16,7 @@ import validations.SimpleValidation;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * @author Shyshkin Vladyslav on 05.05.2016.
@@ -28,6 +25,15 @@ import java.util.Date;
 public class ResponsesController extends GlobalController {
     private static final Logger log = Logger.getLogger(ResponsesController.class.getName());
 
+    /**
+     * Sent report action
+     *
+     * @param map      action response map
+     * @param request  action request
+     * @param redirAtr action redirect attributes
+     * @return redirect to reports main page
+     * @throws DBException
+     */
     @RequestMapping(value = "/contacts/send")
     public String addResponses(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) throws DBException {
         log.info("controller enter to add response");
@@ -84,6 +90,14 @@ public class ResponsesController extends GlobalController {
         }
     }
 
+    /**
+     * Load main reports page
+     *
+     * @param map      action response map
+     * @param request  action request
+     * @param redirAtr action redirect attributes
+     * @return main reports page
+     */
     @RequestMapping(value = "/responses")
     public String responses(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
         log.info("controller enter to view all responses");

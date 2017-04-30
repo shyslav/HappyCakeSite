@@ -39,8 +39,8 @@ public class GlobalController {
     /**
      * Load page header
      *
-     * @param request
-     * @return
+     * @param request Servlet request
+     * @return web menu
      */
     protected ArrayList<WebMenu> headerLoader(HttpServletRequest request) {
         UserBean user = getUserInfo(request);
@@ -50,8 +50,8 @@ public class GlobalController {
     /**
      * Load hot price
      *
-     * @param request
-     * @return
+     * @param request Servlet request
+     * @return hot prices list
      */
     protected ArrayList<HotPrice> hotPriceLoader(HttpServletRequest request) {
         UserBean user = getUserInfo(request);
@@ -61,8 +61,8 @@ public class GlobalController {
     /**
      * Load random category
      *
-     * @param request
-     * @return random categoryes
+     * @param request Servlet request
+     * @return random categories
      */
     protected ArrayList<Category> randCategory(HttpServletRequest request, int amountCategories) {
         UserBean user = getUserInfo(request);

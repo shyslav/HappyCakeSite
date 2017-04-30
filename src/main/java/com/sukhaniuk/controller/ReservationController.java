@@ -28,6 +28,15 @@ import java.util.ArrayList;
 public class ReservationController extends GlobalController {
     private static final Logger log = Logger.getLogger(ReservationController.class.getName());
 
+    /**
+     * Reservation
+     *
+     * @param map     Action response map
+     * @param request Action request
+     * @return reservation page
+     * @throws IOException
+     * @throws JSONException
+     */
     @RequestMapping(value = "/reservation")
     public String reservationData(ModelMap map, HttpServletRequest request) throws IOException, JSONException {
         log.info("controller enter to reservation");
@@ -43,6 +52,15 @@ public class ReservationController extends GlobalController {
         return "/reservation.jsp";
     }
 
+    /**
+     * Load reservation content by step
+     *
+     * @param step     step string (first or second)
+     * @param map      action response map
+     * @param request  action request
+     * @param redirAtr redirect attribute
+     * @return reservation form by step
+     */
     @RequestMapping(value = "/reservation/{step}")
     public String reservationStep(@PathVariable("step") String step, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
         log.info("controller enter to reservation by step where step = " + step);
@@ -91,6 +109,15 @@ public class ReservationController extends GlobalController {
     }
 
 
+    /**
+     * Add preorder to reservation
+     *
+     * @param id       dish id
+     * @param map      action response map
+     * @param request  action request
+     * @param redirAtr action redirect attributes
+     * @return redirect to reservation page
+     */
     @RequestMapping(value = "/reservation/addpreorder/{id}")
     public String newsTeg(@PathVariable("id") int id, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
         log.info("controller enter to addpreorder by id where id = " + id);
@@ -133,6 +160,15 @@ public class ReservationController extends GlobalController {
         return "redirect:/reservation.htm";
     }
 
+    /**
+     * Delete dish from preorder list
+     *
+     * @param delete   id of dish
+     * @param map      action response map
+     * @param request  action request
+     * @param redirAtr action redirect attributes
+     * @return redirect to reservation main page
+     */
     @RequestMapping(value = "/reservation/delete/{delete}")
     public String delete(@PathVariable("delete") int delete, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
         log.info("controller enter to delete dish by id where id = " + delete);
@@ -160,6 +196,14 @@ public class ReservationController extends GlobalController {
         return "redirect:/reservation.htm";
     }
 
+    /**
+     * Change reservation date
+     *
+     * @param map      action response map
+     * @param request  action request
+     * @param redirAtr action redirect attributes
+     * @return redirect to reservation main page
+     */
     @RequestMapping(value = "/reservation/changeData")
     public String changeData(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
         log.info("controller enter to change reservation data");
@@ -174,6 +218,15 @@ public class ReservationController extends GlobalController {
         return "redirect:/reservation.htm";
     }
 
+    /**
+     * Finish reservation process
+     *
+     * @param map      action response map
+     * @param request  action request
+     * @param redirAtr action redirect attributes
+     * @return redirect to main reservation page
+     * @throws DBException
+     */
     @RequestMapping(value = "/reservation/complite")
     public String delete(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) throws DBException {
         log.info("controller enter complite reservation");
@@ -221,6 +274,14 @@ public class ReservationController extends GlobalController {
         return "redirect:/reservation.htm";
     }
 
+    /**
+     * Check if client reservation data is valid
+     *
+     * @param name         client name
+     * @param phone        client phone
+     * @param amountPeople amount peoples
+     * @return list of errors
+     */
     private ArrayList<String> validation(String name, String phone, String amountPeople) {
         ArrayList<String> errors = new ArrayList<>();
         if (!SimpleValidation.nameValidation(name).equals("done")) {

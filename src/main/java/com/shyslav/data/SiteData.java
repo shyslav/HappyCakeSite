@@ -15,17 +15,38 @@ public class SiteData {
     private static final Logger log = Logger.getLogger(SiteData.class.getName());
     private static final SiteStorages storage = new SiteStorages();
 
+    /**
+     * Site web menu
+     */
     private ArrayList<WebMenu> webMenu;
+    /**
+     * Cafe coordinates list
+     */
     private final ArrayList<CafeCoordinate> cafeCoordinates;
+    /**
+     * Hot prices list
+     */
     private final HotPriceList hotPrices;
+    /**
+     * Categories list
+     */
     private final CategoriesList categories;
+    /**
+     * Dishes list
+     */
     private final DishesList dishes;
+    /**
+     * News list
+     */
     private final NewsList newsList;
+    /**
+     * Reports list
+     */
     private ArrayList<Reports> reports;
 
 
     /**
-     * load all site data
+     * Load all site data
      *
      * @throws SQLException sql exception
      */

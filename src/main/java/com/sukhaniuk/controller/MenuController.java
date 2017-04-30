@@ -20,12 +20,12 @@ public class MenuController extends GlobalController {
     private static final Logger log = Logger.getLogger(MenuController.class.getName());
 
     /**
-     * Get menu
+     * Get restaurant menu
      *
      * @param map      model map
      * @param request  action request
      * @param redirAtr redirect attributes
-     * @return Страница меню
+     * @return menu page
      */
     @RequestMapping(value = "/menu")
     public String menu(ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
@@ -38,9 +38,11 @@ public class MenuController extends GlobalController {
     }
 
     /**
-     * @param id       - ид категории
-     * @param request
-     * @param redirAtr
+     * Get category by id
+     *
+     * @param id       if of category
+     * @param request  action request
+     * @param redirAtr action redirect attributes
      * @return - страница блюд в данной категории
      */
     @RequestMapping(value = "/category/{id}")

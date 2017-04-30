@@ -25,6 +25,15 @@ import java.io.IOException;
 public class NewsController extends GlobalController {
     private static final Logger log = Logger.getLogger(NewsController.class.getName());
 
+    /**
+     * Get news
+     *
+     * @param map     response map
+     * @param request action request
+     * @return path to news
+     * @throws IOException
+     * @throws JSONException
+     */
     @RequestMapping(value = "news")
     public String news(ModelMap map, HttpServletRequest request) throws IOException, JSONException {
         log.info("controller enter to news");
@@ -37,6 +46,15 @@ public class NewsController extends GlobalController {
         return "/news.jsp";
     }
 
+    /**
+     * Load news by tag
+     *
+     * @param teg      news tag
+     * @param map      response map
+     * @param request  action request
+     * @param redirAtr action redirect attributes
+     * @return news array by tag name
+     */
     @RequestMapping(value = "/news/{teg}")
     public String newsTeg(@PathVariable("teg") String teg, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
         log.info("controller enter to news by teg where teg = " + teg);
@@ -49,6 +67,15 @@ public class NewsController extends GlobalController {
         return "/news.jsp";
     }
 
+    /**
+     * Load full news
+     *
+     * @param id       news id
+     * @param map      response map
+     * @param request  action request
+     * @param redirAtr action redirect attributes
+     * @return full news data
+     */
     @RequestMapping(value = "/news/fullnews/{id}")
     public String newsWhereId(@PathVariable("id") int id, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
         log.info("controller enter to fullnews by id where id = " + id);
@@ -61,6 +88,15 @@ public class NewsController extends GlobalController {
         return "/news.jsp";
     }
 
+    /**
+     * Like news
+     *
+     * @param id       id of news
+     * @param map      action response map
+     * @param request  action request
+     * @param redirAtr action redirect attributes
+     * @return redirect to index news page
+     */
     @RequestMapping(value = "/news/like/{id}")
     public String likeNews(@PathVariable("id") int id, ModelMap map, HttpServletRequest request, RedirectAttributes redirAtr) {
         log.info("controller enter to news like by id where id = " + id);
