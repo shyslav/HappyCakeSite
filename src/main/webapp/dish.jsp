@@ -38,11 +38,11 @@ Content
                                         <input type="hidden" value="${items.price}" name="price">
                                     </c:otherwise>
                                 </c:choose>
-                                <c:if test="${items.readyORnot eq '+'}">
+                                <c:if test="${items.needCook eq '+'}">
                                     <hr>
                                     Страва видається не відразу. Швидкість залежить від завантаження кафе.
                                 </c:if>
-                                <c:if test="${items.readyORnot eq '-'}">
+                                <c:if test="${items.needCook eq '-'}">
                                     <hr>
                                     Страва не потребує приготування. Видається відразу.
                                 </c:if>
