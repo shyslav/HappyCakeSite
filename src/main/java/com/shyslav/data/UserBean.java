@@ -1,6 +1,7 @@
 package com.shyslav.data;
 
 import com.shyslav.mysql.exceptions.DBException;
+import org.apache.log4j.Logger;
 
 /**
  * @author Shyshkin Vladyslav on 18.08.2016.
@@ -8,13 +9,24 @@ import com.shyslav.mysql.exceptions.DBException;
  *         This object create for all new users
  */
 public class UserBean {
-    //site data
-    private final SiteData siteData;
+    private static final Logger log = Logger.getLogger(UserBean.class.getName());
 
-    public UserBean() throws DBException {
-        this.siteData = new SiteData();
+    //site data
+    private SiteData siteData;
+
+    public UserBean() {
+        try {
+            this.siteData = new SiteData();
+        } catch (DBException e) {
+            log.error("Unable to lod site data " + " " + e.getMessage(), e);
+        }
     }
 
+    /**
+     * Get site data
+     *
+     * @return site data info
+     */
     public SiteData getSiteData() {
         return siteData;
     }

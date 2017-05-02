@@ -1,12 +1,11 @@
 package com.happycake;
 
-import com.shyslav.data.UserBean;
-import com.shyslav.mysql.exceptions.DBException;
-import com.shyslav.utils.LazyRandom;
-import org.apache.log4j.Logger;
 import com.happycake.sitemodels.Category;
 import com.happycake.sitemodels.HotPrice;
 import com.happycake.sitemodels.WebMenu;
+import com.shyslav.data.UserBean;
+import com.shyslav.utils.LazyRandom;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -25,13 +24,9 @@ public class GlobalController {
      */
     protected UserBean getUserInfo(HttpServletRequest req) {
         if (req.getSession().getAttribute("userBean") == null) {
-            try {
-                log.info("get user bean data");
-                UserBean userBean = new UserBean();
-                req.getSession().setAttribute("userBean", userBean);
-            } catch (DBException e) {
-                e.printStackTrace();
-            }
+            log.info("get user bean data");
+            UserBean userBean = new UserBean();
+            req.getSession().setAttribute("userBean", userBean);
         }
         return (UserBean) req.getSession().getAttribute("userBean");
     }
