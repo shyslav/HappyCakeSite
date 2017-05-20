@@ -139,7 +139,7 @@ public class ReservationController extends GlobalController {
         double price = Double.parseDouble(request.getParameter("price"));
         String dishName = request.getParameter("dishName");
         if (tmp == null) {
-            preOrders.add(new PreOrder(id, dishName, amount, amount * price));
+            preOrders.add(new PreOrder(id, amount, amount * price));
             ses.setAttribute("preOrderList", preOrders);
         } else {
             preOrders = (ArrayList<PreOrder>) ses.getAttribute("preOrderList");
@@ -153,7 +153,7 @@ public class ReservationController extends GlobalController {
                 }
             }
             if (!comp) {
-                preOrders.add(new PreOrder(id, dishName, amount, amount * price));
+                preOrders.add(new PreOrder(id, amount, amount * price));
             }
             ses.setAttribute("preOrderList", preOrders);
         }
