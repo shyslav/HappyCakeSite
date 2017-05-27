@@ -3,7 +3,6 @@ package com.shyslav.controller;
 import com.happycake.GlobalController;
 import com.shyslav.data.UserBean;
 import org.apache.log4j.Logger;
-import org.json.JSONException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,10 +31,9 @@ public class HomeController extends GlobalController {
      * @param redirAtr redirect attribute
      * @return
      * @throws IOException
-     * @throws JSONException
      */
     @RequestMapping(value = "index")
-    public String home(ModelMap map, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirAtr) throws IOException, JSONException, SQLException {
+    public String home(ModelMap map, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirAtr) throws IOException, SQLException {
         log.info("controller enter to index");
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Главная");
@@ -54,10 +52,9 @@ public class HomeController extends GlobalController {
      * @param redirAtr redirect attribute
      * @return
      * @throws IOException
-     * @throws JSONException
      */
     @RequestMapping(value = "contacts")
-    public String contacts(ModelMap map, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirAtr) throws IOException, JSONException {
+    public String contacts(ModelMap map, HttpServletRequest request, HttpServletResponse response, RedirectAttributes redirAtr) throws IOException {
         log.info("controller enter to contacts");
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Контакты");

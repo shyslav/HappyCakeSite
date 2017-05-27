@@ -6,7 +6,6 @@ import com.shyslav.data.UserBean;
 import com.shyslav.mysql.exceptions.DBException;
 import com.shyslav.utils.LazyDate;
 import org.apache.log4j.Logger;
-import org.json.JSONException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,10 +34,9 @@ public class ReservationController extends GlobalController {
      * @param request Action request
      * @return reservation page
      * @throws IOException
-     * @throws JSONException
      */
     @RequestMapping(value = "/reservation")
-    public String reservationData(ModelMap map, HttpServletRequest request) throws IOException, JSONException {
+    public String reservationData(ModelMap map, HttpServletRequest request) throws IOException {
         log.info("controller enter to reservation");
         UserBean user = getUserInfo(request);
         map.addAttribute("webTitle", "Бронювання");
